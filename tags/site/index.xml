@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>site on Wesley Bertipaglia</title>
+    <link>https://wesleybertipaglia.github.io/tags/site/</link>
+    <description>Recent content in site on Wesley Bertipaglia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Dec 2023 13:40:13 -0300</lastBuildDate><atom:link href="https://wesleybertipaglia.github.io/tags/site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello From Hugo</title>
+      <link>https://wesleybertipaglia.github.io/posts/hello-from-hugo/</link>
+      <pubDate>Sun, 10 Dec 2023 13:40:13 -0300</pubDate>
+      
+      <guid>https://wesleybertipaglia.github.io/posts/hello-from-hugo/</guid>
+      <description>My First Dive into Hugo: A Personal Website Odyssey For years, I&amp;rsquo;ve dreamt of having a personal website to showcase my work, share my thoughts, and connect with others. After a long journey of exploration, I finally decided to take the plunge and build my own site using the static site generator Hugo. This blog post chronicles my first steps into the world of Hugo and shares the lessons I learned along the way.</description>
+    </item>
+    
+  </channel>
+</rss>
