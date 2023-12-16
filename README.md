@@ -1,15 +1,15 @@
-# Wesley Bertipaglia's Personal Website
+# My Website
 
 ![GitHub Pages](https://img.shields.io/badge/deployed%20at-GitHub%20Pages-brightgreen)
 
-This is the source code for Wesley Bertipaglia's personal website, built using [Astro](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/).
+This is the source code of my personal website, built using [Astro](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/).
 
-### Live Website
+### 🚀 Live Website
 
 Visit the live website: [Wesley Bertipaglia's Personal Website](https://wesleybertipaglia.github.io/)
 
 ## About the Project
-### Features:
+### 📃 Features:
 
 - ✅ 100/100 Lighthouse performance
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
@@ -17,7 +17,7 @@ Visit the live website: [Wesley Bertipaglia's Personal Website](https://wesleybe
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
 
-### 🚀 Project Structure
+### 🗃 Project Structure
 
 Inside the project, you'll see the following folders and files:
 
@@ -34,7 +34,7 @@ Inside the project, you'll see the following folders and files:
 └── tsconfig.json
 ```
 
-### Getting Started
+### 🤖 Getting Started
 
 ```sh
 git clone https://github.com/wesleybertipaglia/wesleybertipaglia.github.io.git
