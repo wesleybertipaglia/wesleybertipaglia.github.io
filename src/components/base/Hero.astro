@@ -1,0 +1,52 @@
+---
+import Container from "../basic/Container.astro";
+import Avatar from "../basic/Avatar.astro";
+import Link from "../basic/Link.astro";
+---
+
+<Container styleClass="my-6 mb-12">
+  <div
+    class="flex only:max-sm:flex-col only:max-sm:text-center gap-6 items-center"
+  >
+    <Avatar
+      height="20"
+      imageSrc="/assets/me/avatar.svg"
+      imageAlt=""
+      styleClass="bg-gray-600"
+    />
+    <div>
+      <h2 class="text-neutral-500">Hi, I'm Wesley 👋</h2>
+      <p class="leading-8">
+        I'm a Full stack web developer from 🇧🇷, passionate about technology and
+        loves creating cool things.
+      </p>
+
+      <div class="inline-flex gap-3 mt-2">
+        <p>Find me on:</p>
+        <div class="flex gap-2 text-neutral-500">
+          <Link
+            href="https://github.com/wesleybertipaglia"
+            class:list={"hover:text-cyan-400"}
+            target="_blank"
+          >
+            GitHub
+          </Link>
+          <Link
+            href="https://linkedin.com/in/wesley-bertipaglia"
+            class:list={"hover:text-cyan-400"}
+            target="_blank"
+          >
+            Linkedin
+          </Link>
+          <Link
+            href="https://twitter.com/wesleyberti_"
+            class:list={"hover:text-cyan-400"}
+            target="_blank"
+          >
+            Twitter
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>

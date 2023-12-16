@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../../components/helpers/FormattedDate.astro";
+import Layout from "../Layout.astro";
+import Container from "../../components/basic/Container.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Container>
+    <article class="flex flex-col gap-8">
+      <div class="w-100 rounded overflow-hidden">
+        <img
+          src={heroImage}
+          alt=""
+          class="object-cover hover:scale-110"
+          style="transition: all 0.5s;"
+        />
+      </div>
+
+      <h1 class="flex gap-2 pb-3 border-b-[1px]">
+        <span>{title}</span>
+        <span>·</span>
+        <span>
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </span>
+      </h1>
+
+      <div class="flex flex-col gap-1">
+        <slot />
+      </div>
+    </article>
+  </Container>
+</Layout>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  height: string;
+  imageSrc: string;
+  imageAlt: string;
+  styleClass?: string;
+}
+
+const { height, imageSrc, imageAlt, styleClass } = Astro.props;
+---
+
+<div class=`p-3 rounded-full ${styleClass}`>
+  <div
+    class="flex h-16 w-auto aspect-square rounded-full bg-gray-500 overflow-hidden hover:animate-spin"
+  >
+    <img src={imageSrc} alt={imageAlt} />
+  </div>
+</div>

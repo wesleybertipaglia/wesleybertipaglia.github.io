@@ -1,0 +1,27 @@
+---
+import Container from "../basic/Container.astro";
+
+interface Props {
+  src: string;
+  theme?: boolean;
+  size?: Size;
+}
+
+enum Size {
+  compact = 0,
+  normal = 1,
+}
+
+const { src, theme, size } = Astro.props;
+---
+
+<Container>
+  <iframe
+    class="rounded-[12px] border-0 outline-0"
+    src={src + (theme ? "" : "&theme=0")}
+    width="100%"
+    height={size == Size.normal ? "352" : "152"}
+    allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+</Container>
