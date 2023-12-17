@@ -1,7 +1,7 @@
 ---
 title: "Hello from Hugo"
 description: "Lorem ipsum dolor sit amet"
-date: 12-10-2023
+pubDate: 12-10-2023
 author: "Wesley Bertipaglia"
 image:
   url: "/posts/samples/placeholder-2.jpg"

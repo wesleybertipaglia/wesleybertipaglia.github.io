@@ -7,7 +7,8 @@ import Link from "../../components/basic/Link.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, date, update, author, image, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, author, image, tags } =
+  Astro.props;
 ---
 
 <Layout title={title} description={description}>
@@ -28,11 +29,11 @@ const { title, description, date, update, author, image, tags } = Astro.props;
         <span>{title}</span>
         <span>·</span>
         <span>
-          <FormattedDate date={date} />
+          <FormattedDate date={pubDate} />
           {
-            update && (
+            updatedDate && (
               <div class="last-updated-on">
-                Last updated on <FormattedDate date={update} />
+                Last updated on <FormattedDate date={updatedDate} />
               </div>
             )
           }
