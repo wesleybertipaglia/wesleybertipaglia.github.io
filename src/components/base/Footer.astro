@@ -1,10 +1,26 @@
 ---
 const today = new Date();
 import Container from "../basic/Container.astro";
+import Link from "../basic/Link.astro";
 ---
 
 <footer>
-  <Container styleClass="text-center text-neutral-500">
-    <p>&copy;wesleyberti_ {today.getFullYear()}</p>
+  <Container styleClass="flex justify-between text-neutral-500 text-sm p-6">
+    <span>&copy; {today.getFullYear()} Wesley Bertipaglia</span>
+    <div class="inline-flex gap-3">
+      <Link
+        href="https://astro.build/"
+        target="_blank"
+        class="inline-flex gap-2"
+      >
+        Powered by
+        <img
+          src="https://astro.build/assets/press/astro-icon-light-gradient.svg"
+          alt="Astro"
+          class="h-4 my-auto"
+        />
+      </Link>
+      <Link href="https://astro.build/" target="_blank">Get the code</Link>
+    </div>
   </Container>
 </footer>
