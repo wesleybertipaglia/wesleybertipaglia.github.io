@@ -6,25 +6,26 @@ import { PostView } from "../../utils/Post";
 import Link from "./Link.astro";
 
 interface Props {
-  collection: string;
+  collection?: string;
+  tag?: string;
   title?: string;
   showAll: boolean;
   slice?: number;
 }
-const { collection, title, showAll, slice } = Astro.props;
+const { collection, tag, title, showAll, slice } = Astro.props;
 
-let posts = (await getCollection("blog")).sort(
+let posts = (await getCollection("post")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+if (tag != undefined)
+  posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
 if (slice != undefined) posts = posts.slice(0, slice);
 ---
 
 <Container classList="py-6">
   <section>
-    <div class="flex justify-between">
-      {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
-      {showAll ? <Link href={"/" + collection}>See all</Link> : ""}
-    </div>
+    {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
     {
       posts.map((post) => (
         <PostPreview
@@ -34,5 +35,6 @@ if (slice != undefined) posts = posts.slice(0, slice);
         />
       ))
     }
+    {showAll ? <Link href={"/" + collection}>All posts →</Link> : ""}
   </section>
 </Container>
