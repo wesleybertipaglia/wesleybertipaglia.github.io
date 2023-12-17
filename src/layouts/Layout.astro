@@ -14,12 +14,10 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
   <BaseHead title={title} description={description} />
-  <body
-    class="min-h-screen py-6 flex flex-col bg-[#0b0b0b] text-white font-sans"
-  >
+  <body class="min-h-screen flex flex-col bg-[#0b0b0b] text-white font-sans">
     <Header />
 
-    <div class="flex-auto py-10">
+    <div class="flex-auto p-6">
       <slot />
     </div>
 
