@@ -2,13 +2,13 @@
 interface Props {
   imageSrc: string;
   imageAlt: string;
-  styleClass?: string;
+  classList?: string;
 }
 
-const { imageSrc, imageAlt, styleClass } = Astro.props;
+const { imageSrc, imageAlt, classList } = Astro.props;
 ---
 
-<div class=`p-3 rounded-full ${styleClass}`>
+<div class=`p-3 rounded-full ${classList}`>
   <div
     class=`flex h-24 w-auto aspect-square rounded-full bg-gray-500 overflow-hidden hover:animate-spin`
   >

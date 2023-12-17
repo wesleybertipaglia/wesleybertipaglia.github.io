@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"a">;
-const { href, class: className, ...props } = Astro.props;
+const { href, class: classList, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
@@ -10,7 +10,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 
 <a
   href={href}
-  class:list={["hover:underline", className, { active: isActive }]}
+  class:list={["hover:underline", classList, { active: isActive }]}
   {...props}
 >
   <slot />
