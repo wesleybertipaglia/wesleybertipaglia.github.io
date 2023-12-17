@@ -3,20 +3,23 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/helpers/FormattedDate.astro";
 import Layout from "../Layout.astro";
 import Container from "../../components/basic/Container.astro";
+import Link from "../../components/basic/Link.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, date, update, author, image, tags } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
   <Container>
     <article class="flex flex-col gap-8">
-      <div class="w-100 rounded overflow-hidden">
+      <div
+        class=`w-100 rounded overflow-hidden ${image == undefined ? "hidden" : ""}`
+      >
         <img
-          src={heroImage}
-          alt=""
-          class="object-cover hover:scale-110"
+          src={image?.url}
+          alt={image?.alt}
+          class="object-cover hover:scale-110 d-none"
           style="transition: all 0.5s;"
         />
       </div>
@@ -25,11 +28,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <span>{title}</span>
         <span>·</span>
         <span>
-          <FormattedDate date={pubDate} />
+          <FormattedDate date={date} />
           {
-            updatedDate && (
+            update && (
               <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
+                Last updated on <FormattedDate date={update} />
               </div>
             )
           }
@@ -37,7 +40,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       </h1>
 
       <div class="flex flex-col gap-1">
+        {author}
         <slot />
+        <div class="flex gap-2">
+          {
+            tags?.map((item) => {
+              return <Link href={`/tags/${item}`}>#{item}</Link>;
+            })
+          }
+        </div>
       </div>
     </article>
   </Container>
