@@ -1,18 +1,30 @@
 ---
 import Container from "../basic/Container.astro";
 
+enum Size {
+  compact = 0,
+  normal = 1,
+  full = 2,
+}
+
 interface Props {
   src: string;
   theme?: boolean;
   size?: Size;
 }
-
-enum Size {
-  compact = 0,
-  normal = 1,
-}
-
 const { src, theme, size } = Astro.props;
+
+let iframeHeight = getSize();
+
+function getSize() {
+  if (size == Size.compact || size == undefined) {
+    return "152px";
+  } else if (size == Size.normal) {
+    return "352px";
+  } else if (size == Size.full) {
+    return "100%";
+  }
+}
 ---
 
 <Container>
@@ -21,8 +33,8 @@ const { src, theme, size } = Astro.props;
     class="rounded-[12px] border-0 outline-0"
     src={src + (theme ? "" : "&theme=0")}
     width="100%"
-    height={size == Size.normal ? "352" : "152"}
-    allowfullscreen=""
+    height={iframeHeight}
+    allowfullscreen="true"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy"></iframe>
 </Container>

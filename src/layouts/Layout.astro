@@ -2,6 +2,7 @@
 import Header from "../components/base/Header.astro";
 import Footer from "../components/base/Footer.astro";
 import BaseHead from "../components/base/Head.astro";
+import { SITE_TITLE, SITE_SEPARATOR } from "../consts";
 
 interface Props {
   title: string;
@@ -13,7 +14,10 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <BaseHead title={title} description={description} />
+  <BaseHead
+    title={SITE_TITLE + SITE_SEPARATOR + title}
+    description={description}
+  />
   <body class="min-h-screen flex flex-col bg-[#0b0b0b] text-white font-sans">
     <Header />
 
