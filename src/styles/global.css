@@ -1,5 +1,16 @@
 /* global style */
-.astro-code {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 1rem;
+}
+
+code,
+pre {
   padding: 1rem;
   border-radius: 0.25rem;
 }
