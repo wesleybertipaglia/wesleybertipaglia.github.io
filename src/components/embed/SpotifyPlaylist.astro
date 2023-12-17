@@ -1,40 +1,29 @@
 ---
-import Container from "../basic/Container.astro";
-
-enum Size {
-  compact = 0,
-  normal = 1,
-  full = 2,
-}
+import Iframe from "../basic/Iframe.astro";
+import { Size } from "../../utils/Base";
 
 interface Props {
+  title?: string;
   src: string;
   theme?: boolean;
   size?: Size;
 }
-const { src, theme, size } = Astro.props;
-
-let iframeHeight = getSize();
 
 function getSize() {
   if (size == Size.compact || size == undefined) {
     return "152px";
-  } else if (size == Size.normal) {
+  } else {
     return "352px";
-  } else if (size == Size.full) {
-    return "100%";
   }
 }
+
+const { title, src, theme, size } = Astro.props;
+let iframeHeight = getSize();
 ---
 
-<Container>
-  <iframe
-    title="Spotify Playlist"
-    class="rounded-[12px] border-0 outline-0"
-    src={src + (theme ? "" : "&theme=0")}
-    width="100%"
-    height={iframeHeight}
-    allowfullscreen="true"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"></iframe>
-</Container>
+<Iframe
+  title={title != undefined ? title : "Spotify Playlist"}
+  src={src + (theme ? "" : "&theme=0")}
+  class:list={"w-full rounded-md border-0 outline-0"}
+  height={iframeHeight}
+/>

@@ -1,0 +1,15 @@
+---
+import Iframe from "../basic/Iframe.astro";
+
+interface Props {
+  title?: string;
+  src: string;
+}
+const { title, src } = Astro.props;
+---
+
+<Iframe
+  title={title != undefined ? title : "Youtube Player"}
+  src={src}
+  class:list={"h-auto w-full aspect-video rounded-md border-0 outline-0"}
+/>
