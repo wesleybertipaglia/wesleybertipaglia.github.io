@@ -18,7 +18,9 @@ const { title, description } = Astro.props;
     title={SITE_TITLE + SITE_SEPARATOR + title}
     description={description}
   />
-  <body class="min-h-screen flex flex-col bg-[#0b0b0b] text-white font-sans">
+  <body
+    class=`min-h-screen flex flex-col font-sans bg-slate-50 text-zinc-950 dark:bg-zinc-950 dark:text-slate-50`
+  >
     <Header />
 
     <main class="flex-auto p-6">
