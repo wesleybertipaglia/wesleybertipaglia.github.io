@@ -1,33 +1,34 @@
 ---
-import Layout from "../layouts/Post.astro";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/basic/Container.astro";
 ---
 
-<Layout
-  title="About Me"
-  description="Lorem ipsum dolor sit amet"
-  pubDate={new Date("12-17-2023")}
->
-  <p>
-    Hello there! 👋 I'm Wesley Bertipaglia, a 24-year-old web developer based in
-    Brazil. I find joy in the ever-evolving world of technology, constantly
-    exploring and playing with different tech stacks to keep things exciting.
-  </p>
+<Layout title="About Me" description="Lorem ipsum dolor sit amet">
+  <Container>
+    <h1 class="text-4xl">Hello there! 👋</h1>
+    <hr class="mb-6" />
+    <p>
+      I'm Wesley Bertipaglia, a 24-year-old web developer based in Brazil. I
+      find joy in the ever-evolving world of technology, constantly exploring
+      and playing with different tech stacks to keep things exciting.
+    </p>
 
-  <p>
-    By day, I'm immersed in the world of full-stack web development,
-    particularly in the realm of JavaScript and .NET. I love the challenge of
-    crafting digital experiences and bringing ideas to life through code.
-  </p>
+    <p>
+      By day, I'm immersed in the world of full-stack web development,
+      particularly in the realm of JavaScript and .NET. I love the challenge of
+      crafting digital experiences and bringing ideas to life through code.
+    </p>
 
-  <p>
-    When I'm not coding, you'll often find me with headphones on, immersed in
-    the soothing vibes of lofi music.
-  </p>
+    <p>
+      When I'm not coding, you'll often find me with headphones on, immersed in
+      the soothing vibes of lofi music.
+    </p>
 
-  <p>
-    Feel free to explore my personal website to get a glimpse of my work and
-    interests. If you share a love for technology, music, or just want to
-    connect, don't hesitate to reach out. Let's build something amazing
-    together! 🚀
-  </p>
+    <p>
+      Feel free to explore my personal website to get a glimpse of my work and
+      interests. If you share a love for technology, music, or just want to
+      connect, don't hesitate to reach out. Let's build something amazing
+      together! 🚀
+    </p>
+  </Container>
 </Layout>
