@@ -3,6 +3,7 @@ title: "Hello from Hugo"
 description: "Lorem ipsum dolor sit amet"
 pubDate: 12-10-2023
 author: "Wesley Bertipaglia"
+collection: "blog"
 image:
   url: "/posts/samples/placeholder-2.jpg"
   alt: "Sample Placeholder Image"

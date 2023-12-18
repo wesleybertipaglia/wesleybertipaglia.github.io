@@ -5,7 +5,7 @@ import Layout from "./Layout.astro";
 import Container from "../components/basic/Container.astro";
 import Link from "../components/basic/Link.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"post">["data"];
 
 const { title, description, pubDate, updatedDate, author, image, tags } =
   Astro.props;

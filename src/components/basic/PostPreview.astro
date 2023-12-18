@@ -1,31 +1,33 @@
 ---
-import FormattedDate from "../../components/helpers/FormattedDate.astro";
+import FormattedDate from "../helpers/FormattedDate.astro";
 import { PostView } from "../../utils/Post";
 import Link from "./Link.astro";
 
 interface Props {
   post: any;
   view: PostView;
-  collection: string;
+  postCollection?: string;
 }
-const { post, view, collection } = Astro.props;
+const { post, view, postCollection } = Astro.props;
 ---
 
-<Link href={`/${collection}/${post.slug}/`}>
-  {
-    view === PostView.normal ? (
+{
+  view === PostView.normal ? (
+    <Link href={`${postCollection}/${post.slug}/`}>
       <img src={post.data.image?.url} alt={post.data.image?.alt} />
       <h4 class="title">{post.data.title}</h4>
       <p class="date">
-          <FormattedDate date={post.data.pubDate} />
+        <FormattedDate date={post.data.pubDate} />
       </p>
-    ) : (
-      <p class="flex gap-6">
-        <span class="date">
-            <FormattedDate date={post.data.pubDate} />
-        </span>
-        <span class="title">{post.data.title}</span>        
+    </Link>
+  ) : (
+    <div class="flex justify-between gap-6">
+      <Link href={`/${postCollection}/${post.slug}/`}>
+        <p class="title">{post.data.title}</p>
+      </Link>
+      <p class="date">
+        <FormattedDate date={post.data.pubDate} />
       </p>
-    )
-  }
-</Link>
+    </div>
+  )
+}
