@@ -1,35 +1,39 @@
 ---
-import Layout from "./Layout.astro";
 import Container from "../components/basic/Container.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../components/helpers/FormattedDate.astro";
+import PostPreview from "../components/basic/PostPreview.astro";
+import { PostView } from "../utils/Post";
+import Link from "../components/basic/Link.astro";
 
-const posts = (await getCollection("blog")).sort(
+interface Props {
+  postCollection?: string;
+  tag?: string;
+  title?: string;
+  showAll: boolean;
+  slice?: number;
+  view: PostView;
+}
+const { postCollection, tag, title, showAll, slice, view } = Astro.props;
+
+let posts = (await getCollection("post")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+if (postCollection != undefined)
+  posts = posts.filter((x) => x.data.collection == postCollection);
+if (tag != undefined)
+  posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
+if (slice != undefined) posts = posts.slice(0, slice);
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Container>
-    <section>
-      <ul class="flex flex-col gap-6">
-        {
-          posts.map((post) => (
-            <li>
-              <a href={`/blog/${post.slug}/`}>
-                <div>
-                  <img src={post.data.image?.url} alt="" />
-                </div>
-                <h4 class="title">{post.data.title}</h4>
-                <p class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </Container>
-</Layout>
+<Container classList="py-6">
+  <section>
+    {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
+    {
+      posts.map((post) => (
+        <PostPreview post={post} view={view} postCollection={postCollection} />
+      ))
+    }
+    {showAll ? <Link href={"/" + postCollection}>All posts →</Link> : ""}
+  </section>
+</Container>
