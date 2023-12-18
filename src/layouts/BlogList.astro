@@ -26,7 +26,11 @@ if (slice != undefined) posts = posts.slice(0, slice);
 <Container classList="py-6">
   <section>
     {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
-    {posts.map((post) => <PostPreview post={post} view={view} />)}
+    {
+      posts.map((post) => (
+        <PostPreview post={post} view={view} postCollection="blog" />
+      ))
+    }
     {showAll ? <Link href="/blog">All posts →</Link> : ""}
     {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
   </section>
