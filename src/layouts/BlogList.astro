@@ -1,0 +1,37 @@
+---
+import Container from "../components/basic/Container.astro";
+import { getCollection } from "astro:content";
+import PostPreview from "../components/basic/PostPreview.astro";
+import { PostView } from "../utils/Post";
+import Link from "../components/basic/Link.astro";
+
+interface Props {
+  tag?: string;
+  title?: string;
+  showAll: boolean;
+  slice?: number;
+  view: PostView;
+}
+const { tag, title, showAll, slice, view } = Astro.props;
+
+let posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+if (tag != undefined)
+  posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
+if (slice != undefined) posts = posts.slice(0, slice);
+---
+
+<Container classList="py-6">
+  <section>
+    {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
+    {
+      posts.map((post) => (
+        <PostPreview post={post} view={view} postCollection="blog" />
+      ))
+    }
+    {showAll ? <Link href="/blog">All posts →</Link> : ""}
+    {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
+  </section>
+</Container>

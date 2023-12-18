@@ -1,9 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import List from "../../layouts/List.astro";
+import ProjectList from "../../layouts/ProjectList.astro";
 import { PostView } from "../../utils/Post";
 ---
 
 <Layout title="Projects" description="My projects">
-  <List postCollection="projects" showAll={false} view={PostView.normal} />
+  <ProjectList showAll={false} view={PostView.normal} />
 </Layout>

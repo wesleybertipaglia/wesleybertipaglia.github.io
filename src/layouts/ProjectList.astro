@@ -6,21 +6,17 @@ import { PostView } from "../utils/Post";
 import Link from "../components/basic/Link.astro";
 
 interface Props {
-  postCollection?: string;
   tag?: string;
   title?: string;
   showAll: boolean;
   slice?: number;
   view: PostView;
 }
-const { postCollection, tag, title, showAll, slice, view } = Astro.props;
+const { tag, title, showAll, slice, view } = Astro.props;
 
-let posts = (await getCollection("post")).sort(
+let posts = (await getCollection("projects")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
-
-if (postCollection != undefined)
-  posts = posts.filter((x) => x.data.collection == postCollection);
 if (tag != undefined)
   posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
 if (slice != undefined) posts = posts.slice(0, slice);
@@ -31,9 +27,10 @@ if (slice != undefined) posts = posts.slice(0, slice);
     {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
     {
       posts.map((post) => (
-        <PostPreview post={post} view={view} postCollection={postCollection} />
+        <PostPreview post={post} view={view} postCollection="projects" />
       ))
     }
-    {showAll ? <Link href={"/" + postCollection}>All posts →</Link> : ""}
+    {showAll ? <Link href="/projects">All projects →</Link> : ""}
+    {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
   </section>
 </Container>

@@ -14,7 +14,14 @@ const { post, view, postCollection } = Astro.props;
 {
   view === PostView.normal ? (
     <Link href={`${postCollection}/${post.slug}/`}>
-      <img src={post.data.image?.url} alt={post.data.image?.alt} />
+      <div class="w-100 rounded overflow-hidden">
+        <img
+          src={post.data.image?.url}
+          alt={post.data.image?.alt}
+          class="object-cover hover:scale-110 d-none"
+          style="transition: all 0.5s;"
+        />
+      </div>
       <h4 class="title">{post.data.title}</h4>
       <p class="date">
         <FormattedDate date={post.data.pubDate} />

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/base/Hero.astro";
 import SpotifyPlaylist from "../components/embed/SpotifyPlaylist.astro";
-import List from "../layouts/List.astro";
+import BlogList from "../layouts/BlogList.astro";
 import { PostView } from "../utils/Post";
 ---
 
@@ -11,11 +11,5 @@ import { PostView } from "../utils/Post";
   <SpotifyPlaylist
     src="https://open.spotify.com/embed/playlist/4FqOyZEyCzCKzhJYUG5OU0?utm_source=generator"
   />
-  <List
-    title="Posts"
-    postCollection="blog"
-    view={PostView.compact}
-    slice={5}
-    showAll={true}
-  />
+  <BlogList title="Posts" view={PostView.compact} slice={5} showAll={true} />
 </Layout>

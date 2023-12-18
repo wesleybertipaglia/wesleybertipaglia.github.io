@@ -8,7 +8,6 @@ const post = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().optional(),
-    collection: z.string(),
     image: z
       .object({
         url: z.string(),
@@ -19,4 +18,7 @@ const post = defineCollection({
   }),
 });
 
-export const collections = { post };
+const blog = post;
+const projects = post;
+
+export const collections = { blog, projects };
