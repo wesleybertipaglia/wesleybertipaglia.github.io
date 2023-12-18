@@ -1,6 +1,6 @@
 ---
 import Container from "../components/basic/Container.astro";
-import { getCollection } from "astro:content";
+import { Projects } from "../utils/Post";
 import PostPreview from "../components/basic/PostPreview.astro";
 import { PostView } from "../utils/Post";
 import Link from "../components/basic/Link.astro";
@@ -14,9 +14,7 @@ interface Props {
 }
 const { tag, title, showAll, slice, view } = Astro.props;
 
-let posts = (await getCollection("projects")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
+let posts = Projects;
 if (tag != undefined)
   posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
 if (slice != undefined) posts = posts.slice(0, slice);
