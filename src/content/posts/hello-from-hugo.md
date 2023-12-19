@@ -7,6 +7,7 @@ image:
   url: "/posts/samples/placeholder-2.jpg"
   alt: "Sample Placeholder Image"
 tags: ["site", "blog", "hugo"]
+type: "blog"
 ---
 
 # My First Dive into Hugo: A Personal Website Odyssey

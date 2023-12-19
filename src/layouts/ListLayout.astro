@@ -1,6 +1,6 @@
 ---
 import Container from "../components/basic/Container.astro";
-import { Projects } from "../utils/Post";
+import { Posts } from "../utils/Post";
 import PostPreview from "../components/basic/PostPreview.astro";
 import { PostView } from "../utils/Post";
 import Link from "../components/basic/Link.astro";
@@ -11,24 +11,20 @@ interface Props {
   showAll: boolean;
   slice?: number;
   view: PostView;
+  type?: string;
 }
-const { tag, title, showAll, slice, view } = Astro.props;
+const { tag, title, showAll, slice, view, type } = Astro.props;
 
-let posts = Projects;
+let posts = Posts;
+if (type != undefined) posts = posts.filter((post) => post.data.type == type);
 if (tag != undefined)
   posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
 if (slice != undefined) posts = posts.slice(0, slice);
 ---
 
 <Container classList="py-6">
-  <section>
-    {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
-    {
-      posts.map((post) => (
-        <PostPreview post={post} view={view} postCollection="projects" />
-      ))
-    }
-    {showAll ? <Link href="/projects">All projects →</Link> : ""}
-    {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
-  </section>
+  {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
+  {posts.map((post) => <PostPreview post={post} view={view} />)}
+  {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
+  {showAll ? <Link href="/posts">All posts →</Link> : ""}
 </Container>

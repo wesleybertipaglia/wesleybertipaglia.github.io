@@ -1,15 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ListLayout from "../layouts/ListLayout.astro";
+import { PostView } from "../utils/Post";
 import Hero from "../components/base/Hero.astro";
 import SpotifyPlaylist from "../components/embed/SpotifyPlaylist.astro";
-import BlogList from "../layouts/BlogList.astro";
-import { PostView } from "../utils/Post";
 ---
 
-<Layout title="Hi, I'm Wesley 👋" description="Welcome to my personal page">
+<BaseLayout title="Hi, I'm Wesley 👋" description="Welcome to my personal page">
   <Hero />
   <SpotifyPlaylist
     src="https://open.spotify.com/embed/playlist/4FqOyZEyCzCKzhJYUG5OU0?utm_source=generator"
   />
-  <BlogList title="Posts" view={PostView.compact} slice={5} showAll={true} />
-</Layout>
+  <ListLayout
+    title="Recent Posts"
+    view={PostView.compact}
+    slice={5}
+    showAll={true}
+    type="blog"
+  />
+  <ListLayout
+    title="Recent Projects"
+    view={PostView.compact}
+    slice={5}
+    showAll={true}
+    type="projects"
+  />
+</BaseLayout>

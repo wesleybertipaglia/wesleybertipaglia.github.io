@@ -1,13 +1,14 @@
+import { string } from "astro/zod";
 import { defineCollection, z } from "astro:content";
 
-const post = defineCollection({
+const posts = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().optional(),
+    author: z.string(),
     image: z
       .object({
         url: z.string(),
@@ -15,10 +16,16 @@ const post = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    links: z
+      .array(
+        z.object({
+          title: z.string(),
+          url: z.string(),
+        })
+      )
+      .optional(),
+    type: z.string(),
   }),
 });
 
-const blog = post;
-const projects = post;
-
-export const collections = { blog, projects };
+export const collections = { posts };

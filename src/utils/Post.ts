@@ -5,10 +5,6 @@ export const enum PostView {
   full,
 }
 
-export const Projects = (await getCollection("projects")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
-
-export const Posts = (await getCollection("blog")).sort(
+export const Posts = (await getCollection("posts")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );

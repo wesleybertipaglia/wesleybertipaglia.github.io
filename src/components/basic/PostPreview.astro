@@ -6,14 +6,16 @@ import Link from "./Link.astro";
 interface Props {
   post: any;
   view: PostView;
-  postCollection?: string;
 }
-const { post, view, postCollection } = Astro.props;
+const { post, view } = Astro.props;
 ---
 
 {
   view === PostView.normal ? (
-    <Link href={`/${postCollection}/${post.slug}/`}>
+    <Link
+      href={`/posts/${post.slug}/`}
+      class:list={["flex flex-col gap-2 mb-4"]}
+    >
       <div class="w-100 rounded overflow-hidden">
         <img
           src={post.data.image?.url}
@@ -22,14 +24,18 @@ const { post, view, postCollection } = Astro.props;
           style="transition: all 0.5s;"
         />
       </div>
-      <h4 class="title">{post.data.title}</h4>
-      <p class="date">
-        <FormattedDate date={post.data.pubDate} />
-      </p>
+      <div class="flex gap-6 justify-between">
+        <h4 class="title m-0">
+          {post.data.title} · {post.data.type}
+        </h4>
+        <p class="date">
+          <FormattedDate date={post.data.pubDate} />
+        </p>
+      </div>
     </Link>
   ) : (
     <div class="flex justify-between gap-6">
-      <Link href={`/${postCollection}/${post.slug}/`}>
+      <Link href={`/posts/${post.slug}/`}>
         <p class="title">{post.data.title}</p>
       </Link>
       <p class="date">
