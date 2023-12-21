@@ -26,5 +26,5 @@ if (slice != undefined) posts = posts.slice(0, slice);
   {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
   {posts.map((post) => <PostPreview post={post} view={view} />)}
   {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
-  {showAll ? <Link href="/posts">All posts →</Link> : ""}
+  {showAll ? <Link href={"/" + type}>All posts →</Link> : ""}
 </Container>

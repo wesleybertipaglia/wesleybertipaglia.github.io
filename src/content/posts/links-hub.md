@@ -7,11 +7,15 @@ image:
   url: "/posts/projects/linkshub.png"
   alt: "Links Hub Plataform"
 tags: ["js", "react", "tailwind", "eslint"]
-type: "project"
+type: "projects"
 links:
   [
     { title: "GitHub", url: "https://github.com/wesleybertipaglia/LinksHub" },
     { title: "Deploy", url: "https://links-hub-wesley.vercel.app/" },
+    {
+      title: "Figma",
+      url: "https://www.figma.com/file/XBeWEXltLhcHSa1jHeYBET",
+    },
   ]
 ---
 

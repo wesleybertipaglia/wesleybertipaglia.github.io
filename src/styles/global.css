@@ -12,8 +12,18 @@ h3,
 h4,
 h5,
 h6,
-p {
+p, 
+ul, 
+ol {
   margin-bottom: 1rem;
+}
+
+main ul {
+  list-style: circle;
+}
+
+main ol {
+  list-style: decimal;
 }
 
 code,
