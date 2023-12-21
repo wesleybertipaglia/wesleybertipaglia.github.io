@@ -4,21 +4,11 @@ import FormattedDate from "../components/helpers/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 import Container from "../components/basic/Container.astro";
 import Link from "../components/basic/Link.astro";
-import Button from "../components/basic/Button.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
-const {
-  title,
-  description,
-  pubDate,
-  updatedDate,
-  author,
-  type,
-  image,
-  tags,
-  links,
-} = Astro.props;
+const { title, description, pubDate, updatedDate, author, image, tags, links } =
+  Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
