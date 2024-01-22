@@ -4,14 +4,46 @@ import Link from "../basic/Link.astro";
 ---
 
 <header>
-  <Container classList="p-6">
-    <nav class="flex justify-between text-neutral-500">
-      <a href="/">wesleyberti_</a>
-
+  <Container classList="py-6">
+    <nav
+      class="flex justify-between gap-4 px-4 py-3 border border-default-border bg-default-accent shadow rounded-xl"
+    >
       <ul class="flex gap-4">
+        <li><Link href="/">home</Link></li>
         <li><Link href="/about">about</Link></li>
         <li><Link href="/projects">projects</Link></li>
+        <li><Link href="/links">links</Link></li>
         <li><Link href="/blog">blog</Link></li>
+      </ul>
+
+      <ul class="flex gap-4">
+        <li class="flex">
+          <Link
+            href="https://twitter.com/wesleyberti_"
+            target="_blank"
+            class:list={"hover:no-underline flex items-center"}
+          >
+            <i class="devicon-twitter-original"></i>
+          </Link>
+        </li>
+        <li class="flex">
+          <Link
+            href="https://linkedin.com/in/wesley-bertipaglia"
+            target="_blank"
+            class:list={"hover:no-underline flex items-center"}
+          >
+            <i class="devicon-linkedin-plain"></i>
+          </Link>
+        </li>
+        <li class="flex">
+          <Link
+            href="https://github.com/wesleybertipaglia"
+            target="_blank"
+            class:list={"hover:no-underline flex items-center"}
+          >
+            <i class="devicon-github-original"></i>
+          </Link>
+        </li>
       </ul>
     </nav>
   </Container>

@@ -3,14 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ListLayout from "../layouts/ListLayout.astro";
 import { PostView } from "../utils/Post";
 import Hero from "../components/base/Hero.astro";
-import SpotifyPlaylist from "../components/embed/SpotifyPlaylist.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_SEPARATOR } from "../consts";
 ---
 
-<BaseLayout title="Hi, I'm Wesley 👋" description="Welcome to my personal page">
+<BaseLayout
+  title={SITE_DESCRIPTION}
+  description={SITE_TITLE + SITE_SEPARATOR + SITE_DESCRIPTION}
+>
   <Hero />
-  <SpotifyPlaylist
-    src="https://open.spotify.com/embed/playlist/4FqOyZEyCzCKzhJYUG5OU0?utm_source=generator"
-  />
   <ListLayout
     title="Recent Posts"
     view={PostView.compact}

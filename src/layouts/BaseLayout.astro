@@ -18,12 +18,10 @@ const { title, description } = Astro.props;
     title={SITE_TITLE + SITE_SEPARATOR + title}
     description={description}
   />
-  <body
-    class=`min-h-screen flex flex-col font-sans bg-slate-50 text-zinc-950 dark:bg-neutral-950 dark:text-slate-50`
-  >
+  <body class=`min-h-screen flex flex-col gap-6`>
     <Header />
 
-    <main class="flex-auto p-6">
+    <main class="flex-1">
       <slot />
     </main>
 

@@ -5,27 +5,46 @@ import Link from "../basic/Link.astro";
 ---
 
 <footer>
-  <Container classList="flex justify-between text-neutral-500 text-sm p-6">
-    <span>&copy; {today.getFullYear()} Wesley Bertipaglia</span>
-    <div class="inline-flex gap-3">
-      <Link
-        href="https://astro.build/"
-        target="_blank"
-        class="inline-flex gap-2"
-      >
-        Powered by
-        <img
-          src="https://astro.build/assets/press/astro-icon-light-gradient.svg"
-          alt="Astro"
-          class="h-4 my-auto"
-        />
-      </Link>
-      <Link
-        href="https://github.com/wesleybertipaglia/wesleybertipaglia.github.io"
-        target="_blank"
-      >
-        Get the code
-      </Link>
-    </div>
+  <Container classList="flex flex-col gap-2 items-center py-6 text-neutral-500">
+    <p>&copy; {today.getFullYear()} Wesley Bertipaglia</p>
+
+    <ul class="flex gap-4 text-sm">
+      <li>
+        <Link
+          href="https://instagram.com/wesleyberti_"
+          target="_blank"
+          class:list={"no-underline"}
+        >
+          instagram
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="https://twitter.com/wesleyberti_"
+          target="_blank"
+          class:list={"no-underline"}
+        >
+          twitter
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="https://linkedin.com/in/wesley-bertipaglia"
+          target="_blank"
+          class:list={"no-underline"}
+        >
+          linkedin
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="https://github.com/wesleybertipaglia"
+          target="_blank"
+          class:list={"no-underline"}
+        >
+          github
+        </Link>
+      </li>
+    </ul>
   </Container>
 </footer>

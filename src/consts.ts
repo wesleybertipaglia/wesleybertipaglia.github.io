@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "Wesley Bertipaglia";
 export const SITE_SEPARATOR = " · ";
-export const SITE_DESCRIPTION = "Welcome to my website!";
+export const SITE_DESCRIPTION = "Developer & Tech Enthusiast";

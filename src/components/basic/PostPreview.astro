@@ -34,13 +34,33 @@ const { post, view } = Astro.props;
       </div>
     </Link>
   ) : (
-    <div class="flex justify-between gap-6">
-      <Link href={`/posts/${post.slug}/`}>
-        <p class="title">{post.data.title}</p>
-      </Link>
-      <p class="date">
-        <FormattedDate date={post.data.pubDate} />
-      </p>
-    </div>
+    <Link
+      href={`/posts/${post.slug}/`}
+      class:list={
+        "p-3 my-4 hover:no-underline flex gap-4 border border-default-border bg-default-accent rounded"
+      }
+    >
+      <div class="flex min-w-max">
+        <img
+          src={post.data.image?.url}
+          alt={post.data.image?.alt}
+          class="w-auto h-20 aspect-square object-cover rounded-md hover:filter-gray"
+          style="transition: all 0.5s;"
+        />
+      </div>
+
+      <div class="flex flex-col overflow-hidden">
+        <p class="font-bold">{post.data.title}</p>
+        <p>{post.data.description}</p>
+        <p class="inline-flex gap-2 mt-auto text-sm whitespace-nowrap">
+          <span>
+            <FormattedDate date={post.data.pubDate} />
+          </span>
+
+          <span>|</span>
+          <span class="truncate">tags: {post.data.tags.join(", ")} </span>
+        </p>
+      </div>
+    </Link>
   )
 }

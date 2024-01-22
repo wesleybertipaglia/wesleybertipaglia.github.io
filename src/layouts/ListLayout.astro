@@ -26,5 +26,20 @@ if (slice != undefined) posts = posts.slice(0, slice);
   {title != undefined ? <h4 class="text-xl">{title}</h4> : ""}
   {posts.map((post) => <PostPreview post={post} view={view} />)}
   {posts.length == 0 ? <h1>Nothing to see here 😔</h1> : ""}
-  {showAll ? <Link href={"/" + type}>All posts →</Link> : ""}
+  {
+    showAll ? (
+      <Link
+        href={"/" + type}
+        class:list={
+          "flex gap-2 items-center hover:gap-4 transition hover:no-underline hover:text-primary-500"
+        }
+        style={"transition: all 0.2s ease-in-out;"}
+      >
+        <p class="">View more</p>
+        <p class="material-symbols-outlined text-[18px]">arrow_forward</p>
+      </Link>
+    ) : (
+      ""
+    )
+  }
 </Container>

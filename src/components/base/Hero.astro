@@ -2,59 +2,66 @@
 import Container from "../basic/Container.astro";
 import Avatar from "../basic/Avatar.astro";
 import Link from "../basic/Link.astro";
+import Badge from "../basic/Badge.astro";
 ---
 
-<Container classList="mb-12">
-  <div
-    class="flex only:max-sm:flex-col only:max-sm:text-center gap-6 items-center"
-  >
+<Container classList="flex flex-col gap-3">
+  <div class="flex gap-4 items-center">
     <Avatar
       imageSrc="/assets/me/avatar.svg"
       imageAlt="The Avatar of Wesley Bertipaglia"
-      classList="bg-gray-600"
+      classList="h-16"
     />
-    <div>
-      <h2 class="text-neutral-500 mb-2">Hi, I'm Wesley 👋</h2>
-      <p class="leading-8 m-0">
-        I'm a Full stack web developer from 🇧🇷, passionate about technology and
-        loves creating cool things.
-      </p>
+    <div class="animate-fade-in">
+      <h3 class="text-xl">Wesley Bertipaglia</h3>
+      <p class="opacity-50">Web Developer</p>
+    </div>
+  </div>
 
-      <div class="inline-flex gap-3 mt-2">
-        <p class="m-0">Find me on:</p>
-        <div class="flex gap-2 text-neutral-500">
-          <Link
-            href="https://github.com/wesleybertipaglia"
-            class:list={"hover:text-cyan-400"}
-            target="_blank"
-          >
-            GitHub
-          </Link>
-          <Link
-            href="https://linkedin.com/in/wesley-bertipaglia"
-            class:list={"hover:text-cyan-400"}
-            target="_blank"
-          >
-            Linkedin
-          </Link>
-          <Link
-            href="https://twitter.com/wesleyberti_"
-            class:list={"hover:text-cyan-400"}
-            target="_blank"
-          >
-            Twitter
-          </Link>
+  <div>
+    <p class="leading-8 text-xl">
+      I'm a Full stack web developer from 🇧🇷, passionate about technology and
+      loves creating cool things.
+    </p>
+    <p>
+      I'm currently working at{" "}
+      <Link href="https://ancode.app/" target="_blank" class="text-cyan-400">
+        @Ancode
+      </Link>
+      as a Software Engineer.
+    </p>
+  </div>
 
-          <Link
-            href="https://mastodon.social/@wesleybertipaglia"
-            class:list={"hover:text-cyan-400"}
-            target="_blank"
-            rel="me"
-          >
-            Mastodon
-          </Link>
-        </div>
-      </div>
+  <div
+    class="flex gap-16 select-none w-100 overflow-hidden opacity-25 text-2xl font-bold"
+  >
+    <div
+      aria-hidden="true"
+      class="animate-marquee flex gap-16 justify-around min-w-full flex-shrink-0"
+    >
+      <p>html</p>
+      <p>css</p>
+      <p>sass</p>
+      <p>js</p>
+      <p>react</p>
+      <p>next</p>
+      <p>astro</p>
+      <p>sql</p>
+      <p>nosql</p>
+    </div>
+    <div
+      aria-hidden="true"
+      class="animate-marquee flex gap-16 justify-around min-w-full flex-shrink-0"
+    >
+      <p>html</p>
+      <p>css</p>
+      <p>sass</p>
+      <p>js</p>
+      <p>react</p>
+      <p>next</p>
+      <p>astro</p>
+      <p>sql</p>
+      <p>nosql</p>
     </div>
   </div>
 </Container>

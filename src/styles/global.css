@@ -1,33 +1,41 @@
-/* global style */
-* {
-  scrollbar-width: thin;
-}
-*::-webkit-scrollbar {
-  width: 8px;
-}
+/* Path: src/styles/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p, 
-ul, 
-ol {
-  margin-bottom: 1rem;
-}
+@layer base {
+  :root {
+    --default-bg: #fff;
+    --default-text: #161616;
+    --default-accent: #f1f1f1;
+    --default-border: #c1c1c1;
+  }
 
-main ul {
-  list-style: circle;
-}
+  html {
+    font-family: sans-serif;
+  }
 
-main ol {
-  list-style: decimal;
-}
+  body {
+    background-color: var(--default-bg);
+    color: var(--default-text);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
 
-code,
-pre {
-  padding: 1rem;
-  border-radius: 0.25rem;
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+    :root {
+      --default-bg: #161616;
+      --default-text: #f1f1f1;
+      --default-accent: #1c1c1c;
+      --default-border: #282828;
+    }
+
+  }
 }
