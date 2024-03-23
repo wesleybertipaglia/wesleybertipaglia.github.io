@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div">;
+const { class: classList, ...props } = Astro.props;
+---
+
+<div
+  class:list={[
+    `badge-square flex bg-body-3 p-2 w-auto aspect-square 
+  justify-center items-center rounded border border-transparent hover:border-accent`,
+    classList,
+  ]}
+  {...props}
+>
+  <slot />
+</div>

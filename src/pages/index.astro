@@ -1,9 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ListLayout from "../layouts/ListLayout.astro";
-import { PostView } from "../utils/Post";
-import Hero from "../components/base/Hero.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_SEPARATOR } from "../consts";
+import Hero from "../components/base/Hero.astro";
+import About from "../components/base/About.astro";
+import Skills from "../components/base/Skills.astro";
+import Stack from "../components/base/Stack.astro";
+import Experience from "../components/base/Experience.astro";
+import Education from "../components/base/Education.astro";
+import Contact from "../components/base/Contact.astro";
+import ListPosts from "../components/basic/ListPosts.astro";
+import { PostView } from "../utils/Post";
 ---
 
 <BaseLayout
@@ -11,18 +17,24 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_SEPARATOR } from "../consts";
   description={SITE_TITLE + SITE_SEPARATOR + SITE_DESCRIPTION}
 >
   <Hero />
-  <ListLayout
-    title="Recent Posts"
-    view={PostView.compact}
-    slice={5}
-    showAll={true}
-    type="blog"
-  />
-  <ListLayout
+  <About />
+  <Skills />
+  <Stack />
+  <Experience />
+  <Education />
+  <ListPosts
     title="Recent Projects"
-    view={PostView.compact}
+    view={PostView.normal}
     slice={5}
     showAll={true}
     type="projects"
   />
+  <ListPosts
+    title="Recent Posts"
+    view={PostView.normal}
+    slice={5}
+    showAll={true}
+    type="blog"
+  />
+  <Contact />
 </BaseLayout>

@@ -1,0 +1,45 @@
+---
+import Container from "../basic/Container.astro";
+import CardIcon from "../basic/CardIcon.astro";
+import Link from "../basic/Link.astro";
+import Badge from "../basic/Badge.astro";
+---
+
+<header>
+  <Container id="skills" class:list={["py-6  my-12"]}>
+    <div class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Skills</h2>
+      <p>
+        Know more about my skills in <Link
+          href="/#stack"
+          class:list={"text-primary underline"}>stack ↗</Link
+        >
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <CardIcon
+          icon="⚡️"
+          title="Front-end"
+          description="Design, Prototyping, Development, UI, UX, Responsive Design, Accessibility and more."
+        />
+
+        <CardIcon
+          icon="👾"
+          title="Back-end"
+          description="Development, Databases, APIs, Authentication, Authorization, Security, Scalability and more."
+        />
+
+        <CardIcon
+          icon="📦"
+          title="Testing"
+          description="Unit Testing, Integrated Testing, E2E Testing, Test Automation, TDD and more."
+        />
+
+        <CardIcon
+          icon="🛠️"
+          title="Tools"
+          description="Versioning, Containers, Virtual Machines, Bash and more."
+        />
+      </div>
+    </div>
+  </Container>
+</header>

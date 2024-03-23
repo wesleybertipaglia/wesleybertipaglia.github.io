@@ -1,16 +1,13 @@
 ---
 interface Props {
-  title?: string;
   classList?: string;
 }
 
-const { title, classList } = Astro.props;
+const { classList } = Astro.props;
 ---
 
-<div class=`card ${classList}`>
-  <h2>{title}</h2>
-
-  <div>
-    <slot />
-  </div>
+<div
+  class=`bg-body-2 rounded-md p-4 border transition-all border-transparent hover:border-accent ${classList}`
+>
+  <slot />
 </div>

@@ -1,0 +1,13 @@
+---
+import Container from "../basic/Container.astro";
+import CardExperience from "../basic/CardExperience.astro";
+import experience from "../../data/experience.js";
+---
+
+<Container id="experience" class:list={"flex flex-col gap-4 my-12"}>
+  <h2 class="font-bold text-xl">Experience</h2>
+
+  <div class="flex flex-col gap-6">
+    {experience.map((item) => <CardExperience {...item} />)}
+  </div>
+</Container>

@@ -5,14 +5,18 @@
 
 @layer base {
   :root {
-    --default-bg: #fff;
-    --default-text: #161616;
-    --default-accent: #f1f1f1;
-    --default-border: #c1c1c1;
+    --primary: #0070f3;
+    --body-1: #fff;
+    --body-2: #f6f6f7;
+    --body-3: #e7e8ec;
+    --text-1: #1b1b1b;
+    --text-2: #47474e;
+    --text-3: #77777c;
+    --accent: #ccc;
   }
 
   html {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
   }
 
   body {
@@ -31,11 +35,60 @@
 
   @media screen and (prefers-color-scheme: dark) {
     :root {
-      --default-bg: #161616;
-      --default-text: #f1f1f1;
-      --default-accent: #1c1c1c;
-      --default-border: #282828;
+      --body-1: #181818;
+      --body-2: #242424;
+      --body-3: #303030;
+      --text-1: #f4f4f4;
+      --text-2: #bdbdbd;
+      --text-3: #7a7a7a;
+      --accent: #666;
     }
+  }
+}
 
+.content {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+    color: var(--text-1);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--text-2);
+  }
+
+  ul,
+  ol,
+  dl,
+  dt,
+  dd,
+  li {
+    list-style: unset;
+    margin-left: 0.5rem;
   }
 }

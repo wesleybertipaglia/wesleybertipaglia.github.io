@@ -1,0 +1,41 @@
+---
+import Card from "./Card.astro";
+import Badge from "./Badge.astro";
+
+interface Props {
+  role: string;
+  type: string;
+  company: string;
+  location: string;
+  modality?: string;
+  date: string;
+  description: string;
+  stack: string[];
+}
+
+const { role, type, company, location, modality, date, description, stack } =
+  Astro.props;
+---
+
+<Card classList="flex flex-col gap-4">
+  <div>
+    <h3 class="font-medium text-base">{role} - {company}</h3>
+    <p class="text-sm text-text-3 mb-1">
+      {type} - {location}
+      {modality && `(${modality})`}
+    </p>
+    <p class="text-sm text-text-2">{date}</p>
+  </div>
+
+  {description != "" && <p class="text-text-2 text-base">{description}</p>}
+
+  {
+    stack.length > 0 && (
+      <div class="flex flex-wrap gap-2">
+        {stack.map((item) => (
+          <Badge classList="px-2 text-xs bg-body-3">{item}</Badge>
+        ))}
+      </div>
+    )
+  }
+</Card>

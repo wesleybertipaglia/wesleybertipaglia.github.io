@@ -1,9 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ListLayout from "../../layouts/ListLayout.astro";
+import ListPosts from "../../components/basic/ListPosts.astro";
 import { PostView } from "../../utils/Post";
 ---
 
 <BaseLayout title="Projects" description="My projects">
-  <ListLayout showAll={false} view={PostView.normal} type="projects" />
+  <ListPosts
+    title="Projects"
+    showAll={false}
+    view={PostView.normal}
+    type="projects"
+  />
 </BaseLayout>

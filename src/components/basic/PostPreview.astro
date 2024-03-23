@@ -1,66 +1,33 @@
 ---
 import FormattedDate from "../helpers/FormattedDate.astro";
-import { PostView } from "../../utils/Post";
-import Link from "./Link.astro";
+import Card from "./Card.astro";
+import Badge from "./Badge.astro";
 
 interface Props {
   post: any;
-  view: PostView;
 }
-const { post, view } = Astro.props;
+const { post } = Astro.props;
+const postData = post.data;
 ---
 
-{
-  view === PostView.normal ? (
-    <Link
-      href={`/posts/${post.slug}/`}
-      class:list={["flex flex-col gap-2 mb-4"]}
-    >
-      <div class="w-100 rounded overflow-hidden">
-        <img
-          src={post.data.image?.url}
-          alt={post.data.image?.alt}
-          class="object-cover hover:scale-110 d-none"
-          style="transition: all 0.5s;"
-        />
-      </div>
-      <div class="flex gap-6 justify-between">
-        <h4 class="title m-0">
-          {post.data.title} · {post.data.type}
-        </h4>
-        <p class="date">
-          <FormattedDate date={post.data.pubDate} />
-        </p>
-      </div>
-    </Link>
-  ) : (
-    <Link
-      href={`/posts/${post.slug}/`}
-      class:list={
-        "p-3 my-4 hover:no-underline flex gap-4 border border-default-border bg-default-accent rounded"
+<a href={`/posts/${post.slug}/`}>
+  <Card classList="flex flex-col gap-4">
+    <img src={postData.image.url} alt={postData.image.alt} class="rounded-lg" />
+
+    <div class="border-t border-accent pt-4">
+      <h3 class="font-bold">{postData.title}</h3>
+      <small><FormattedDate date={postData.pubDate} /></small>
+      <p>
+        {postData.description}
+      </p>
+    </div>
+
+    <div class="inline-flex gap-2 flex-wrap">
+      {
+        postData.tags.map((tag: string) => (
+          <Badge classList="px-2">{tag}</Badge>
+        ))
       }
-    >
-      <div class="flex min-w-max">
-        <img
-          src={post.data.image?.url}
-          alt={post.data.image?.alt}
-          class="w-auto h-20 aspect-square object-cover rounded-md hover:filter-gray"
-          style="transition: all 0.5s;"
-        />
-      </div>
-
-      <div class="flex flex-col overflow-hidden">
-        <p class="font-bold">{post.data.title}</p>
-        <p>{post.data.description}</p>
-        <p class="inline-flex gap-2 mt-auto text-sm whitespace-nowrap">
-          <span>
-            <FormattedDate date={post.data.pubDate} />
-          </span>
-
-          <span>|</span>
-          <span class="truncate">tags: {post.data.tags.join(", ")} </span>
-        </p>
-      </div>
-    </Link>
-  )
-}
+    </div>
+  </Card>
+</a>

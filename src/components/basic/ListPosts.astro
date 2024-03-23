@@ -1,0 +1,43 @@
+---
+import Container from "../basic/Container.astro";
+import { Posts } from "../../utils/Post";
+import { PostView } from "../../utils/Post";
+import PostPreview from "./PostPreview.astro";
+import PostPreviewCompact from "./PostPreviewCompact.astro";
+
+interface Props {
+  tag?: string;
+  title?: string;
+  showAll: boolean;
+  slice?: number;
+  view: PostView;
+  type?: string;
+}
+const { tag, title, slice, view, type } = Astro.props;
+
+let posts = Posts;
+if (type != undefined) posts = posts.filter((post) => post.data.type == type);
+if (tag != undefined)
+  posts = posts.filter((post) => post.data.tags?.find((x) => x == tag));
+if (slice != undefined) posts = posts.slice(0, slice);
+---
+
+<Container id="projects" class:list={"flex flex-col gap-4 my-12"}>
+  <h2 class="font-bold text-2xl">{title}</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      posts.length == 0 ? (
+        <h1>Nothing to see here 😔</h1>
+      ) : (
+        posts.map((post) =>
+          view == PostView.compact ? (
+            <PostPreviewCompact post={post} />
+          ) : (
+            <PostPreview post={post} />
+          )
+        )
+      )
+    }
+  </div>
+</Container>

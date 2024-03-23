@@ -13,66 +13,46 @@ const { title, description, pubDate, updatedDate, author, image, tags, links } =
 
 <BaseLayout title={title} description={description}>
   <Container>
-    <article class="">
+    <article class="flex flex-col gap-6">
       <div
         class=`w-100 rounded overflow-hidden ${image == undefined ? "hidden" : ""}`
       >
         <img
           src={image?.url}
           alt={image?.alt}
-          class="object-cover hover:scale-110"
+          class="aspect-[21/9] w-full object-cover object-top hover:scale-110"
           style="transition: all 0.5s;"
         />
       </div>
 
-      <div class="flex flex-col gap-2 py-2 border-b-[1px]">
-        <h1 class="m-0">
-          <p class="m-0">
-            <span>{title}</span>
-            <span>·</span>
-            <span>
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </span>
-          </p>
-
-          <small class="m-0">by {author}</small>
-        </h1>
-
-        <div class=`${links != undefined ? "flex" : "hidden"} gap-2`>
-          Related links:
-          {
-            links?.map((link) => {
-              return (
-                <Link
-                  href={link.url}
-                  target="_blank"
-                  class:list={"text-cyan-600 hover:text-cyan-400"}
-                >
-                  {link.title}
-                </Link>
-              );
-            })
-          }
-        </div>
+      <div class="flex flex-col gap-2">
+        <p class="m-0 text-text-2">
+          <span>by {author}</span>
+          <span>·</span>
+          <span>
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div class="last-updated-on">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </span>
+        </p>
       </div>
 
-      <div class="flex flex-col my-3">
+      <div class="content">
         <slot />
-        <div class="flex gap-2">
-          Tags:
-          {
-            tags?.map((item) => {
-              return <Link href={`/tags/${item}`}>#{item}</Link>;
-            })
-          }
-        </div>
+      </div>
+
+      <div class="flex gap-2">
+        Tags:
+        {
+          tags?.map((item) => {
+            return <Link href={`/posts/?tag=${item}`}>#{item}</Link>;
+          })
+        }
       </div>
     </article>
   </Container>

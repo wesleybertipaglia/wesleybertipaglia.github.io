@@ -1,10 +1,13 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+interface Props {
+  classList?: string;
+}
 
-type Props = HTMLAttributes<"button">;
-const { ...props } = Astro.props;
+const { classList } = Astro.props;
 ---
 
-<button {...props}>
+<button
+  class=`border border-transparent hover:border-accent rounded ${classList}`
+>
   <slot />
 </button>

@@ -3,48 +3,33 @@ import Container from "../basic/Container.astro";
 import Link from "../basic/Link.astro";
 ---
 
-<header>
-  <Container classList="py-6">
-    <nav
-      class="flex justify-between gap-4 px-4 py-3 border border-default-border bg-default-accent shadow rounded-xl"
-    >
-      <ul class="flex gap-4">
-        <li><Link href="/">home</Link></li>
-        <li><Link href="/about">about</Link></li>
-        <li><Link href="/projects">projects</Link></li>
-        <li><Link href="/links">links</Link></li>
-        <li><Link href="/blog">blog</Link></li>
-      </ul>
+<header class="sticky top-0 z-10 bg-body-1 border-b border-body-3">
+  <Container class:list={"py-4"}>
+    <nav class="flex items-center justify-between">
+      <Link href="/" class="font-medium">Home</Link>
 
-      <ul class="flex gap-4">
-        <li class="flex">
-          <Link
-            href="https://twitter.com/wesleyberti_"
-            target="_blank"
-            class:list={"hover:no-underline flex items-center"}
-          >
-            <i class="devicon-twitter-original"></i>
-          </Link>
-        </li>
-        <li class="flex">
-          <Link
-            href="https://linkedin.com/in/wesley-bertipaglia"
-            target="_blank"
-            class:list={"hover:no-underline flex items-center"}
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </Link>
-        </li>
-        <li class="flex">
-          <Link
-            href="https://github.com/wesleybertipaglia"
-            target="_blank"
-            class:list={"hover:no-underline flex items-center"}
-          >
-            <i class="devicon-github-original"></i>
-          </Link>
-        </li>
-      </ul>
+      <div class="flex items-center gap-6">
+        <ul class="flex gap-6 text-sm">
+          <li>
+            <Link href="/#about" class="font-medium">About</Link>
+          </li>
+          <li>
+            <Link href="/blog" class="font-medium">Blog</Link>
+          </li>
+          <li>
+            <Link href="/projects" class="font-medium">Projects</Link>
+          </li>
+          <li>
+            <Link href="/#contact" class="font-medium">Contact</Link>
+          </li>
+        </ul>
+
+        <button
+          class="px-1 pr-6 border rounded-full transition-all"
+          title="toggle theme"
+          id="toggle-theme">🌞</button
+        >
+      </div>
     </nav>
   </Container>
 </header>

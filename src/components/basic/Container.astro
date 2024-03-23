@@ -1,9 +1,10 @@
 ---
-interface Props {
-  classList?: string;
-}
+import type { HTMLAttributes } from "astro/types";
 
-const { classList } = Astro.props;
+type Props = HTMLAttributes<"section">;
+const { class: classList, ...props } = Astro.props;
 ---
 
-<section class=`mx-auto px-4 max-w-2xl ${classList}`><slot /></section>
+<section {...props} class:list={["mx-auto px-4 max-w-6xl", classList]}>
+  <slot />
+</section>

@@ -1,0 +1,40 @@
+---
+import BadgeSquare from "./BadgeSquare.astro";
+
+interface Props {
+  category: string;
+  stack: any[];
+}
+
+const { category, stack } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+  <p class="text-text-2">{category}</p>
+
+  <div class="flex flex-wrap gap-4">
+    {
+      stack.map((item) => (
+        <a href={item.link} target="_blank">
+          <BadgeSquare title={item.name} class="text-3xl">
+            <i class={`devicon devicon-${item.icon}`} />
+          </BadgeSquare>
+        </a>
+      ))
+    }
+  </div>
+
+  <script>
+    const badges = document.querySelectorAll(".badge-square");
+
+    badges.forEach((badge) => {
+      badge.addEventListener("mouseover", () => {
+        badge.children[0].classList.add("colored");
+      });
+
+      badge.addEventListener("mouseleave", () => {
+        badge.children[0].classList.remove("colored");
+      });
+    });
+  </script>
+</div>

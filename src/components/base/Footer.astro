@@ -4,8 +4,8 @@ import Container from "../basic/Container.astro";
 import Link from "../basic/Link.astro";
 ---
 
-<footer>
-  <Container classList="flex flex-col gap-2 items-center py-6 text-neutral-500">
+<footer class="border-t border-accent py-6 mt-12">
+  <Container class:list={"flex flex-col gap-2 items-center text-neutral-500"}>
     <p>&copy; {today.getFullYear()} Wesley Bertipaglia</p>
 
     <ul class="flex gap-4 text-sm">

@@ -1,0 +1,36 @@
+---
+import FormattedDate from "../helpers/FormattedDate.astro";
+import Link from "./Link.astro";
+
+interface Props {
+  post: any;
+}
+const { post } = Astro.props;
+---
+
+<Link
+  href={`/posts/${post.slug}/`}
+  class:list={"p-3 my-4 hover:no-underline flex gap-4 border border-default-border bg-default-accent rounded"}
+>
+  <div class="flex min-w-max">
+    <img
+      src={post.data.image?.url}
+      alt={post.data.image?.alt}
+      class="w-auto h-20 aspect-square object-cover rounded-md hover:filter-gray"
+      style="transition: all 0.5s;"
+    />
+  </div>
+
+  <div class="flex flex-col overflow-hidden">
+    <p class="font-bold">{post.data.title}</p>
+    <p>{post.data.description}</p>
+    <p class="inline-flex gap-2 mt-auto text-sm whitespace-nowrap">
+      <span>
+        <FormattedDate date={post.data.pubDate} />
+      </span>
+
+      <span>|</span>
+      <span class="truncate">tags: {post.data.tags.join(", ")} </span>
+    </p>
+  </div>
+</Link>
