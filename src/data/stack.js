@@ -1,345 +1,422 @@
 const frontend = [
     {
         name: 'HTML',
-        icon: 'html5-plain',
+        icon: 'devicon-html5-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+        url: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
     },
     {
         name: 'CSS',
-        icon: 'css3-plain',
+        icon: 'devicon-css3-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+        url: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
     },
     {
         name: 'JavaScript',
-        icon: 'javascript-plain',
+        icon: 'devicon-javascript-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
     },
     {
         name: 'TypeScript',
-        icon: 'typescript-plain',
+        icon: 'devicon-typescript-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://www.typescriptlang.org/'
+        url: 'https://www.typescriptlang.org/'
     },
     {
         name: 'jQuery',
-        icon: 'jquery-plain',
+        icon: 'devicon-jquery-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://jquery.com/'
+        url: 'https://jquery.com/'
     },
     {
         name: 'React',
-        icon: 'react-plain',
+        icon: 'devicon-react-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://reactjs.org/'
+        url: 'https://reactjs.org/'
     },
     {
         name: 'Next.js',
-        icon: 'nextjs-plain',
+        icon: 'devicon-nextjs-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://nextjs.org/'
+        url: 'https://nextjs.org/'
     },
     {
         name: 'Astro',
-        icon: 'astro-plain',
+        icon: 'devicon-astro-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://astro.build/'
+        url: 'https://astro.build/'
     },
     {
         name: 'Flutter',
-        icon: 'flutter-plain',
+        icon: 'devicon-flutter-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://flutter.dev/'
+        url: 'https://flutter.dev/'
     },
     {
         name: 'Blazor',
-        icon: 'blazor-plain',
+        icon: 'devicon-blazor-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor'
+        url: 'https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor'
     },
     {
         name: 'Markdown',
-        icon: 'markdown-plain',
+        icon: 'devicon-markdown-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://www.markdownguide.org/'
+        url: 'https://www.markdownguide.org/'
     },
     {
         name: 'Sass',
-        icon: 'sass-plain',
+        icon: 'devicon-sass-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://sass-lang.com/'
+        url: 'https://sass-lang.com/'
     },
     {
         name: 'Bootstrap',
-        icon: 'bootstrap-plain',
+        icon: 'devicon-bootstrap-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://getbootstrap.com/'
+        url: 'https://getbootstrap.com/'
     },
     {
         name: 'Tailwind CSS',
-        icon: 'tailwindcss-plain',
+        icon: 'devicon-tailwindcss-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://tailwindcss.com/'
+        url: 'https://tailwindcss.com/'
     },
     {
         name: 'Material-UI',
-        icon: 'materialui-plain',
+        icon: 'devicon-materialui-plain',
+        customIcon: false,
         category: 'frontend',
-        link: 'https://material-ui.com/'
+        url: 'https://material-ui.com/'
     },
 ]
 
 const backend = [
     {
         name: 'Node.js',
-        icon: 'nodejs-plain',
+        icon: 'devicon-nodejs-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://nodejs.org/'
+        url: 'https://nodejs.org/'
     },
     {
         name: 'Nodemon',
-        icon: 'nodemon-plain',
+        icon: 'devicon-nodemon-plain',
+        customIcon: false,
         category: 'nodejs',
-        link: 'https://nodemon.io/'
+        url: 'https://nodemon.io/'
     },
     {
         name: 'JSON',
-        icon: 'json-plain',
+        icon: 'devicon-json-plain',
+        customIcon: false,
         category: 'model',
-        link: 'https://www.json.org/json-en.html'
+        url: 'https://www.json.org/json-en.html'
     },
     {
         name: 'Express',
-        icon: 'express-original',
+        icon: 'devicon-express-original',
+        customIcon: false,
         category: 'nodejs',
-        link: 'https://expressjs.com/'
+        url: 'https://expressjs.com/'
     },
     {
         name: 'NestJS',
-        icon: 'nestjs-plain',
+        icon: 'devicon-nestjs-plain',
+        customIcon: false,
         category: 'nodejs',
-        link: 'https://nestjs.com/'
+        url: 'https://nestjs.com/'
     },
     {
         name: 'C#',
-        icon: 'csharp-plain',
+        icon: 'devicon-csharp-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
+        url: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
     },
     {
         name: '.NET',
-        icon: 'dot-net-plain',
+        icon: 'devicon-dot-net-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://dotnet.microsoft.com/'
+        url: 'https://dotnet.microsoft.com/'
     },
     {
         name: 'PHP',
-        icon: 'php-plain',
+        icon: 'devicon-php-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://www.php.net/'
+        url: 'https://www.php.net/'
     },
     {
         name: 'Laravel',
-        icon: 'laravel-plain',
+        icon: 'devicon-laravel-plain',
+        customIcon: false,
         category: 'php',
-        link: 'https://laravel.com/'
+        url: 'https://laravel.com/'
     },
     {
         name: 'WordPress',
-        icon: 'wordpress-plain',
+        icon: 'devicon-wordpress-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://wordpress.org/'
+        url: 'https://wordpress.org/'
     },
     {
         name: 'Sequelize',
-        icon: 'sequelize-plain',
+        icon: 'devicon-sequelize-plain',
+        customIcon: false,
         category: 'orm',
-        link: 'https://sequelize.org/'
+        url: 'https://sequelize.org/'
     },
     {
         name: 'Prisma',
-        icon: 'prisma-plain',
+        icon: 'devicon-prisma-plain',
+        customIcon: false,
         category: 'orm',
-        link: 'https://www.prisma.io/'
+        url: 'https://www.prisma.io/'
     },
     {
         name: 'SQLite',
-        icon: 'sqlite-plain',
+        icon: 'devicon-sqlite-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://www.sqlite.org/index.html'
+        url: 'https://www.sqlite.org/index.html'
     },
     {
         name: 'MySQL',
-        icon: 'mysql-plain',
+        icon: 'devicon-mysql-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://www.mysql.com/'
+        url: 'https://www.mysql.com/'
     },
     {
         name: 'MariaDB',
-        icon: 'mariadb-plain',
+        icon: 'devicon-mariadb-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://mariadb.org/'
+        url: 'https://mariadb.org/'
     },
     {
         name: 'PostgreSQL',
-        icon: 'postgresql-plain',
+        icon: 'devicon-postgresql-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://www.postgresql.org/'
+        url: 'https://www.postgresql.org/'
     },
     {
         name: 'Firebase',
-        icon: 'firebase-plain',
+        icon: 'devicon-firebase-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://firebase.google.com/'
+        url: 'https://firebase.google.com/'
     },
     {
         name: 'MongoDB',
-        icon: 'mongodb-plain',
+        icon: 'devicon-mongodb-plain',
+        customIcon: false,
         category: 'database',
-        link: 'https://www.mongodb.com/'
+        url: 'https://www.mongodb.com/'
     },
     {
         name: 'Mongoose',
-        icon: 'mongoose-original',
+        icon: 'devicon-mongoose-original',
+        customIcon: false,
         category: 'database',
-        link: 'https://mongoosejs.com/'
+        url: 'https://mongoosejs.com/'
     },
 ]
 
 const tools = [
     {
         name: 'Bash',
-        icon: 'bash-plain',
+        icon: 'devicon-bash-plain',
+        customIcon: false,
         category: 'language',
-        link: 'https://www.gnu.org/software/bash/'
+        url: 'https://www.gnu.org/software/bash/'
     },
     {
         name: 'Linux',
-        icon: 'linux-plain',
+        icon: 'devicon-linux-plain',
+        customIcon: false,
         category: 'os',
-        link: 'https://www.linux.org/'
+        url: 'https://www.linux.org/'
     },
     {
         name: 'Windows',
-        icon: 'windows11-plain',
+        icon: 'devicon-windows11-plain',
+        customIcon: false,
         category: 'os',
-        link: 'https://www.microsoft.com/en-us/windows'
+        url: 'https://www.microsoft.com/en-us/windows'
     },
     {
         name: 'Git',
-        icon: 'git-plain',
+        icon: 'devicon-git-plain',
+        customIcon: false,
         category: 'version-control',
-        link: 'https://git-scm.com/'
+        url: 'https://git-scm.com/'
     },
     {
         name: 'GitHub',
-        icon: 'github-plain',
+        icon: 'devicon-github-plain',
+        customIcon: false,
         category: 'version-control',
-        link: 'https://github.com/'
+        url: 'https://github.com/'
     },
     {
         name: 'VS Code',
-        icon: 'vscode-plain',
+        icon: 'devicon-vscode-plain',
+        customIcon: false,
         category: 'ide',
-        link: 'https://code.visualstudio.com/'
+        url: 'https://code.visualstudio.com/'
     },
     {
         name: 'Docker',
-        icon: 'docker-plain',
+        icon: 'devicon-docker-plain',
+        customIcon: false,
         category: 'deployment',
-        link: 'https://www.docker.com/'
+        url: 'https://www.docker.com/'
     },
     {
         name: 'Netlify',
-        icon: 'netlify-plain',
+        icon: 'devicon-netlify-plain',
+        customIcon: false,
         category: 'deployment',
-        link: 'https://www.netlify.com/'
+        url: 'https://www.netlify.com/'
     },
     {
         name: 'Vercel',
-        icon: 'vercel-plain',
+        icon: 'devicon-vercel-plain',
+        customIcon: false,
         category: 'deployment',
-        link: 'https://vercel.com/'
+        url: 'https://vercel.com/'
     },
     {
         name: 'ESLint',
-        icon: 'eslint-plain',
+        icon: 'devicon-eslint-plain',
+        customIcon: false,
         category: 'build',
-        link: 'https://eslint.org/'
+        url: 'https://eslint.org/'
     },
     {
         name: 'NPM',
-        icon: 'npm-original-wordmark',
+        icon: 'devicon-npm-original-wordmark',
+        customIcon: false,
         category: 'build',
-        link: 'https://www.npmjs.com/'
+        url: 'https://www.npmjs.com/'
     },
     {
         name: 'Yarn',
-        icon: 'yarn-plain',
+        icon: 'devicon-yarn-plain',
+        customIcon: false,
         category: 'build',
-        link: 'https://yarnpkg.com/'
+        url: 'https://yarnpkg.com/'
     },
     {
         name: 'Vite',
-        icon: 'vitejs-plain',
+        icon: 'devicon-vitejs-plain',
+        customIcon: false,
         category: 'build',
-        link: 'https://vitejs.dev/'
+        url: 'https://vitejs.dev/'
     },
     {
         name: 'WebPack',
-        icon: 'webpack-plain',
+        icon: 'devicon-webpack-plain',
+        customIcon: false,
         category: 'build',
-        link: 'https://webpack.js.org/'
+        url: 'https://webpack.js.org/'
     },
     {
         name: 'Axios',
-        icon: 'axios-plain',
+        icon: 'devicon-axios-plain',
+        customIcon: false,
         category: 'api',
-        link: 'https://axios-http.com/'
+        url: 'https://axios-http.com/'
     },
     {
         name: 'Vitest',
-        icon: 'vitest-plain',
+        icon: 'devicon-vitest-plain',
+        customIcon: false,
         category: 'testing',
-        link: 'https://vitejs.dev/'
+        url: 'https://vitejs.dev/'
     },
     {
         name: 'Jest',
-        icon: 'jest-plain',
+        icon: 'devicon-jest-plain',
+        customIcon: false,
         category: 'testing',
-        link: 'https://jestjs.io/'
+        url: 'https://jestjs.io/'
     },
     {
         name: 'Jasmine',
-        icon: 'jasmine-plain',
+        icon: 'devicon-jasmine-plain',
+        customIcon: false,
         category: 'testing',
-        link: 'https://jasmine.github.io/'
+        url: 'https://jasmine.github.io/'
     },
     {
         name: 'Cypress',
-        icon: 'cypressio-plain',
+        icon: 'devicon-cypressio-plain',
+        customIcon: false,
         category: 'testing',
-        link: 'https://www.cypress.io/'
+        url: 'https://www.cypress.io/'
     },
     {
         name: 'Playwright',
-        icon: 'playwright-plain',
+        icon: 'devicon-playwright-plain',
+        customIcon: false,
         category: 'testing',
-        link: 'https://playwright.dev/'
+        url: 'https://playwright.dev/'
     },
     {
         name: 'Postman',
-        icon: 'postman-plain',
+        icon: 'devicon-postman-plain',
+        customIcon: false,
         category: 'api',
-        link: 'https://www.postman.com/'
+        url: 'https://www.postman.com/'
     },
     {
         name: 'Insomnia',
-        icon: 'insomnia-plain',
+        icon: 'devicon-insomnia-plain',
+        customIcon: false,
         category: 'api',
-        link: 'https://insomnia.rest/'
+        url: 'https://insomnia.rest/'
+    },
+    {
+        name: 'Swagger',
+        icon: 'devicon-swagger-plain',
+        customIcon: false,
+        category: 'api',
+        url: 'https://swagger.io/'
+    },
+    {
+        name: 'REST',
+        icon: 'rest',
+        customIcon: true,
+        category: 'api',
+        url: 'https://restfulapi.net/'
+    },
+    {
+        name: 'OAuth',
+        icon: 'devicon-oauth-plain',
+        customIcon: false,
+        category: 'api',
+        url: 'https://oauth.net/'
     },
 ]
 

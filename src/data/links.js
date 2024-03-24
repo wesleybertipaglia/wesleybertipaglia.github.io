@@ -1,23 +1,41 @@
-const work = []
-const social = [
+const work = [
     {
         name: 'LinkedIn',
-        icon: 'linkedin-plain',
+        icon: 'devicon-linkedin-plain',
+        customIcon: false,
         category: 'social',
-        link: 'https://linkedin.com/in/wesley-bertipaglia'
+        url: 'https://linkedin.com/in/wesley-bertipaglia'
     },
     {
         name: 'GitHub',
-        icon: 'github-plain',
+        icon: 'devicon-github-plain',
+        customIcon: false,
         category: 'social',
-        link: 'https://github.com/wesleybertipaglia'
+        url: 'https://github.com/wesleybertipaglia'
     },
+]
+
+const social = [
     {
         name: 'Twitter',
-        icon: 'twitter-plain',
+        icon: 'devicon-twitter-plain',
+        customIcon: false,
         category: 'social',
-        link: 'https://twitter.com/wesleyberti_'
+        url: 'https://twitter.com/wesleyberti_'
+    },
+    {
+        name: 'Instagram',
+        icon: 'instagram',
+        customIcon: true,
+        category: 'social',
+        url: 'https://instagram.com/wesleyberti_'
     }
 ]
 
+const links = [
+    ...work,
+    ...social
+]
+
+export default links
 export { work, social }
