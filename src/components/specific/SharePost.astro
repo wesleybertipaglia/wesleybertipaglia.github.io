@@ -1,5 +1,4 @@
 ---
-import Badge from "../basic/Badge.astro";
 import LinkTree from "./LinkTree.astro";
 
 interface Props {
@@ -36,7 +35,7 @@ const social = [
 ];
 ---
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-2">
   <h3>Share it!</h3>
   <LinkTree type="horizontal" links={social} />
 </div>

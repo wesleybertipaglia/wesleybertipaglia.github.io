@@ -15,6 +15,8 @@ const posts = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    repository: z.string().optional(),
+    deploy: z.string().optional(),
     links: z
       .array(
         z.object({
