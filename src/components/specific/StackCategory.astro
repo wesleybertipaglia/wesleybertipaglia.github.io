@@ -1,9 +1,15 @@
 ---
 import BadgeSquare from "./BadgeSquare.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   category: string;
-  stack: any[];
+  stack: {
+    name: string;
+    url: string;
+    icon: string;
+    customIcon: boolean;
+  }[];
 }
 
 const { category, stack } = Astro.props;
@@ -15,9 +21,13 @@ const { category, stack } = Astro.props;
   <div class="flex flex-wrap gap-4">
     {
       stack.map((item) => (
-        <a href={item.link} target="_blank">
+        <a href={item.url} target="_blank">
           <BadgeSquare title={item.name} class="text-3xl">
-            <i class={`devicon devicon-${item.icon}`} />
+            {item.customIcon ? (
+              <Icon name={item.icon} />
+            ) : (
+              <i class={item.icon} />
+            )}
           </BadgeSquare>
         </a>
       ))
@@ -25,11 +35,11 @@ const { category, stack } = Astro.props;
   </div>
 
   <script>
-    const badges = document.querySelectorAll(".badge-square");
+    const badges = document.querySelectorAll(".badge-icon");
 
     badges.forEach((badge) => {
       badge.addEventListener("mouseover", () => {
-        badge.children[0].classList.add("colored");
+        badge.querySelector("i")?.classList.add("colored");
       });
 
       badge.addEventListener("mouseleave", () => {

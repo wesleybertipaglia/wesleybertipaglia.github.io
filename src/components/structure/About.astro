@@ -1,7 +1,7 @@
 ---
 import Container from "../basic/Container.astro";
-import Badge from "../basic/Badge.astro";
-import SocialLinks from "./SocialLinks.astro";
+import LinkTree from "../specific/LinkTree.astro";
+import { social } from "../../data/links";
 ---
 
 <Container id="about" class:list={"flex flex-col gap-4 my-12"}>
@@ -15,5 +15,5 @@ import SocialLinks from "./SocialLinks.astro";
     </p>
   </div>
 
-  <SocialLinks />
+  <LinkTree type="horizontal" links={social} />
 </Container>

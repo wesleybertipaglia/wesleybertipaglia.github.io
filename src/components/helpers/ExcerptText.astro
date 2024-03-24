@@ -1,0 +1,12 @@
+---
+interface Props {
+  text: string;
+  maxLength: number;
+}
+
+const { text, maxLength } = Astro.props;
+---
+
+<>
+  {text.substring(0, maxLength - 3).concat("...")}
+</>

@@ -1,7 +1,8 @@
 ---
+import Card from "../basic/Card.astro";
+import Badge from "../basic/Badge.astro";
 import FormattedDate from "../helpers/FormattedDate.astro";
-import Card from "./Card.astro";
-import Badge from "./Badge.astro";
+import ExcerptText from "../helpers/ExcerptText.astro";
 
 interface Props {
   post: any;
@@ -11,14 +12,14 @@ const postData = post.data;
 ---
 
 <a href={`/posts/${post.slug}/`}>
-  <Card classList="flex flex-col gap-4">
+  <Card class:list="flex flex-col gap-4 p-4">
     <img src={postData.image.url} alt={postData.image.alt} class="rounded-lg" />
 
     <div class="border-t border-accent pt-4">
       <h3 class="font-bold">{postData.title}</h3>
       <small><FormattedDate date={postData.pubDate} /></small>
       <p class="text-base text-text-2">
-        {postData.description.substring(0, 97).concat("...")}
+        <ExcerptText text={postData.description} maxLength={100} />
       </p>
     </div>
 

@@ -7,7 +7,10 @@ const { classList } = Astro.props;
 ---
 
 <p
-  class=`bg-body-3 border border-transparent hover:border-accent rounded ${classList}`
+  class:list={[
+    `bg-body-3 text-text-2 rounded border border-transparent hover:border-accent transition-all duration-200 ease-in-out cursor-pointer`,
+    classList,
+  ]}
 >
   <slot />
 </p>

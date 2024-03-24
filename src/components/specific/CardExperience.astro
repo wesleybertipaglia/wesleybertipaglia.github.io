@@ -1,6 +1,6 @@
 ---
-import Card from "./Card.astro";
-import Badge from "./Badge.astro";
+import Card from "../basic/Card.astro";
+import Badge from "../basic/Badge.astro";
 
 interface Props {
   role: string;
@@ -17,7 +17,7 @@ const { role, type, company, location, modality, date, description, stack } =
   Astro.props;
 ---
 
-<Card classList="flex flex-col gap-4">
+<Card class:list="flex flex-col gap-4 p-4">
   <div>
     <h3 class="font-medium text-base">{role} - {company}</h3>
     <p class="text-sm text-text-3 mb-1">

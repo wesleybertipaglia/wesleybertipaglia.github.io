@@ -1,5 +1,5 @@
 ---
-import Card from "./Card.astro";
+import Card from "../basic/Card.astro";
 
 interface Props {
   icon: string;
@@ -10,7 +10,7 @@ interface Props {
 const { icon, title, description } = Astro.props;
 ---
 
-<Card classList="flex flex-col gap-4">
+<Card class:list="flex flex-col gap-4 p-4">
   <div
     class="text-2xl flex bg-body-3 p-2 w-12 h-12 aspect-square justify-center items-center rounded"
   >
