@@ -1,18 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Scaffold from "../layouts/Scaffold.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_SEPARATOR } from "../consts";
-import Hero from "../components/base/Hero.astro";
-import About from "../components/base/About.astro";
-import Skills from "../components/base/Skills.astro";
-import Stack from "../components/base/Stack.astro";
-import Experience from "../components/base/Experience.astro";
-import Education from "../components/base/Education.astro";
-import Contact from "../components/base/Contact.astro";
-import ListPosts from "../components/basic/ListPosts.astro";
+import Hero from "../components/structure/Hero.astro";
+import About from "../components/structure/About.astro";
+import Skills from "../components/structure/Skills.astro";
+import Stack from "../components/structure/Stack.astro";
+import Experience from "../components/structure/Experience.astro";
+import Education from "../components/structure/Education.astro";
+import Contact from "../components/structure/Contact.astro";
+import ListPosts from "../components/structure/ListPosts.astro";
 import { PostView } from "../utils/Post";
 ---
 
-<BaseLayout
+<Scaffold
   title={SITE_DESCRIPTION}
   description={SITE_TITLE + SITE_SEPARATOR + SITE_DESCRIPTION}
 >
@@ -37,4 +37,4 @@ import { PostView } from "../utils/Post";
     type="blog"
   />
   <Contact />
-</BaseLayout>
+</Scaffold>

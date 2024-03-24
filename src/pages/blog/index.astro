@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ListLayout from "../../components/basic/ListPosts.astro";
+import Scaffold from "../../layouts/Scaffold.astro";
+import ListPosts from "../../components/structure/ListPosts.astro";
 import { PostView } from "../../utils/Post";
 ---
 
-<BaseLayout title="Posts" description="My posts">
-  <ListLayout title="Blog" showAll={false} view={PostView.normal} type="blog" />
-</BaseLayout>
+<Scaffold title="Posts" description="My posts">
+  <ListPosts title="Blog" showAll={false} view={PostView.normal} type="blog" />
+</Scaffold>

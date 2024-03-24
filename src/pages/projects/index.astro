@@ -1,14 +1,14 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ListPosts from "../../components/basic/ListPosts.astro";
+import Scaffold from "../../layouts/Scaffold.astro";
+import ListPosts from "../../components/structure/ListPosts.astro";
 import { PostView } from "../../utils/Post";
 ---
 
-<BaseLayout title="Projects" description="My projects">
+<Scaffold title="Projects" description="My projects">
   <ListPosts
     title="Projects"
     showAll={false}
     view={PostView.normal}
     type="projects"
   />
-</BaseLayout>
+</Scaffold>
