@@ -1,13 +1,16 @@
 ---
-interface Props {
-  classList?: string;
-}
+import type { HTMLAttributes } from "astro/types";
 
-const { classList } = Astro.props;
+type Props = HTMLAttributes<"div">;
+const { class: classList, ...props } = Astro.props;
 ---
 
 <div
-  class=`bg-body-2 rounded-md p-4 border transition-all border-transparent hover:border-accent ${classList}`
+  class:list={[
+    "bg-body-2 rounded-md border transition-all border-transparent hover:border-accent",
+    classList,
+  ]}
+  {...props}
 >
   <slot />
 </div>
