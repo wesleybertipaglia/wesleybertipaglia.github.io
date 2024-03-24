@@ -17,8 +17,8 @@ const postData = post.data;
     <div class="border-t border-accent pt-4">
       <h3 class="font-bold">{postData.title}</h3>
       <small><FormattedDate date={postData.pubDate} /></small>
-      <p>
-        {postData.description}
+      <p class="text-base text-text-2">
+        {postData.description.substring(0, 97).concat("...")}
       </p>
     </div>
 

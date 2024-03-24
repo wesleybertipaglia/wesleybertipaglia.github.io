@@ -1,6 +1,6 @@
 ---
 title: "Hello from Hugo"
-description: "Lorem ipsum dolor sit amet"
+description: "For years, I’ve dreamt of having a personal website to showcase my work, share my thoughts, and connect with others. After a long journey of exploration, I finally decided to take the plunge and build my own site using the static site generator Hugo."
 pubDate: 12-10-2023
 author: "Wesley Bertipaglia"
 image:
