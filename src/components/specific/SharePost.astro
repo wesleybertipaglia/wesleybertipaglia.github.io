@@ -1,0 +1,42 @@
+---
+import Badge from "../basic/Badge.astro";
+import LinkTree from "./LinkTree.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  tags?: string[];
+}
+const { title, description, tags } = Astro.props;
+const url = `https://wesleybertipaglia.co/posts/${title.toLowerCase().replace(/\s/g, "-")}`;
+
+const getText = () => {
+  return `I'm reading ${title} on ${url}. Check it out!`;
+};
+
+const social = [
+  {
+    name: "Twitter",
+    url: `https://twitter.com/intent/tweet?url=${url}text=${getText()}`,
+    icon: "devicon-twitter-original",
+    customIcon: false,
+  },
+  {
+    name: "Facebook",
+    url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    icon: "devicon-facebook-plain",
+    customIcon: false,
+  },
+  {
+    name: "LinkedIn",
+    url: `https://www.linkedin.com/sharing/share-offsite/?min=true&url=${url}&title=${title}`,
+    icon: "devicon-linkedin-plain",
+    customIcon: false,
+  },
+];
+---
+
+<div class="flex flex-col gap-4">
+  <h3>Share it!</h3>
+  <LinkTree type="horizontal" links={social} />
+</div>

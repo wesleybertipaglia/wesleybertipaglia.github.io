@@ -4,6 +4,7 @@ import FormattedDate from "../components/helpers/FormattedDate.astro";
 import BaseLayout from "./Scaffold.astro";
 import Container from "../components/basic/Container.astro";
 import Link from "../components/basic/Link.astro";
+import SharePost from "../components/specific/SharePost.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
@@ -41,6 +42,8 @@ const { title, description, pubDate, updatedDate, author, image, tags, links } =
           </span>
         </p>
       </div>
+
+      <SharePost title={title} description={description} tags={tags} />
 
       <div class="content">
         <slot />

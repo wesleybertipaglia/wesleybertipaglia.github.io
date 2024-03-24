@@ -5,7 +5,7 @@ import Badge from "../basic/Badge.astro";
 
 <Container
   id="hero"
-  class:list={"flex flex-col gap-4 justify-center py-3 md:min-h-[400px] border-b"}
+  class:list={"flex flex-col gap-4 justify-center py-3 md:min-h-[400px] border-b border-accent"}
 >
   <div class="flex flex-col gap-2">
     <h1 class="text-4xl font-bold group cursor-default">
@@ -13,18 +13,19 @@ import Badge from "../basic/Badge.astro";
         >👋</span
       >
     </h1>
-    <p class="text-xl">
+    <p class="md:text-xl">
       I'm a software engineer based in Brazil. I'm passionate about technology
       and I love to learn new things.
     </p>
   </div>
 
-  <div class="flex gap-4">
+  <div class="flex flex-wrap gap-4">
     <a
       href="https://docs.google.com/document/d/1G4bFqa1jpjDXBsZexRkvoVRDxQmYqk73hzWWHUtV4o0/edit"
       target="_blank"
     >
-      <Badge classList="bg-primary px-4 py-2 font-bold text-white"
+      <Badge
+        classList="bg-primary px-4 py-2 font-bold text-white hover:brightness-110 hover:border-transparent hover:shadow-lg shadow-text-1 transition duration-300 ease-in-out"
         >Download Resume 📜</Badge
       >
     </a>
