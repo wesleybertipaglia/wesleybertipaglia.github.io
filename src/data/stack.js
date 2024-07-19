@@ -1,5 +1,12 @@
 const frontend = [
     {
+        name: 'Markdown',
+        icon: 'devicon-markdown-plain',
+        customIcon: false,
+        category: 'frontend',
+        url: 'https://www.markdownguide.org/'
+    },
+    {
         name: 'HTML',
         icon: 'devicon-html5-plain',
         customIcon: false,
@@ -49,34 +56,6 @@ const frontend = [
         url: 'https://nextjs.org/'
     },
     {
-        name: 'Astro',
-        icon: 'devicon-astro-plain',
-        customIcon: false,
-        category: 'frontend',
-        url: 'https://astro.build/'
-    },
-    {
-        name: 'Flutter',
-        icon: 'devicon-flutter-plain',
-        customIcon: false,
-        category: 'frontend',
-        url: 'https://flutter.dev/'
-    },
-    {
-        name: 'Blazor',
-        icon: 'devicon-blazor-plain',
-        customIcon: false,
-        category: 'frontend',
-        url: 'https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor'
-    },
-    {
-        name: 'Markdown',
-        icon: 'devicon-markdown-plain',
-        customIcon: false,
-        category: 'frontend',
-        url: 'https://www.markdownguide.org/'
-    },
-    {
         name: 'Sass',
         icon: 'devicon-sass-plain',
         customIcon: false,
@@ -115,20 +94,6 @@ const backend = [
         url: 'https://nodejs.org/'
     },
     {
-        name: 'Nodemon',
-        icon: 'devicon-nodemon-plain',
-        customIcon: false,
-        category: 'nodejs',
-        url: 'https://nodemon.io/'
-    },
-    {
-        name: 'JSON',
-        icon: 'devicon-json-plain',
-        customIcon: false,
-        category: 'model',
-        url: 'https://www.json.org/json-en.html'
-    },
-    {
         name: 'Express',
         icon: 'devicon-express-original',
         customIcon: false,
@@ -157,46 +122,18 @@ const backend = [
         url: 'https://dotnet.microsoft.com/'
     },
     {
-        name: 'PHP',
-        icon: 'devicon-php-plain',
+        name: 'Java',
+        icon: 'devicon-java-plain',
         customIcon: false,
         category: 'language',
-        url: 'https://www.php.net/'
+        url: 'https://www.java.com/'
     },
     {
-        name: 'Laravel',
-        icon: 'devicon-laravel-plain',
+        name: 'Spring Framework',
+        icon: 'devicon-spring-plain',
         customIcon: false,
-        category: 'php',
-        url: 'https://laravel.com/'
-    },
-    {
-        name: 'WordPress',
-        icon: 'devicon-wordpress-plain',
-        customIcon: false,
-        category: 'language',
-        url: 'https://wordpress.org/'
-    },
-    {
-        name: 'Sequelize',
-        icon: 'devicon-sequelize-plain',
-        customIcon: false,
-        category: 'orm',
-        url: 'https://sequelize.org/'
-    },
-    {
-        name: 'Prisma',
-        icon: 'devicon-prisma-plain',
-        customIcon: false,
-        category: 'orm',
-        url: 'https://www.prisma.io/'
-    },
-    {
-        name: 'SQLite',
-        icon: 'devicon-sqlite-plain',
-        customIcon: false,
-        category: 'database',
-        url: 'https://www.sqlite.org/index.html'
+        category: 'java',
+        url: 'https://spring.io/'
     },
     {
         name: 'MySQL',
@@ -220,25 +157,11 @@ const backend = [
         url: 'https://www.postgresql.org/'
     },
     {
-        name: 'Firebase',
-        icon: 'devicon-firebase-plain',
-        customIcon: false,
-        category: 'database',
-        url: 'https://firebase.google.com/'
-    },
-    {
         name: 'MongoDB',
         icon: 'devicon-mongodb-plain',
         customIcon: false,
         category: 'database',
         url: 'https://www.mongodb.com/'
-    },
-    {
-        name: 'Mongoose',
-        icon: 'devicon-mongoose-original',
-        customIcon: false,
-        category: 'database',
-        url: 'https://mongoosejs.com/'
     },
 ]
 
@@ -249,6 +172,13 @@ const tools = [
         customIcon: false,
         category: 'language',
         url: 'https://www.gnu.org/software/bash/'
+    },
+    {
+        name: 'PowerShell',
+        icon: 'devicon-powershell-plain',
+        customIcon: false,
+        category: 'language',
+        url: 'https://github.com/PowerShell/PowerShell'
     },
     {
         name: 'Linux',
@@ -286,6 +216,13 @@ const tools = [
         url: 'https://code.visualstudio.com/'
     },
     {
+        name: 'Visual Studio',
+        icon: 'devicon-visualstudio-plain',
+        customIcon: false,
+        category: 'ide',
+        url: 'https://visualstudio.com/'
+    },
+    {
         name: 'Docker',
         icon: 'devicon-docker-plain',
         customIcon: false,
@@ -307,117 +244,12 @@ const tools = [
         url: 'https://vercel.com/'
     },
     {
-        name: 'ESLint',
-        icon: 'devicon-eslint-plain',
-        customIcon: false,
-        category: 'build',
-        url: 'https://eslint.org/'
-    },
-    {
-        name: 'NPM',
-        icon: 'devicon-npm-original-wordmark',
-        customIcon: false,
-        category: 'build',
-        url: 'https://www.npmjs.com/'
-    },
-    {
-        name: 'Yarn',
-        icon: 'devicon-yarn-plain',
-        customIcon: false,
-        category: 'build',
-        url: 'https://yarnpkg.com/'
-    },
-    {
-        name: 'Vite',
-        icon: 'devicon-vitejs-plain',
-        customIcon: false,
-        category: 'build',
-        url: 'https://vitejs.dev/'
-    },
-    {
-        name: 'WebPack',
-        icon: 'devicon-webpack-plain',
-        customIcon: false,
-        category: 'build',
-        url: 'https://webpack.js.org/'
-    },
-    {
-        name: 'Axios',
-        icon: 'devicon-axios-plain',
-        customIcon: false,
-        category: 'api',
-        url: 'https://axios-http.com/'
-    },
-    {
-        name: 'Vitest',
-        icon: 'devicon-vitest-plain',
-        customIcon: false,
-        category: 'testing',
-        url: 'https://vitejs.dev/'
-    },
-    {
-        name: 'Jest',
-        icon: 'devicon-jest-plain',
-        customIcon: false,
-        category: 'testing',
-        url: 'https://jestjs.io/'
-    },
-    {
-        name: 'Jasmine',
-        icon: 'devicon-jasmine-plain',
-        customIcon: false,
-        category: 'testing',
-        url: 'https://jasmine.github.io/'
-    },
-    {
-        name: 'Cypress',
-        icon: 'devicon-cypressio-plain',
-        customIcon: false,
-        category: 'testing',
-        url: 'https://www.cypress.io/'
-    },
-    {
-        name: 'Playwright',
-        icon: 'devicon-playwright-plain',
-        customIcon: false,
-        category: 'testing',
-        url: 'https://playwright.dev/'
-    },
-    {
         name: 'Postman',
         icon: 'devicon-postman-plain',
         customIcon: false,
         category: 'api',
         url: 'https://www.postman.com/'
-    },
-    {
-        name: 'Insomnia',
-        icon: 'devicon-insomnia-plain',
-        customIcon: false,
-        category: 'api',
-        url: 'https://insomnia.rest/'
-    },
-    {
-        name: 'Swagger',
-        icon: 'devicon-swagger-plain',
-        customIcon: false,
-        category: 'api',
-        url: 'https://swagger.io/'
-    },
-    {
-        name: 'REST',
-        icon: 'rest',
-        customIcon: true,
-        category: 'api',
-        url: 'https://restfulapi.net/'
-    },
-    {
-        name: 'OAuth',
-        icon: 'devicon-oauth-plain',
-        customIcon: false,
-        category: 'api',
-        url: 'https://oauth.net/'
-    },
+    }
 ]
 
 const stack = {

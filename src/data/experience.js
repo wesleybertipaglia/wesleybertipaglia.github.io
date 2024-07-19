@@ -3,18 +3,26 @@ const experience = [
         role: "Web Developer",
         company: "Ancode App",
         type: "Full-time",
-        date: "Apr 2023 - Fev 2024 · 11 mos",
+        date: "Apr 2023 - Mar 2024 · 11 mos",
         location: "São José do Rio Preto - SP, Brazil",
         modality: "Hibrid",
-        description: `During my experience I was involved in several projects, with particular emphasis on a hospital system application. In this role, I developed new features prioritizing the optimization of code readability and scalability. The technology stack spans .NET, C#, Blazor, NHibernate and PostgreSQL, as well as HTML, CSS, SASS, JavaScript, Bootstrap.`,
+        description: `
+            Developed and maintained web applications.
+            Collaborated with cross-functional teams, improving project efficiency and delivery times.
+            Conducted unit and integration tests, reducing bug reports by 30%.
+            Managed version control and deployment using Git on Microsoft DevOps.
+            Actively participated in daily Scrum and Kanban meetings, contributing to project planning and execution.
+        `,
         stack: [
             "C#",
             ".NET",
             "Blazor",
+            "Nhibernate",
+            "JavaScript",
+            "jQuery",
+            "PostgreSQL",
             "Bootstrap",
             "SaSS",
-            "PostgreSQL",
-            "Nhibernate",
             "Docker",
             "Azure",
             "Git",
@@ -27,16 +35,25 @@ const experience = [
         date: "Jul 2022 - Apr 2023 · 10 mos",
         location: "São José do Rio Preto - SP, Brazil",
         modality: "On Site",
-        description: "This was my first experience working as a developer. I worked on developing wordpress websites for companies using PHP, JS, MariaDB, HTML, CSS, and Bootstrap. I also worked with the .NET application development team, where I was able to learn a lot.",
+        description: `
+            Contributed to the development of web applications.
+            Developed and maintained company websites.
+            Implemented containerization solutions with Docker and Docker Compose, reducing deployment time.
+            Managed version control and deployment using Git on Azure DevOps.            
+        `,
         stack: [
             "C#",
             ".NET",
             "Blazor",
+            "Nhibernate",
+            "JavaScript",
+            "jQuery",
+            "PHP",
+            "PostgreSQL",
+            "MariaDB",
+            "WordPress",
             "Bootstrap",
             "SaSS",
-            "PHP",
-            "WordPress",
-            "MariaDB",
             "Git",
             "Azure",
         ]
@@ -49,7 +66,7 @@ const experience = [
         location: "São José do Rio Preto - SP, Brazil",
         modality: "Hibrid",
         description: "I helped organize the event with support materials, website development, as well as searching for partnerships, fundraising, among other things.",
-        stack: ["HTML", "CSS", "SaSS", "JavaScript", "jQuery", "Git"]
+        stack: ["HTML", "CSS", "SaSS", "JavaScript", "Astro", "Git"]
     }
 ]
 

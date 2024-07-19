@@ -11,15 +11,49 @@ const education = [
         stack: []
     },
     {
-        role: "JavaScript Algorithms and Data Structures",
-        company: "FreeCodeCamp",
-        companyLink: "https://www.freecodecamp.org/",
-        certificate: "https://freecodecamp.org/certification/wesleybertipaglia/javascript-algorithms-and-data-structures",
+        role: "CS50W, Web Programming with Python and JavaScript",
+        company: "Harvard University",
+        companyLink: "https://harvard.edu/",
+        certificate: "https://certificates.cs50.io/d17ff742-3bef-412b-a0ef-64015e894055.pdf",
         type: "Professional Certificate",
-        date: "Mar 2024 · 300h",
+        date: "2022 · 10 weeks",
         location: "Online",
-        description: 'The course equipped me with valuable problem-solving skills and a solid foundation in algorithms and datastructures.',
-        stack: []
+        description: 'Proficiency in dynamic web development with Flask, Django, and React, emphasizing database management, user authentication, and security for robust web applications.',
+        stack: [
+            "Python",
+            "Flask",
+            "Django",
+            "JavaScript",
+            "React",
+            "SQL",
+            "HTML",
+            "CSS",
+            "GIT",
+            "Web Development",
+            "Software Engineering"
+        ]
+    },
+    {
+        role: "CS50X, Introduction to Computer Science",
+        company: "Harvard University",
+        companyLink: "https://harvard.edu/",
+        certificate: "https://certificates.cs50.io/d17ff742-3bef-412b-a0ef-64015e894055.pdf",
+        type: "Professional Certificate",
+        date: "2022 · 10 weeks",
+        location: "Online",
+        description: 'Mastery of algorithms, data structures, and software engineering with C, Python, SQL, HTML, CSS, and JavaScript through problem sets and a final project.',
+        stack: [
+            "C",
+            "Python",
+            "JavaScript",
+            "SQL",
+            "HTML",
+            "CSS",
+            "GIT",
+            "Algorithms",
+            "Data Structures",
+            "Software Engineering"
+        ]
     }
 ]
 
