@@ -1,8 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import { formatDateRange } from "@lib/utils";
+import WorkLayout from "@layouts/WorkLayout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("work");
@@ -17,30 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<PageLayout title={post.data.role} description={post.data.description}>
-	<article>
-		<Container>
-			<div class="mb-6">
-				<p>
-					<span class="font-semibold">
-						{post.data.role}
-					</span>
-
-					<span class="italic text-sm">
-						— {post.data.company}
-					</span>
-				</p>
-				<p class="text-sm">
-					{
-						formatDateRange({
-							startDate: post.data.startDate,
-							endDate: post.data.endDate,
-							options: { year: "numeric", month: "short" },
-						})
-					}
-				</p>
-			</div>
-			<Content />
-		</Container>
-	</article>
-</PageLayout>
+<WorkLayout post={post}>
+	<Content />
+</WorkLayout>

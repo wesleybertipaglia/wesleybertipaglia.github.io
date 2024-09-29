@@ -1,6 +1,7 @@
 ---
 role: "Software Developer"
-company: "AnCode"
+companyName: "AnCode"
+companyLink: "https://www.linkedin.com/company/ancodeapp/"
 location: "São José do Rio Preto, SP - Brazil"
 startDate: "Jun 01 2022"
 endDate: "Feb 29 2024"

@@ -1,6 +1,7 @@
 ---
 role: "Technology Consultant"
-company: "Quadro IT"
+companyName: "Quadro IT"
+companyLink: "https://www.linkedin.com/company/quadro-it/"
 location: "São José do Rio Preto, SP - Brazil"
 startDate: "Jan 01 2015"
 endDate: "Dec 31 2019"

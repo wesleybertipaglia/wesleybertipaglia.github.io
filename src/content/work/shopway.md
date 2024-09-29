@@ -1,6 +1,7 @@
 ---
 role: "Software Engineer"
-company: "ShopWay"
+companyName: "ShopWay"
+companyLink: "https://www.linkedin.com/company/shopway-software/"
 location: "São José do Rio Preto, SP - Brazil"
 startDate: "Feb 29 2024"
 description: "Software engineer working on the development of a mobile application for a client in the retail sector."
