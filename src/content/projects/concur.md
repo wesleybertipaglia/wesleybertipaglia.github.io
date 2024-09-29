@@ -1,49 +1,24 @@
 ---
 title: "Concur"
 description: "Concur is a forum for discussing the latest in tech, gaming, and more."
-pubDate: "Sep 01 2024"
-repoURL: "https://github.com/wesleybertipaglia/concur"
+cover: ""
+repositoryUrl: "https://github.com/wesleybertipaglia/concur"
+deployUrl: ""
+pubDate: "Sep 25 2024"
+updatedDate: "Sep 25 2024"
 ---
 
-Concur is a forum for discussing the latest in tech, gaming, and more. It was built using React, Redux, and Firebase. The project is open-source and available on GitHub.
+Concur is a simple, lightweight, and fast threads forum for discussing the latest in tech, gaming, and more. It was built using React, Redux, and Firebase. The project is open-source and available on GitHub.
 
-## Features
+## Architecture
+- API: The API is built with Java and Spring Boot.
+- Database: The database is a MongoDB database.
+- Cache: The cache is a Redis cache.
+- Message Broker: The message broker is a RabbitMQ message broker.
+- Monitoring: The monitoring is done with Prometheus and Grafana.
 
-- User authentication
-- Create, read, update, and delete posts
-- Upvote and downvote posts
-- Comment on posts
-- Search for posts
-- Dark mode
-
-
-## Technologies
-
-#### Frontend
-
-- React
-- React Router
-- React Hook Form
-- Shadcn
-- Tailwind CSS
-
-#### Backend
-
-- Java
-- Spring Boot
-- Spring Security
-- Jakarta Validation
-- Lombok
-- MongoDB
-- Redis
-- RabbitMQ
-
-#### Infrastructure
-
-- Docker and Docker Compose
-- GitHub Actions
-- Grafana and Prometheus
+## Contributing
+If you want to contribute to Concur, you can fork the repository and submit a pull request. If you have any questions, feel free to open an issue.
 
 ## License
-
-This project is open source and available under the MIT License
+Concur is licensed under the MIT License. You can read the full license here.

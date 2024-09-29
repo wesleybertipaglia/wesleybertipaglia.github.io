@@ -1,11 +1,22 @@
 ---
 import { SOCIALS } from "@consts";
 import { Icon } from "astro-icon/components";
+
+interface Props {
+	showAll?: boolean;
+}
+
+const {
+	showAll = false,
+} = Astro.props;
+
+let socialLinks = showAll ? SOCIALS : SOCIALS.filter((item, _) => item.main == true);
 ---
 
 <ul class="flex gap-4 mt-2">
     {
-        SOCIALS.map((social) => (
+        socialLinks
+        .map((social) => (
             <li>
                 <a
                     href={social.url}

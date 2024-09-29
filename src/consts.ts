@@ -29,21 +29,33 @@ export const PROJECTS: Metadata = {
 
 export const SOCIALS: Link[] = [
     {
-        title: "github",
+        title: "GitHub",
         url: "https://github.com/wesleybertipaglia",
         icon: "github",
         main: true,
     },
     {
-        title: "linkedin",
-        url: "https://www.linkedin.com/in/wesleybertipaglia",
+        title: "LinkedIn",
+        url: "https://www.linkedin.com/in/wesley-bertipaglia/",
         icon: "linkedin",
         main: true,
     },
     {
-        title: "threads",
-        url: "https://www.threads.net/@wesleyberti_",
-        icon: "threads",
+        title: "E-mail",
+        url: "mailto:wesleybertipaglia@gmail.com",
+        icon: "email",
+        main: true,
+    },
+    {
+        title: "X",
+        url: "https://x.com/wesleyberti_",
+        icon: "x",
+        main: false,
+    },
+    {
+        title: "Instagram",
+        url: "https://www.instagram.com/wesleyberti_/",
+        icon: "instagram",
         main: false,
     },
 ];

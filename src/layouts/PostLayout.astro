@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { formatDate } from "@lib/utils";
+
+type Props = {
+    post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+};
+
+const { post } = Astro.props;
+---
+
+<PageLayout title={post.data.title} description={post.data.description}>
+	<Container>
+		<article>
+			<h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
+			<p class="text-sm">
+				{formatDate({ date: post.data.pubDate })}
+			</p>
+			<figure>
+				<img
+					src={
+						post.data.cover || "/placeholder.jpg"
+					}
+					alt={post.data.title}
+					class="w-full h-64 object-cover rounded-lg"
+				/>
+			</figure>
+
+			<div>
+                <slot />
+            </div>
+		</article>
+	</Container>
+</PageLayout>

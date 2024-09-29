@@ -1,9 +1,9 @@
 ---
-role: Software Engineer
-company: ShopWay
-location: São Paulo, Brazil
-startDate: 'Feb 29 2024'
-description: Software engineer working on the development of a mobile application for a client in the retail sector.
+role: "Software Engineer"
+company: "ShopWay"
+location: "São José do Rio Preto, SP - Brazil"
+startDate: "Feb 29 2024"
+description: "Software engineer working on the development of a mobile application for a client in the retail sector."
 ---
 
 ShopWay is a Brazilian company that provides software development services to clients in the retail sector. I worked as a software engineer, participating in the development of a mobile application for a client in the retail sector. 

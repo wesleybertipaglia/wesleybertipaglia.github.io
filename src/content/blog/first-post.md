@@ -1,9 +1,9 @@
 ---
-title: 'My First Dive into Blogging: A Personal Website Odyssey'
-description: 'A reflection on my journey to start a blog, the challenges I faced, and the lessons I learned along the way.'
-pubDate: 'Dec 10 2023'
-updatedDate: 'Sep 29 2024'
-cover: '/blog-placeholder-3.jpg'
+title: "My First Dive into Blogging: A Personal Website Odyssey"
+description: "A reflection on my journey to start a blog, the challenges I faced, and the lessons I learned along the way."
+cover: ""
+pubDate: "Dec 10 2023"
+updatedDate: "Sep 29 2024"
 ---
 
 After years of reading blogs, admiring personal websites, and contemplating sharing my own ideas, I finally decided to take the plunge and start my own blog. It sounded simple at first: pick a platform, write some posts, and voilà—you're a blogger! But as I embarked on this journey, I quickly realized it was anything but simple. What started as a quest to share my thoughts turned into a full-blown **odyssey** of choosing the right technology.

@@ -1,8 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "../../layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import { formatDate } from "@lib/utils";
+import PostLayout from "@layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("projects");
@@ -17,16 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<PageLayout title={post.data.title} description={post.data.description}>
-	<article>
-		<Container>
-			<div>
-				<h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
-				<p class="text-sm">
-					{formatDate({ date: post.data.pubDate })}
-				</p>
-			</div>
-			<Content />
-		</Container>
-	</article>
-</PageLayout>
+<PostLayout post={post}>
+	<Content />
+</PostLayout>

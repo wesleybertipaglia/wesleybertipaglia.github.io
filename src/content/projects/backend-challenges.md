@@ -1,8 +1,11 @@
 ---
 title: "Back-end Challenges"
 description: "A repository of back-end challenges to help you improve your backend development skills."
+cover: ""
+repositoryUrl: "https://github.com/wesleybertipaglia/backend-challenges"
+deployUrl: ""
 pubDate: "May 01 2024"
-repoURL: "https://github.com/wesleybertipaglia/backend-challenges"
+updatedDate: "May 01 2024"
 ---
 
 Hey guys 👋
