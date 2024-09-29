@@ -15,11 +15,11 @@ const workPosts = (await getCollection("work"))
 		<Container>
 			<h1 class="text-xl font-bold mb-6">Work</h1>
 
-			<ul class="flex flex-col gap-4">
+			<ul class="flex flex-col gap-6">
 				{
 					workPosts.length > 0 ? (
 						workPosts.map((post) => (
-							<li>
+							<li class="pb-2 border-b border-light-border-3/10 dark:border-dark-border-3/10">
 								<WorkPreview post={post} />
 							</li>
 						))

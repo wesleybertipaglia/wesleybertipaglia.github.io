@@ -23,11 +23,11 @@ const { title, seeAllTitle, seeAllUrl, postList } = Astro.props;
                 </h5>
                 <Link href={seeAllUrl} class="text-sm">{seeAllTitle} ↗</Link>
             </div>
-            <ul class="flex flex-col gap-4">
+            <ul class="flex flex-col gap-6">
                 {
                     postList.length > 0 ? (
                         postList.map((post) => (
-                            <li>
+                            <li class="pb-2 border-b border-light-border-3/10 dark:border-dark-border-3/10">
                                 <WorkPreview post={post} />
                             </li>
                         ))

@@ -9,28 +9,58 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<a href={`/${post.collection}/${post.slug}`} class="">
-    <div>
-        <p>
-            <span class="font-semibold">
-                {post.data.role}
-            </span>
-
-            <span class="italic text-sm">
-                — {post.data.company}
-            </span>
-        </p>
-        <p class="text-sm">
+<a href={`/${post.collection}/${post.slug}`}>
+    <div class="flex gap-4">
+        <div>
             {
-                formatDateRange({
-                    startDate: post.data.startDate,
-                    endDate: post.data.endDate,
-                    options: { year: "numeric", month: "short" },
-                })
+                post.data.companyLogo ? (
+                    <img
+                        src={post.data.companyLogo}
+                        alt={post.data.companyName}
+                        class="w-12 h-12 rounded-full"
+                    />
+                ) : (
+                    <div class="w-10 h-10 flex items-center justify-center rounded bg-light-background-3/50 dark:bg-dark-background-3/50">
+                        <p class="text-xl font-bold">
+                            {post.data.companyName.charAt(0).toUpperCase()}
+                        </p>
+                    </div>
+                )                    
             }
-        </p>
-        <p class="text-sm mt-2">
-            {excerpt({ text: post.data.description, maxLength: 256 })}
-        </p>
+        </div>
+
+        <div>
+            <p>
+                <span class="font-semibold">
+                    {post.data.role}
+                </span>
+
+                {
+                    post.data.companyLink ? (
+                        <a href={post.data.companyLink} target="_blank" class="italic text-sm text-blue-500 font-medium">
+                            @{post.data.companyName}
+                        </a>
+                    ) : (
+                        <span class="italic text-sm">
+                            @{post.data.companyName}
+                        </span>
+                    )
+                }	            
+            </p>
+
+            <p class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
+                {
+                    formatDateRange({
+                        startDate: post.data.startDate,
+                        endDate: post.data.endDate,
+                        options: { year: "numeric", month: "short" },
+                    })
+                }
+            </p>
+        </div>
     </div>
+   
+    <p class="text-sm mt-2 text-light-text-3/85 dark:text-dark-text-3/85">
+        {excerpt({ text: post.data.description, maxLength: 256 })}
+    </p>
 </a>
