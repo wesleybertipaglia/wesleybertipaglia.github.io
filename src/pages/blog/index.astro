@@ -12,11 +12,9 @@ const blogPosts = (await getCollection("blog"))
 <PageLayout title={BLOG.title} description={BLOG.description}>
 	<section>
 		<Container>
-			<h1 class="text-3xl font-bold mb-4 inline-flex items-center gap-2">
-				Blog				
-			</h1>
+			<h1 class="text-xl font-bold mb-6">Projects</h1>
 
-			<ul id="posts" class="flex flex-col gap-4">
+			<ul class="flex flex-col gap-4">
 				{
 					blogPosts.length > 0 ? (
 						blogPosts.map((post: any) => (
@@ -33,27 +31,7 @@ const blogPosts = (await getCollection("blog"))
 	</section>
 </PageLayout>
 
-<script>  
-  const params = new URLSearchParams(window.location.search);
-  const tag = params.get('tag');
-  
-  const titleElement = document.querySelector('h1');
-  const postElements = document.querySelectorAll('#posts li');
-
-  if (tag) {
-    if (titleElement) {
-      titleElement.textContent = `Posts tagged with "${tag}"`;
-    }
-
-    Array.from(postElements).forEach(post => {
-      const tagElement = post.querySelector('.tags');
-      if (tagElement) {
-        const postTags = tagElement.textContent?.split(',').map(tag => tag.trim());
-        
-        if (!postTags?.includes(tag)) {
-          post.style.display = 'none';
-        }
-      }
-    });
-  }
+<script>
+  import { filterPostsByTag } from "@lib/tag";
+  filterPostsByTag();  
 </script>
