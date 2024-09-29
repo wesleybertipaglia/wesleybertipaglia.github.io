@@ -1,94 +1,157 @@
-/* Path: src/styles/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --primary: #0070f3;
-    --body-1: #fff;
-    --body-2: #f6f6f7;
-    --body-3: #e7e8ec;
-    --text-1: #1b1b1b;
-    --text-2: #47474e;
-    --text-3: #77777c;
-    --accent: #ccc;
-  }
-
-  html {
-    font-family: Arial, sans-serif;
-  }
-
-  body {
-    background-color: var(--default-bg);
-    color: var(--default-text);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-
-  @media screen and (prefers-color-scheme: dark) {
-    :root {
-      --body-1: #181818;
-      --body-2: #242424;
-      --body-3: #303030;
-      --text-1: #f4f4f4;
-      --text-2: #bdbdbd;
-      --text-3: #7a7a7a;
-      --accent: #666;
-    }
-  }
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
-.content {
+article {
+  padding: 1rem;
+  @apply text-light-text-3 dark:text-dark-text-3;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: 1rem;
-    color: var(--text-1);
-    font-weight: 600;
-  }
+/* Links */
+article a {
+  @apply text-blue-500 dark:text-blue-400;
+}
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
+article a:hover {
+  @apply text-blue-600 dark:text-blue-500;
+}
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+article a:visited {
+  @apply text-purple-500 dark:text-purple-400;
+}
 
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    font-size: 1.25rem;
-  }
+article a:visited:hover {
+  @apply text-purple-600 dark:text-purple-500;
+}
 
-  p {
-    margin-bottom: 1rem;
-    color: var(--text-2);
-  }
+/* Headings */
+article h1 {
+  @apply text-4xl mb-8 font-bold;
+}
 
-  ul,
-  ol,
-  dl,
-  dt,
-  dd,
-  li {
-    list-style: unset;
-    margin-left: 0.5rem;
-  }
+article h2 {
+  @apply text-2xl mt-6 mb-4 font-bold pb-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
+}
+
+article h3,
+article h4 {
+  @apply text-xl mt-6 mb-4 font-semibold;
+}
+
+article h5,
+article h6 {
+  @apply text-lg mt-4 mb-2 font-medium;
+}
+
+/* Paragraphs */
+article p {
+  @apply text-base my-3 leading-relaxed;
+}
+
+/* Lists */
+article ul,
+article ol {
+  @apply my-4 pl-5;
+}
+
+article ul li::marker {
+  @apply text-light-text-3/50 dark:text-dark-text-3/50;
+}
+
+article ol {
+  @apply list-decimal;
+}
+
+article ul {
+  @apply list-disc;
+}
+
+/* Blockquotes */
+article blockquote {
+  @apply border-l-4 pl-4 italic text-light-text-2 dark:text-dark-text-2 my-4 border-light-border-3 dark:border-dark-border-3;
+}
+
+/* Code (Inline and Block) */
+article pre {
+  @apply bg-dark-background-1 p-4 rounded-lg border border-light-border-3/10 dark:border-dark-border-3/10 overflow-x-auto;
+}
+
+/* Tables */
+article table {
+  @apply w-full my-4 table-auto border-collapse text-left;
+}
+
+article th {
+  @apply px-4 py-2 font-bold text-light-text-3 dark:text-dark-text-3 border-b border-light-border-3/10 dark:border-dark-border-3/10;
+}
+
+article td {
+  @apply px-4 py-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
+}
+
+/* Horizontal Rules (HR) */
+article hr {
+  @apply my-8 border-t border-light-border-1/10 dark:border-dark-border-1/10;
+}
+
+/* Figures and Images */
+article figure,
+article img {
+  @apply w-full h-auto aspect-[21/9];
+}
+
+article figure {
+  @apply rounded-lg overflow-hidden;
+}
+
+article img {
+  @apply transform transition-transform duration-300 ease-in-out;
+}
+
+article img:hover {
+  @apply scale-110;
+}
+
+article figcaption {
+  @apply text-sm text-center text-light-text-2 dark:text-dark-text-2 mt-2;
+}
+
+/* Text Styling: Bold, Italic, Underline */
+article strong {
+  @apply font-bold;
+}
+
+article em {
+  @apply italic;
+}
+
+article u {
+  @apply underline;
+}
+
+/* Additional refinements */
+article {
+  @apply leading-loose;
+}
+
+/* Miscellaneous elements */
+article del {
+  @apply line-through text-red-500;
+}
+
+article ins {
+  @apply underline text-green-500;
+}
+
+article sup {
+  @apply align-super text-sm;
+}
+
+article sub {
+  @apply align-sub text-sm;
 }
