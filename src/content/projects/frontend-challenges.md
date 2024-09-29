@@ -2,8 +2,9 @@
 title: "Front-end Challenges"
 description: "A repository of front-end challenges to help you improve your skills."
 cover: ""
-repositoryUrl: "https://github.com/wesleybertipaglia/frontend-challenges"
-deployUrl: ""
+repositoryLink: "https://github.com/wesleybertipaglia/frontend-challenges"
+deployLink: ""
+tags: ["frontend", "challenges", "development"]
 pubDate: "Jan 01 2023"
 updatedDate: "Jan 01 2023"
 ---

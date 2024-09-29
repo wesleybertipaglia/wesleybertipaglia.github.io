@@ -2,6 +2,7 @@
 title: "My First Dive into Blogging: A Personal Website Odyssey"
 description: "A reflection on my journey to start a blog, the challenges I faced, and the lessons I learned along the way."
 cover: ""
+tags: ["blogging", "personal", "tech"]
 pubDate: "Dec 10 2023"
 updatedDate: "Sep 29 2024"
 ---

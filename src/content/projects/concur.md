@@ -2,13 +2,14 @@
 title: "Concur"
 description: "Concur is a forum for discussing the latest in tech, gaming, and more."
 cover: ""
-repositoryUrl: "https://github.com/wesleybertipaglia/concur"
-deployUrl: ""
+repositoryLink: "https://github.com/wesleybertipaglia/concur"
+deployLink: ""
+tags: ["forum", "tech", "gaming"]
 pubDate: "Sep 25 2024"
 updatedDate: "Sep 25 2024"
 ---
 
-Concur is a simple, lightweight, and fast threads forum for discussing the latest in tech, gaming, and more. It was built using React, Redux, and Firebase. The project is open-source and available on GitHub.
+Concur is a simple, lightweight, and fast threads forum for discussing the latest in tech, gaming, and more. It was built using React, Spring Boot, and MongoDB. The project is open-source and available on GitHub.
 
 ## Architecture
 - API: The API is built with Java and Spring Boot.

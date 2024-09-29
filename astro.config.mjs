@@ -8,4 +8,5 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: 'https://wesleybertipaglia.github.io/',
   integrations: [mdx(), sitemap(), tailwind(), icon()],
+  output: 'hybrid'
 });

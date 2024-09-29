@@ -1,13 +1,12 @@
 ---
 import { BLOG } from "@consts";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import PostPreview from "@components/PostPreview.astro";
 
 const projectsPosts = (await getCollection("projects"))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+	.sort((a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <PageLayout title={BLOG.title} description={BLOG.description}>
@@ -15,10 +14,10 @@ const projectsPosts = (await getCollection("projects"))
 		<Container>
 			<h1 class="text-xl font-bold mb-6">Projects</h1>
 
-			<ul class="flex flex-col gap-4">
+			<ul id="posts" class="flex flex-col gap-4">
 				{
 					projectsPosts.length > 0 ? (
-						projectsPosts.map((post) => (
+						projectsPosts.map((post: any) => (
 							<li>
 								<PostPreview post={post} />
 							</li>
@@ -31,3 +30,28 @@ const projectsPosts = (await getCollection("projects"))
 		</Container>
 	</section>
 </PageLayout>
+
+<script>  
+  const params = new URLSearchParams(window.location.search);
+  const tag = params.get('tag');
+  
+  const titleElement = document.querySelector('h1');
+  const postElements = document.querySelectorAll('#posts li');
+
+  if (tag) {
+    if (titleElement) {
+      titleElement.textContent = `Posts tagged with "${tag}"`;
+    }
+
+    Array.from(postElements).forEach(post => {
+      const tagElement = post.querySelector('.tags');
+      if (tagElement) {
+        const postTags = tagElement.textContent?.split(',').map(tag => tag.trim());
+        
+        if (!postTags?.includes(tag)) {
+          post.style.display = 'none';
+        }
+      }
+    });
+  }
+</script>
