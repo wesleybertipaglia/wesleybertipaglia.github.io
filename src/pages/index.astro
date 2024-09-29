@@ -1,40 +1,55 @@
 ---
-import Scaffold from "../layouts/Scaffold.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_SEPARATOR } from "../consts";
-import Hero from "../components/structure/Hero.astro";
-import About from "../components/structure/About.astro";
-import Skills from "../components/structure/Skills.astro";
-import Stack from "../components/structure/Stack.astro";
-import Experience from "../components/structure/Experience.astro";
-import Education from "../components/structure/Education.astro";
-import Contact from "../components/structure/Contact.astro";
-import ListPosts from "../components/structure/ListPosts.astro";
-import { PostView } from "../utils/Post";
+import PageLayout from "@layouts/PageLayout.astro";
+import { HOME } from "@consts";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Hero from "@components/Hero.astro";
+import PostListPreview from "@components/PostListPreview.astro";
+import WorkListPreview from "@components/WorkListPreview.astro";
+import "@/styles/global.css";
+
+const blogPosts = (await getCollection("blog"))
+	.sort(
+		(a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	)
+	.slice(0, 3);
+
+const projectsPosts = (await getCollection("projects"))
+	.sort(
+		(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	)
+	.slice(0, 3);
+
+const workPosts = (await getCollection("work"))
+	.sort(
+		(a: CollectionEntry<"work">, b: CollectionEntry<"work">) =>
+			b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+	)
+	.slice(0, 3);
 ---
 
-<Scaffold
-  title={SITE_DESCRIPTION}
-  description={SITE_TITLE + SITE_SEPARATOR + SITE_DESCRIPTION}
->
-  <Hero />
-  <About />
-  <Skills />
-  <Stack />
-  <Experience />
-  <Education />
-  <ListPosts
-    title="Recent Projects"
-    view={PostView.normal}
-    slice={5}
-    showAll={true}
-    type="projects"
-  />
-  <ListPosts
-    title="Recent Posts"
-    view={PostView.normal}
-    slice={5}
-    showAll={true}
-    type="blog"
-  />
-  <Contact />
-</Scaffold>
+<PageLayout title={HOME.title} description={HOME.description}>
+	<Hero />
+	<PostListPreview
+		title="Latest Posts"
+		seeAllTitle="View all posts"
+		seeAllUrl="/blog"
+		postList={blogPosts}
+	/>
+
+	<WorkListPreview
+		title="Latest Work"
+		seeAllTitle="View all work"
+		seeAllUrl="/work"
+		postList={workPosts}
+	/>
+
+	<PostListPreview
+		title="Latest Projects"
+		seeAllTitle="View all projects"
+		seeAllUrl="/projects"
+		postList={projectsPosts}
+	/>
+</PageLayout>
