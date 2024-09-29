@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;  
+  description?: string;
+  url: string;
+}
+
+const { title, description, url } = Astro.props;
+const getText = () => {
+  const truncatedDescription = description && description.length > 100
+    ? `${description.slice(0, 100)}...`
+    : description;
+  return `Hi! 👋\n I'm reading ${title} on Wesley's Website. Check it out! \n\n ${truncatedDescription}`;
+};
+
+const encode = (text: string) => encodeURIComponent(text);
+
+const socialLinks = [
+  {
+    name: "X",
+    url: `https://x.com/intent/tweet?url=${encode(url)}&text=${encode(getText())}`,
+    icon: "x",
+  },
+  {
+    name: "Facebook",
+    url: `https://www.facebook.com/sharer/sharer.php?u=${encode(url)}&t=${encode(title)}`,
+    icon: "facebook",
+  },
+  {
+    name: "LinkedIn",
+    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encode(url)}&title=${encode(title)}`,
+    icon: "linkedin",
+  },
+  {
+    name: "WhatsApp",
+    url: `https://api.whatsapp.com/send?text=${encode(getText() + ' ' + url)}`,
+    icon: "whatsapp",
+  },
+  {
+    name: "Telegram",
+    url: `https://t.me/share/url?url=${encode(url)}&text=${encode(getText())}`,
+    icon: "telegram",
+  },
+  {
+    name: "Email",
+    url: `mailto:?subject=${encode(title)}&body=${encode(getText())}`,
+    icon: "email",
+  },
+];
+
+---
+
+
+<div class="mb-6">
+  <p class="italic">Share it!</p>
+
+  <div class="flex gap-4">
+    {
+      socialLinks.map((socialLink) => (
+        <a
+          href={socialLink.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-75 
+          text-light-text-2 dark:text-dark-text-2
+          hover:text-light-text-1 dark:hover:text-dark-text-1"
+        >
+          <Icon name={`logos/${socialLink.icon}`} class="w-6 h-6" />
+        </a>
+      ))
+    }
+  </div>
+</div>

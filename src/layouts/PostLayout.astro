@@ -3,6 +3,7 @@ import { type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { formatDate } from "@lib/utils";
+import Share from "@components/Share.astro";
 
 type Props = {
     post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
@@ -11,7 +12,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<PageLayout title={post.data.title} description={post.data.description}>
+<PageLayout title={post.data.title} description={post.data.description} image={post.data.cover}>
 	<Container>
 		<article>
 			<h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
@@ -27,6 +28,11 @@ const { post } = Astro.props;
 					class="w-full h-64 object-cover rounded-lg"
 				/>
 			</figure>
+
+			<Share 
+				title={post.data.title}
+				description={post.data.description}
+				url={`${Astro.site}${post.collection}/${post.slug}`} />
 
 			<div>
                 <slot />
