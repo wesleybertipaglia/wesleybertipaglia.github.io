@@ -21,7 +21,10 @@ const { title, seeAllTitle, seeAllUrl, postList } = Astro.props;
                 <h5 class="font-semibold">
                     {title}
                 </h5>
-                <Link href={seeAllUrl} class="text-sm">{seeAllTitle} ↗</Link>
+                <Link href={seeAllUrl}>
+                    <span class="text-sm">{seeAllTitle}</span>
+                    <span class="text-base">🡵</span>
+                </Link>
             </div>
             <ul class="flex flex-col gap-6">
                 {
