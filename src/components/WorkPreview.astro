@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { excerpt, formatDateRange } from "@lib/utils";
+
+type Props = {
+    post: CollectionEntry<"work">;
+};
+
+const { post } = Astro.props;
+---
+
+<a href={`/${post.collection}/${post.slug}`} class="">
+    <div>
+        <p>
+            <span class="font-semibold">
+                {post.data.role}
+            </span>
+
+            <span class="italic text-sm">
+                — {post.data.company}
+            </span>
+        </p>
+        <p class="text-sm">
+            {
+                formatDateRange({
+                    startDate: post.data.startDate,
+                    endDate: post.data.endDate,
+                    options: { year: "numeric", month: "short" },
+                })
+            }
+        </p>
+        <p class="text-sm mt-2">
+            {excerpt({ text: post.data.description, maxLength: 256 })}
+        </p>
+    </div>
+</a>

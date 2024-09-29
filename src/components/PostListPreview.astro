@@ -1,0 +1,41 @@
+---
+import Container from "@components/Container.astro";
+import type { CollectionEntry } from "astro:content";
+import PostPreview from "./PostPreview.astro";
+import Link from "@components/Link.astro";
+
+interface Props {
+    title?: string;
+    seeAllTitle: string;
+    seeAllUrl: string;
+    slice?: number;
+    postList: CollectionEntry<"blog">[] | CollectionEntry<"projects">[];
+}
+const { title, seeAllTitle, seeAllUrl, postList } = Astro.props;
+---
+
+<section>
+    <Container>
+        <div class="my-12">
+            <div class="flex justify-between mb-4">
+                <h5 class="font-semibold">
+                    {title}
+                </h5>
+                <Link href={seeAllUrl} class="text-sm">{seeAllTitle} ↗</Link>
+            </div>
+            <ul class="flex flex-col gap-4">
+                {
+                    postList.length > 0 ? (
+                        postList.map((post) => (
+                            <li>
+                                <PostPreview post={post} />
+                            </li>
+                        ))
+                    ) : (
+                        <li>No posts found</li>
+                    )
+                }
+            </ul>
+        </div>
+    </Container>
+</section>

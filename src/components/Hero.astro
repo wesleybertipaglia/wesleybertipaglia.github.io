@@ -1,0 +1,26 @@
+---
+import Container from "@components/Container.astro";
+import Confetti from "@components/Confetti.astro";
+import Socials from "@components/Socials.astro";
+---
+
+<header>
+    <Container>
+        <section class="my-12">
+            <h1
+                class="mb-4 font-bold text-light-secondary dark:text-dark-secondary"
+            >
+                Hi, I'm Wesley 👋🏻
+            </h1>
+            <p class="text-justify">
+                I'm a software engineer from Brazil specialized in back-end
+                development. My focus is on creating functional, scalable
+                applications that not only solve real-world problems, but also
+                drive innovation and transform experiences.
+            </p>
+
+            <Socials />
+            <Confetti />
+        </section>
+    </Container>
+</header>

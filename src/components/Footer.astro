@@ -1,0 +1,23 @@
+---
+import Container from "@components/Container.astro";
+import { SITE } from "@consts";
+import Socials from "./Socials.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+    <Container>
+        <nav
+            class="flex justify-between py-4 text-sm text-light-text-3/50 dark:text-dark-text-3/50 border-t border-dark-background-3/10 dark:border-light-background-3/10"
+        >
+            <p>
+                <span>&copy;</span>
+                <span>{year}</span>
+                <span>{SITE.author}</span>
+            </p>
+
+            <Socials />
+        </nav>
+    </Container>
+</footer>
