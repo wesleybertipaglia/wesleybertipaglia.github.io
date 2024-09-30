@@ -3,6 +3,7 @@ import Container from "@components/Container.astro";
 import type { CollectionEntry } from "astro:content";
 import PostPreview from "./PostPreview.astro";
 import Link from "@components/Link.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
     title?: string;
@@ -21,9 +22,9 @@ const { title, seeAllTitle, seeAllUrl, postList } = Astro.props;
                 <h5 class="font-semibold">
                     {title}
                 </h5>
-                <Link href={seeAllUrl}>
+                <Link href={seeAllUrl} class="inline-flex gap-1 items-center">
                     <span class="text-sm">{seeAllTitle}</span>
-                    <span class="text-base">🡵</span>
+                    <Icon name={`symbols/angle-right`} class="w-4 h-4" />
                 </Link>
             </div>
             <ul class="flex flex-col gap-4">
