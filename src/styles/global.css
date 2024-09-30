@@ -8,8 +8,7 @@ html {
 }
 
 article {
-  padding: 1rem;
-  @apply text-light-text-3 dark:text-dark-text-3;
+  @apply text-light-text-3 dark:text-dark-text-3 mt-8;
 }
 
 /* Links */
@@ -27,17 +26,17 @@ article h1 {
 }
 
 article h2 {
-  @apply text-2xl my-4 font-bold pb-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
+  @apply text-2xl mt-6 mb-4 font-bold pb-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
 }
 
 article h3,
 article h4 {
-  @apply text-xl my-4 font-semibold;
+  @apply text-xl mt-6 mb-3 font-semibold;
 }
 
 article h5,
 article h6 {
-  @apply text-lg my-3 font-medium;
+  @apply text-lg mt-6 mb-3 font-medium;
 }
 
 /* Paragraphs */
