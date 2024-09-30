@@ -29,6 +29,18 @@ export const PROJECTS: Metadata = {
 
 export const SOCIALS: Link[] = [
     {
+        title: "Instagram",
+        url: "https://www.instagram.com/wesleyberti_/",
+        icon: "instagram",
+        main: false,
+    },
+    {
+        title: "X",
+        url: "https://x.com/wesleyberti_",
+        icon: "x",
+        main: false,
+    },
+    {
         title: "GitHub",
         url: "https://github.com/wesleybertipaglia",
         icon: "github",
@@ -45,17 +57,5 @@ export const SOCIALS: Link[] = [
         url: "mailto:wesleybertipaglia@gmail.com",
         icon: "email",
         main: true,
-    },
-    {
-        title: "X",
-        url: "https://x.com/wesleyberti_",
-        icon: "x",
-        main: false,
-    },
-    {
-        title: "Instagram",
-        url: "https://www.instagram.com/wesleyberti_/",
-        icon: "instagram",
-        main: false,
-    },
+    }
 ];
