@@ -37,4 +37,6 @@ Starting a blog can feel daunting, especially when you're juggling different tec
 
 So, if you're thinking about starting your own blog, here’s my advice: **just start**. Don’t wait until you find the “perfect” platform, because it doesn’t exist. Use the tools you know, and focus on talking about the things you love and find useful. That’s what will make your blog truly valuable.
 
-Happy blogging!
+--- 
+
+*Happy blogging! 🎉*
