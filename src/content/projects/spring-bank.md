@@ -25,16 +25,8 @@ One of the main highlights of Spring Bank is its focus on user authentication an
 
 The goal behind Spring Bank was not only to build a functional banking service but also to explore modern development practices with Spring Boot. I’ve learned a lot about RESTful design, database interactions, and containerization, which has significantly enhanced my skill set.
 
-### Looking Ahead
+---
 
 I’m excited about the future of this project and plan to add more features, such as transaction notifications and enhanced reporting. I would love to hear your feedback and any suggestions you might have!
 
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/wesleybertipaglia/spring-bank/blob/main/LICENSE) file for details.
-
-Happy coding! 🎉
+*Happy coding! 🎉*
