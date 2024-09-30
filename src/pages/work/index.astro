@@ -1,5 +1,5 @@
 ---
-import { BLOG } from "@consts";
+import { WORK } from "@consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
@@ -9,7 +9,7 @@ const workPosts = (await getCollection("work"))
 	.sort((a: CollectionEntry<"work">, b: CollectionEntry<"work">) => b.data.startDate.valueOf() - a.data.startDate.valueOf());
 ---
 
-<PageLayout title={BLOG.title} description={BLOG.description}>
+<PageLayout title={WORK.title} description={WORK.description}>
 	<section>
 		<Container>
 			<h1 class="text-xl font-bold mb-6">Work</h1>
@@ -23,7 +23,7 @@ const workPosts = (await getCollection("work"))
 							</li>
 						))
 					) : (
-						<li>No posts found</li>
+						<li>No work found</li>
 					)
 				}
 			</ul>

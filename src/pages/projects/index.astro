@@ -1,5 +1,5 @@
 ---
-import { BLOG } from "@consts";
+import { PROJECTS } from "@consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
@@ -9,7 +9,7 @@ const projectsPosts = (await getCollection("projects"))
 	.sort((a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<PageLayout title={BLOG.title} description={BLOG.description}>
+<PageLayout title={PROJECTS.title} description={PROJECTS.description}>
 	<section>
 		<Container>
 			<h1 class="text-xl font-bold mb-6">Projects</h1>

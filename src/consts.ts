@@ -17,7 +17,7 @@ export const BLOG: Metadata = {
     description: "A collection of articles on topics I am passionate about.",
 }
 
-export const EXPERIENCE: Metadata = {
+export const WORK: Metadata = {
     title: "Experience",
     description: "Where I have worked and what I have done.",
 }
