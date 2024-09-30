@@ -1,0 +1,18 @@
+---
+import TimedCard from "@components/TimedCard.astro"
+---
+
+<TimedCard id="thanks-notification" color="bg-blue-600">
+    <p class="text-light-text-1 dark:text-dark-text-1 font-bold">
+      <span>Thanks for visiting!</span>
+      <span class="text-xl ml-2">🎉</span>
+    </p>
+</TimedCard>
+
+<script>
+  import { showNotification } from "@lib/notification";    
+  showNotification('thanks-notification');
+
+  import { launchConfetti } from "@lib/confetti";
+  launchConfetti();
+</script>

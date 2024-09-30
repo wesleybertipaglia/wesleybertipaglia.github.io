@@ -1,12 +1,12 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import "@/styles/global.css";
 import { HOME } from "@consts";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import Hero from "@components/Hero.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import PostListPreview from "@components/PostListPreview.astro";
 import WorkListPreview from "@components/WorkListPreview.astro";
-import "@/styles/global.css";
+import ThanksTimedCard from "@components/ThanksTimedCard.astro";
 
 const blogPosts = (await getCollection("blog"))
 	.sort(
@@ -32,6 +32,7 @@ const workPosts = (await getCollection("work"))
 
 <PageLayout title={HOME.title} description={HOME.description}>
 	<Hero />
+	
 	<PostListPreview
 		title="Latest Posts"
 		seeAllTitle="View all posts"
@@ -52,4 +53,6 @@ const workPosts = (await getCollection("work"))
 		seeAllUrl="/projects"
 		postList={projectsPosts}
 	/>
+
+	<ThanksTimedCard />
 </PageLayout>
