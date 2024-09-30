@@ -56,7 +56,7 @@ const socialLinks = [
 <div class="mb-6">
   <p class="italic">Share it!</p>
 
-  <div class="flex gap-4">
+  <div class="flex gap-3">
     {
       socialLinks.map((socialLink) => (
         <a
@@ -64,10 +64,10 @@ const socialLinks = [
           target="_blank"
           rel="noopener noreferrer"
           class="hover:opacity-75 
-          text-light-text-2 dark:text-dark-text-2
+          text-light-text-3/75 dark:text-dark-text-3/75
           hover:text-light-text-1 dark:hover:text-dark-text-1"
         >
-          <Icon name={`logos/${socialLink.icon}`} class="w-6 h-6" />
+          <Icon name={`logos/${socialLink.icon}`} class="w-5 h-5" />
         </a>
       ))
     }
