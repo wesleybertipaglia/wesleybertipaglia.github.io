@@ -1,0 +1,52 @@
+---
+import { type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { formatDateRange } from "@lib/utils";
+
+type Props = {
+    post: CollectionEntry<"work">;
+};
+
+const { post } = Astro.props;
+---
+
+<PageLayout title={post.data.role} description={post.data.description}>
+	<article>
+		<Container>
+			<div class="mb-6">
+				<h1 class="font-bold">
+					{post.data.role}					
+				</h1>
+
+				{
+					post.data.companyLink ? (
+						<a href={post.data.companyLink} target="_blank" class="italic text-sm">
+							@{post.data.companyName}
+						</a>
+					) : (
+						<p class="italic text-sm">
+							@{post.data.companyName}
+						</p>
+					)
+				}				
+
+				<p class="text-sm">{post.data.location}</p>
+				
+				<p class="text-sm">
+					{formatDateRange({
+						startDate: post.data.startDate,
+						endDate: post.data.endDate,
+						options: { year: "numeric", month: "short" },
+					})}
+				</p>
+			</div>
+
+			<hr>
+			
+			<div>
+				<slot />
+			</div>
+		</Container>
+	</article>
+</PageLayout>

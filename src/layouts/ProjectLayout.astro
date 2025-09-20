@@ -1,0 +1,89 @@
+---
+import { type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { formatDate } from "@lib/utils";
+import Share from "@components/Share.astro";
+
+type Props = {
+    post: CollectionEntry<"projects">;
+};
+
+const { post } = Astro.props;
+---
+
+<PageLayout title={post.data.title} description={post.data.description} image={post.data.cover}>
+	<Container>
+		<article>
+			<div>
+				<h1 class="text-3xl font-bold">{post.data.title}</h1>
+				<p class="text-sm">
+					{formatDate({ date: post.data.pubDate })}
+				</p>
+			</div>
+
+			<figure>
+				<img
+					src={
+						post.data.cover || "/placeholder.jpg"
+					}
+					alt={post.data.title}
+					class="w-full h-64 object-cover rounded-lg"
+				/>
+			</figure>	
+
+			<div class="flex gap-4 my-4">
+				{
+					post.data.repositoryLink && (
+						<a href={post.data.repositoryLink} target="_blank">
+							<span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+								Repository ↗
+							</span>
+						</a>
+					)
+				}
+
+				{
+					post.data.deployLink && (
+						<a href={post.data.deployLink} target="_blank">
+							<span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+								Deploy ↗
+							</span>
+						</a>
+					)
+				}
+			</div>
+
+
+			<div id="content" class="mb-16">
+                <slot />
+            </div>
+
+			<Share 
+				title={post.data.title}
+				description={post.data.description}
+				url={`${Astro.site}${post.collection}/${post.slug}`} />
+
+			{
+				post.data.tags && (
+					<div id="tags">
+						<p class="italic">Tags:</p>
+
+						<div class="flex gap-2">
+							{
+								post.data.tags.map((tag: string) => (
+									<a href={`/${post.collection}/?tag=${tag}`}>
+										<span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+											{tag}
+										</span>
+									</a>
+								))
+							}
+						</div>
+					</div>
+
+				)
+			}
+		</article>
+	</Container>
+</PageLayout>
