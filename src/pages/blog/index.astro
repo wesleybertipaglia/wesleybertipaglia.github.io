@@ -1,0 +1,37 @@
+---
+import { BLOG } from "@consts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import PostPreview from "@components/PostPreview.astro";
+
+const blogPosts = (await getCollection("blog"))
+    .sort((a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<PageLayout title={BLOG.title} description={BLOG.description}>
+	<section>
+		<Container>
+			<h1 class="text-xl font-bold mb-6">Blog</h1>
+
+			<ul class="flex flex-col gap-4">
+				{
+					blogPosts.length > 0 ? (
+						blogPosts.map((post: any) => (
+							<li>
+								<PostPreview post={post} />
+							</li>
+						))
+					) : (
+						<li>No posts found</li>
+					)
+				}
+			</ul>
+		</Container>
+	</section>
+</PageLayout>
+
+<script>
+  import { filterPostsByTag } from "@lib/tag";
+  filterPostsByTag();
+</script>
