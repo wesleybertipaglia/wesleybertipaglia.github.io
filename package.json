@@ -4,11 +4,16 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:host": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.9"
+    "astro": "^5.13.9",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
   }
 }
