@@ -1,0 +1,33 @@
+---
+import Container from "@components/Container.astro";
+import Socials from "@components/Socials.astro";
+---
+
+<header>
+    <Container>
+        <section class="my-12">
+            <div>
+                <h1
+                class="mb-4 font-bold text-light-secondary dark:text-dark-secondary"
+                >
+                    <span>Hi, I'm Wesley</span>
+                    <span class="text-xl ml-1">👋🏻</span> 
+                </h1>
+                <p class="text-justify">
+                    I'm a software engineer from Brazil specialized in back-end
+                    development. My focus is on creating functional, scalable
+                    applications that not only solve real-world problems, but also
+                    drive innovation and transform experiences.
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <p class="italic text-sm">
+                    Let's Connect!
+                </p>
+
+                <Socials size={5} />
+            </div>
+        </section>
+    </Container>
+</header>

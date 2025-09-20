@@ -1,0 +1,24 @@
+---
+import Container from "@components/Container.astro";
+
+interface TimedCardProps {
+  id: string;
+  color?: string;  
+}
+
+const { id, color = 'bg-light-background-1 dark:bg-dark-background-1' } = Astro.props as TimedCardProps;
+---
+
+<div id={id} class={`fixed bottom-12 self-center hidden w-full`}>
+    <Container>
+        <div class={`${color} border border-light-border-3/10 dark:border-dark-border-3/1 shadow-md w-full p-6 rounded relative`}>
+            <div>
+              <slot />
+            </div>
+
+            <button class="text-xl font-bold ml-4 absolute top-4 right-4" id={`close-${id}`}>
+                &times;
+            </button>
+        </div>
+    </Container>  
+</div>

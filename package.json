@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "astro": "^5.13.9",
+    "astro-icon": "^1.1.5",
     "canvas-confetti": "^1.9.3",
     "tailwindcss": "^4.1.13"
   },

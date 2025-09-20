@@ -1,0 +1,25 @@
+---
+import TimedCard from "@components/TimedCard.astro"
+---
+
+<TimedCard id="thanks-notification" color="bg-white dark:bg-[#1c1c1c]">
+  <p class="text-light-text-1 dark:text-dark-text-1 font-bold">
+    <span>Thanks for visiting!</span>
+    <span class="text-xl ml-2">🎉</span>
+  </p>
+</TimedCard>
+
+<script>
+  import { showNotification } from "@lib/notification";    
+  import { launchConfetti } from "@lib/confetti";
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const alreadyShown = localStorage.getItem("thanksShown");
+
+    if (!alreadyShown) {
+      showNotification('thanks-notification');  
+      launchConfetti();
+      localStorage.setItem("thanksShown", "true");
+    }
+  });
+</script>
