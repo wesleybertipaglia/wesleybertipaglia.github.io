@@ -1,4 +1,5 @@
 ---
+id: "algorama"
 role: "Software Developer"
 companyName: "Algorama"
 companyLink: "https://www.linkedin.com/company/algorama/"
