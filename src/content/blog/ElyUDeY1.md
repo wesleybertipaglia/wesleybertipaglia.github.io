@@ -1,8 +1,8 @@
 ---
-id: "102325"
+id: "ElyUDeY1"
 title: "The Stellar Heritage: From Supernova to Consciousness"
 description: "A poetic journey from the death of a star to the birth of life and human curiosity — exploring how the universe forged the planet we call Earth and the spark that led to scientific thought."
-cover: "/images/stellar-heritage.webp"
+cover: "/images/ElyUDeY1.webp"
 tags: ["astronomy", "cosmology", "origin of life", "science", "human curiosity"]
 pubDate: "Oct 23 2025"
 updatedDate: "Oct 23 2025"

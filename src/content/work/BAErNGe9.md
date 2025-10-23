@@ -1,9 +1,9 @@
 ---
-id: "ancode"
+id: "BAErNGe9"
 role: "Software Developer"
 companyName: "AnCode"
 companyLink: "https://www.linkedin.com/company/ancodeapp/"
-companyLogo: "/logos/ancode.jpg"
+companyLogo: "/images/BAErNGe9.webp"
 location: "São José do Rio Preto, SP - Brazil"
 startDate: "Jun 01 2022"
 endDate: "Feb 29 2024"
