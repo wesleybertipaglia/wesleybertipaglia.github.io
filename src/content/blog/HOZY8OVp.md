@@ -1,4 +1,5 @@
 ---
+id: "HOZY8OVp"
 title: "Who I Am & Why This Blog Exists"
 description: "A personal journey into programming, learning, and growth. Sharing lessons learned and advice for aspiring developers."
 cover: ""

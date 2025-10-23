@@ -1,8 +1,9 @@
 ---
+id: "tlXXnHJP"
 role: "Software Developer"
 companyName: "Algorama"
 companyLink: "https://www.linkedin.com/company/algorama/"
-companyLogo: "/logos/algorama.jpg"
+companyLogo: "/images/tlXXnHJP.webp"
 location: "Remote - Brazil"
 startDate: "Jan 01 2025"
 description: "C# and .NET Developer working on projects for logistics and telecommunications sectors."
