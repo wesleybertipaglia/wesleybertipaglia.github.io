@@ -22,6 +22,9 @@ const series = post.data.series
 	title={post.data.title}
 	description={post.data.description}
 	image={post.data.cover}
+	type="article"
+	publishedTime={post.data.pubDate.toISOString()}
+	section={post.data.tags ? post.data.tags[0] : undefined}
 >
 	<Container>
 		<article>

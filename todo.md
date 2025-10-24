@@ -3,5 +3,5 @@
 - [ ] add eslint, prettier and husky
 - [ ] add more text formating styles
 - [ ] add a table of contents automatically generator
-- [ ] improve meta tags and seo
 - [ ] add claps feature
+- [ ] add an animation on hovering the hand emoji in the home
