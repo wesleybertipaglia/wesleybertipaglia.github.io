@@ -25,11 +25,18 @@ const series = post.data.series
 >
 	<Container>
 		<article>
-			<div>
+			<div class="pb-4">
 				<h1 class="text-3xl font-bold">{post.data.title}</h1>
 				<p class="text-sm">
-					{dateUtils.formatDate({ date: post.data.pubDate })} • {textUtils.readingTime({ text: post.body })}
+					{dateUtils.formatDate({ date: post.data.pubDate })} • {
+						textUtils.readingTime({ text: post.body })
+					}
 				</p>
+				<Share
+					title={post.data.title}
+					description={post.data.description}
+					url={`${Astro.site}${post.collection}/${post.slug}`}
+				/>
 			</div>
 
 			<figure>
@@ -54,12 +61,6 @@ const series = post.data.series
 			<div id="content" class="mb-16">
 				<slot />
 			</div>
-
-			<Share
-				title={post.data.title}
-				description={post.data.description}
-				url={`${Astro.site}${post.collection}/${post.slug}`}
-			/>
 
 			{
 				post.data.tags && (
