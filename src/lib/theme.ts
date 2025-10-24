@@ -1,31 +1,34 @@
 const themeKey = 'theme';
 
-export const getTheme = () => {
-    let theme = localStorage.getItem(themeKey);
+class ThemeUtils {
+    getTheme(): string {
+        let theme = localStorage.getItem(themeKey);
 
-    if (!theme) {
-        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (!theme) {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        return theme;
     }
 
-    return theme;
-};
+    setTheme(theme: string): void {
+        localStorage.setItem(themeKey, theme);
+        document.firstElementChild?.classList.toggle('dark', theme === 'dark');
+    }
 
-export const setTheme = (theme: string) => {
-    localStorage.setItem(themeKey, theme);
-    document.firstElementChild?.classList.toggle('dark', theme === 'dark');
-};
+    toggleTheme(): void {
+        this.setTheme(this.getTheme() === 'dark' ? 'light' : 'dark');
+    }
 
-export const toggleTheme = () => {
-    setTheme(getTheme() === 'dark' ? 'light' : 'dark');
-};
+    initTheme(): void {
+        this.setTheme(this.getTheme());
+    }
 
-export const initTheme = () => {
-    setTheme(getTheme());
+    initThemeToggle(buttonId: string = 'theme-toggle'): void {
+        this.initTheme();
+        const themeToggle = document.getElementById(buttonId);
+        themeToggle?.addEventListener("click", () => this.toggleTheme());
+    }
 }
 
-export default {
-    getTheme,
-    setTheme,
-    toggleTheme,
-    initTheme
-};
+export const themeUtils = new ThemeUtils();
