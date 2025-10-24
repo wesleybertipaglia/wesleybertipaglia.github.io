@@ -6,7 +6,7 @@
  * @param titleSelector - The CSS selector for the title element.
  * @param tagSelector - The CSS selector within each post to find tags.
  */
-class TagUtils {
+class PostUtils {
     filterPostsByTag(
         entityTitle: string = 'Posts',
         tagParam: string = 'tag',
@@ -35,6 +35,26 @@ class TagUtils {
             }
         });
     }
+
+    static filterPostsByQuery(posts: any[], query: string): any[] {
+        if (!query) return posts;
+
+        const lowerQuery = query.toLowerCase();
+
+        return posts.filter(post => {
+            const searchable = [
+                post.data.title,
+                post.data.description,
+                post.data.tags?.join(' '),
+                post.data.role,
+                post.data.companyName,
+            ].filter(Boolean).join(' ').toLowerCase();
+
+            return searchable.includes(lowerQuery);
+        });
+    }
 }
 
-export const tagUtils = new TagUtils();
+export const tagUtils = new PostUtils();
+
+export { PostUtils };
