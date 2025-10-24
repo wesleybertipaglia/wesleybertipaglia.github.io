@@ -1,70 +1,72 @@
 ---
-import { PROJECTS } from "@consts";
-import { getCollection, type CollectionEntry } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import PostPreview from "@components/PostPreview.astro";
-import Pagination from "@components/Pagination.astro";
-import Search from "@components/Search.astro";
-import { paginationUtils } from "@lib/pagination";
-import { PostUtils } from "@lib/post-utils";
+import { PROJECTS } from '@consts';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageLayout from '@layouts/PageLayout.astro';
+import Container from '@components/Container.astro';
+import PostPreview from '@components/PostPreview.astro';
+import Pagination from '@components/Pagination.astro';
+import Search from '@components/Search.astro';
+import { paginationUtils } from '@lib/pagination';
+import { PostUtils } from '@lib/post-utils';
 
-const allProjectsPosts = (await getCollection("projects")).sort(
-	(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const allProjectsPosts = (await getCollection('projects')).sort(
+  (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const q = Astro.url.searchParams.get('q');
-let filteredPosts = q ? PostUtils.filterPostsByQuery(allProjectsPosts, q) : allProjectsPosts;
+let filteredPosts = q
+  ? PostUtils.filterPostsByQuery(allProjectsPosts, q)
+  : allProjectsPosts;
 
 const pagination = paginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(filteredPosts.length / pagination.size);
 const projectsPosts = filteredPosts.slice(
-	pagination.offset,
-	pagination.offset + pagination.size,
+  pagination.offset,
+  pagination.offset + pagination.size
 );
 
 const title = q ? `${PROJECTS.title} - Search: ${q}` : PROJECTS.title;
 ---
 
 <PageLayout title={title} description={PROJECTS.description}>
-	<section class="flex flex-col flex-1">
-		<Container class="flex flex-col flex-1 w-full">
-			<div class="flex-1">
-				<h1 class="text-xl font-bold mb-6">Projects</h1>
+  <section class="flex flex-col flex-1">
+    <Container class="flex flex-col flex-1 w-full">
+      <div class="flex-1">
+        <h1 class="text-xl font-bold mb-6">Projects</h1>
 
-				<Search />
+        <Search />
 
-				<ul class="flex flex-col gap-4">
-					{
-						projectsPosts.length > 0 ? (
-							projectsPosts.map((post: any) => (
-								<li>
-									<PostPreview post={post} />
-								</li>
-							))
-						) : (
-							<li>{q ? `No posts found for "${q}"` : "No posts found"}</li>
-						)
-					}
-				</ul>
-			</div>
+        <ul class="flex flex-col gap-4">
+          {
+            projectsPosts.length > 0 ? (
+              projectsPosts.map((post: any) => (
+                <li>
+                  <PostPreview post={post} />
+                </li>
+              ))
+            ) : (
+              <li>{q ? `No posts found for "${q}"` : 'No posts found'}</li>
+            )
+          }
+        </ul>
+      </div>
 
-			{
-				totalPages > 0 && (
-					<Pagination
-						currentPage={pagination.page}
-						totalPages={totalPages}
-						basePath="/projects"
-						size={pagination.size}
-					/>
-				)
-			}
-		</Container>
-	</section>
+      {
+        totalPages > 0 && (
+          <Pagination
+            currentPage={pagination.page}
+            totalPages={totalPages}
+            basePath="/projects"
+            size={pagination.size}
+          />
+        )
+      }
+    </Container>
+  </section>
 </PageLayout>
 
 <script>
-	import { pageUtils } from "@lib/page-utils";
-	pageUtils.initProjectsPage();
+  import { pageUtils } from '@lib/page-utils';
+  pageUtils.initProjectsPage();
 </script>

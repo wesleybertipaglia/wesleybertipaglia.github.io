@@ -1,12 +1,12 @@
 ---
-id: "ElyUDeY1"
-title: "The Stellar Heritage: From Supernova to Consciousness"
-description: "A poetic journey from the death of a star to the birth of life and human curiosity — exploring how the universe forged the planet we call Earth and the spark that led to scientific thought."
-cover: "/images/ElyUDeY1.webp"
-tags: ["astronomy", "cosmology", "origin of life", "science", "human curiosity"]
-pubDate: "Oct 23 2025"
-updatedDate: "Oct 23 2025"
-series: "3kGtJ0UQ"
+id: 'ElyUDeY1'
+title: 'The Stellar Heritage: From Supernova to Consciousness'
+description: 'A poetic journey from the death of a star to the birth of life and human curiosity — exploring how the universe forged the planet we call Earth and the spark that led to scientific thought.'
+cover: '/images/ElyUDeY1.webp'
+tags: ['astronomy', 'cosmology', 'origin of life', 'science', 'human curiosity']
+pubDate: 'Oct 23 2025'
+updatedDate: 'Oct 23 2025'
+series: '3kGtJ0UQ'
 ---
 
 Approximately 4.6 billion years ago, the cosmos was a vast stage of darkness and primordial hydrogen. But the silence was about to be broken by creative violence.
@@ -40,10 +40,17 @@ The events narrated here (the formation of the Sun, the Earth, and the origin of
 For narrative and emotional impact, the time and scale of events have been condensed. Science is a continuous process of discovery, and the exact details of our origins remain the subject of intense research. Our goal is to inspire curiosity and wonder about the cosmic journey we are part of.
 
 [^1]: [Supernova — Wikipedia](https://en.wikipedia.org/wiki/Supernova)
+
 [^2]: [Stellar nucleosynthesis — Wikipedia](https://en.wikipedia.org/wiki/Stellar_nucleosynthesis)
+
 [^3]: [Sun — Wikipedia](https://en.wikipedia.org/wiki/Sun)
+
 [^4]: [Protoplanetary disk — Wikipedia](https://en.wikipedia.org/wiki/Protoplanetary_disk)
+
 [^5]: [Earth — Wikipedia](https://en.wikipedia.org/wiki/Earth)
+
 [^6]: [Abiogenesis — Wikipedia](https://en.wikipedia.org/wiki/Abiogenesis)
+
 [^7]: [Formation and evolution of the Solar System — Wikipedia](https://en.wikipedia.org/wiki/Formation_and_evolution_of_the_Solar_System)
+
 [^8]: [Origin of life — Wikipedia](https://en.wikipedia.org/wiki/Origin_of_life)

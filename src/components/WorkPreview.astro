@@ -1,67 +1,69 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { textUtils } from "@lib/text-utils";
-import { dateUtils } from "@lib/date-utils";
+import type { CollectionEntry } from 'astro:content';
+import { textUtils } from '@lib/text-utils';
+import { dateUtils } from '@lib/date-utils';
 
 type Props = {
-    post: CollectionEntry<"work">;
+  post: CollectionEntry<'work'>;
 };
 
 const { post } = Astro.props;
 ---
 
 <a href={`/${post.collection}/${post.slug}`}>
-    <div class="flex gap-4">
-        <div>
-            {
-                post.data.companyLogo ? (
-                    <img
-                        src={post.data.companyLogo}
-                        alt={post.data.companyName}
-                        class="w-10 h-10 rounded"
-                    />
-                ) : (
-                    <div class="w-10 h-10 flex items-center justify-center rounded bg-light-background-3/50 dark:bg-dark-background-3/50">
-                        <p class="text-xl font-bold">
-                            {post.data.companyName.charAt(0).toUpperCase()}
-                        </p>
-                    </div>
-                )                    
-            }
-        </div>
-
-        <div>
-            <p>
-                <span class="font-semibold">
-                    {post.data.role}
-                </span>
-
-                {
-                    post.data.companyLink ? (
-                        <a href={post.data.companyLink} target="_blank" class="italic text-sm text-blue-500 font-medium">
-                            @{post.data.companyName}
-                        </a>
-                    ) : (
-                        <span class="italic text-sm">
-                            @{post.data.companyName}
-                        </span>
-                    )
-                }	            
+  <div class="flex gap-4">
+    <div>
+      {
+        post.data.companyLogo ? (
+          <img
+            src={post.data.companyLogo}
+            alt={post.data.companyName}
+            class="w-10 h-10 rounded"
+          />
+        ) : (
+          <div class="w-10 h-10 flex items-center justify-center rounded bg-light-background-3/50 dark:bg-dark-background-3/50">
+            <p class="text-xl font-bold">
+              {post.data.companyName.charAt(0).toUpperCase()}
             </p>
-
-            <p class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
-                {
-                    dateUtils.formatDateRange({
-                        startDate: post.data.startDate,
-                        endDate: post.data.endDate,
-                        options: { year: "numeric", month: "short" },
-                    })
-                }
-            </p>
-        </div>
+          </div>
+        )
+      }
     </div>
-   
-    <p class="text-sm mt-2 text-light-text-3/85 dark:text-dark-text-3/85">
-        {textUtils.excerpt({ text: post.data.description, maxLength: 256 })}
-    </p>
+
+    <div>
+      <p>
+        <span class="font-semibold">
+          {post.data.role}
+        </span>
+
+        {
+          post.data.companyLink ? (
+            <a
+              href={post.data.companyLink}
+              target="_blank"
+              class="italic text-sm text-blue-500 font-medium"
+            >
+              @{post.data.companyName}
+            </a>
+          ) : (
+            <span class="italic text-sm">@{post.data.companyName}</span>
+          )
+        }
+      </p>
+
+      <p class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
+        {
+          dateUtils.formatDateRange({
+            startDate: post.data.startDate,
+            endDate: post.data.endDate,
+            options: { year: 'numeric', month: 'short' },
+          })
+        }
+      </p>
+    </div>
+  </div>
+
+  <p class="text-sm mt-2 text-light-text-3/85 dark:text-dark-text-3/85">
+    {textUtils.excerpt({ text: post.data.description, maxLength: 256 })}
+  </p>
 </a>

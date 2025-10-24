@@ -1,87 +1,85 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import { dateUtils } from "@lib/date-utils";
-import { textUtils } from "@lib/text-utils";
-import Share from "@components/Share.astro";
+import { type CollectionEntry, getCollection } from 'astro:content';
+import PageLayout from '@layouts/PageLayout.astro';
+import Container from '@components/Container.astro';
+import { dateUtils } from '@lib/date-utils';
+import { textUtils } from '@lib/text-utils';
+import Share from '@components/Share.astro';
 
 type Props = {
-	post: CollectionEntry<"blog">;
+  post: CollectionEntry<'blog'>;
 };
 
 const { post } = Astro.props;
 const series = post.data.series
-	? (await getCollection("series")).find(
-			(s) => s.data.id === post.data.series,
-		)
-	: null;
+  ? (await getCollection('series')).find((s) => s.data.id === post.data.series)
+  : null;
 ---
 
 <PageLayout
-	title={post.data.title}
-	description={post.data.description}
-	image={post.data.cover}
-	type="article"
-	publishedTime={post.data.pubDate.toISOString()}
-	section={post.data.tags ? post.data.tags[0] : undefined}
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.cover}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  section={post.data.tags ? post.data.tags[0] : undefined}
 >
-	<Container>
-		<article>
-			<div class="pb-4">
-				<h1 class="text-4xl font-bold">{post.data.title}</h1>
-				<p class="text-sm">
-					{dateUtils.formatDate({ date: post.data.pubDate })} • {
-						textUtils.readingTime({ text: post.body })
-					}
-				</p>
-				<Share
-					title={post.data.title}
-					description={post.data.description}
-					url={`${Astro.site}${post.collection}/${post.slug}`}
-				/>
-			</div>
+  <Container>
+    <article>
+      <div class="pb-4">
+        <h1 class="text-4xl font-bold">{post.data.title}</h1>
+        <p class="text-sm">
+          {dateUtils.formatDate({ date: post.data.pubDate })} • {
+            textUtils.readingTime({ text: post.body })
+          }
+        </p>
+        <Share
+          title={post.data.title}
+          description={post.data.description}
+          url={`${Astro.site}${post.collection}/${post.slug}`}
+        />
+      </div>
 
-			<figure>
-				<img
-					src={post.data.cover || "/images/placeholder.webp"}
-					alt={post.data.title}
-					class="w-full h-64 object-cover rounded-lg"
-				/>
-			</figure>
+      <figure>
+        <img
+          src={post.data.cover || '/images/placeholder.webp'}
+          alt={post.data.title}
+          class="w-full h-64 object-cover rounded-lg"
+        />
+      </figure>
 
-			{
-				series && (
-					<p class="py-4">
-						Part of the series:
-						<a href={`/series/${series.slug}`} class="underline">
-							{series.data.title}
-						</a>
-					</p>
-				)
-			}
+      {
+        series && (
+          <p class="py-4">
+            Part of the series:
+            <a href={`/series/${series.slug}`} class="underline">
+              {series.data.title}
+            </a>
+          </p>
+        )
+      }
 
-			<div id="content" class="mb-16">
-				<slot />
-			</div>
+      <div id="content" class="mb-16">
+        <slot />
+      </div>
 
-			{
-				post.data.tags && (
-					<div>
-						<p class="mb-0 mt-8 italic">Tags:</p>
+      {
+        post.data.tags && (
+          <div>
+            <p class="mb-0 mt-8 italic">Tags:</p>
 
-						<div class="flex gap-2 mt-4">
-							{post.data.tags.map((tag: string) => (
-								<a href={`/${post.collection}/?tag=${tag}`}>
-									<span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
-										{tag}
-									</span>
-								</a>
-							))}
-						</div>
-					</div>
-				)
-			}
-		</article>
-	</Container>
+            <div class="flex gap-2 mt-4">
+              {post.data.tags.map((tag: string) => (
+                <a href={`/${post.collection}/?tag=${tag}`}>
+                  <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+                    {tag}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </article>
+  </Container>
 </PageLayout>

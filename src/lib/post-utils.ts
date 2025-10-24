@@ -7,52 +7,59 @@
  * @param tagSelector - The CSS selector within each post to find tags.
  */
 class PostUtils {
-    filterPostsByTag(
-        entityTitle: string = 'Posts',
-        tagParam: string = 'tag',
-        postSelector: string = '.post',
-        titleSelector: string = 'h1',
-        tagSelector: string = '.tags'
-    ): void {
-        const params = new URLSearchParams(window.location.search);
-        const tag = params.get(tagParam);
-        const titleElement = document.querySelector<HTMLHeadingElement>(titleSelector);
-        const postElements = document.querySelectorAll<HTMLElement>(postSelector);
+  filterPostsByTag(
+    entityTitle: string = 'Posts',
+    tagParam: string = 'tag',
+    postSelector: string = '.post',
+    titleSelector: string = 'h1',
+    tagSelector: string = '.tags'
+  ): void {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get(tagParam);
+    const titleElement =
+      document.querySelector<HTMLHeadingElement>(titleSelector);
+    const postElements = document.querySelectorAll<HTMLElement>(postSelector);
 
-        if (!tag) return;
+    if (!tag) return;
 
-        if (titleElement) {
-            titleElement.textContent = `${entityTitle} tagged with "${tag}"`;
+    if (titleElement) {
+      titleElement.textContent = `${entityTitle} tagged with "${tag}"`;
+    }
+
+    Array.from(postElements).forEach((post) => {
+      const tagElement = post.querySelector(tagSelector);
+      if (tagElement) {
+        const postTags = tagElement.textContent
+          ?.split(',')
+          .map((t) => t.trim());
+        if (!postTags?.includes(tag)) {
+          post.style.display = 'none';
         }
+      }
+    });
+  }
 
-        Array.from(postElements).forEach((post) => {
-            const tagElement = post.querySelector(tagSelector);
-            if (tagElement) {
-                const postTags = tagElement.textContent?.split(',').map((t) => t.trim());
-                if (!postTags?.includes(tag)) {
-                    post.style.display = 'none';
-                }
-            }
-        });
-    }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static filterPostsByQuery(posts: any[], query: string): any[] {
+    if (!query) return posts;
 
-    static filterPostsByQuery(posts: any[], query: string): any[] {
-        if (!query) return posts;
+    const lowerQuery = query.toLowerCase();
 
-        const lowerQuery = query.toLowerCase();
+    return posts.filter((post) => {
+      const searchable = [
+        post.data.title,
+        post.data.description,
+        post.data.tags?.join(' '),
+        post.data.role,
+        post.data.companyName,
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
 
-        return posts.filter(post => {
-            const searchable = [
-                post.data.title,
-                post.data.description,
-                post.data.tags?.join(' '),
-                post.data.role,
-                post.data.companyName,
-            ].filter(Boolean).join(' ').toLowerCase();
-
-            return searchable.includes(lowerQuery);
-        });
-    }
+      return searchable.includes(lowerQuery);
+    });
+  }
 }
 
 export const tagUtils = new PostUtils();

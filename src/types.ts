@@ -1,19 +1,19 @@
 export type Site = {
-  title: string
-  description: string
-  author: string
-  keywords: string
-  twitter?: string
-}
+  title: string;
+  description: string;
+  author: string;
+  keywords: string;
+  twitter?: string;
+};
 
 export type Metadata = {
-  title: string
-  description: string
-}
+  title: string;
+  description: string;
+};
 
 export type Link = {
-  title: string
-  url: string
-  icon?: string
-  main: boolean
-}
+  title: string;
+  url: string;
+  icon?: string;
+  main: boolean;
+};

@@ -1,24 +1,24 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-type Props = HTMLAttributes<"a">;
+type Props = HTMLAttributes<'a'>;
 const { href, class: classList, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const hrefStr = href?.toString() || "";
+const hrefStr = href?.toString() || '';
 const isActive =
-    hrefStr === "/" ? pathname === "/" : pathname.startsWith(hrefStr);
+  hrefStr === '/' ? pathname === '/' : pathname.startsWith(hrefStr);
 ---
 
 <a
-    href={href?.toString() || ""}
-    class:list={["hover:underline", classList, { active: isActive }]}
-    {...props}
+  href={href?.toString() || ''}
+  class:list={['hover:underline', classList, { active: isActive }]}
+  {...props}
 >
-    <slot />
+  <slot />
 </a>
 <style>
-    a.active {
-        text-decoration: underline;
-    }
+  a.active {
+    text-decoration: underline;
+  }
 </style>

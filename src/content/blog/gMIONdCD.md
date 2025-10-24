@@ -1,12 +1,12 @@
 ---
-id: "gMIONdCD"
-title: "What I Would Do If I Were Starting My Software Engineering Journey Today"
-description: "A concise guide for aspiring software engineers on building a solid foundation, gaining practical experience, and approaching career growth strategically."
-cover: ""
-tags: ["swe", "career", "advice"]
-pubDate: "Sep 19 2025"
-updatedDate: "Sep 19 2025"
-series: "Y4vcTTMB"
+id: 'gMIONdCD'
+title: 'What I Would Do If I Were Starting My Software Engineering Journey Today'
+description: 'A concise guide for aspiring software engineers on building a solid foundation, gaining practical experience, and approaching career growth strategically.'
+cover: ''
+tags: ['swe', 'career', 'advice']
+pubDate: 'Sep 19 2025'
+updatedDate: 'Sep 19 2025'
+series: 'Y4vcTTMB'
 ---
 
 If I could go back in time and restart my coding journey, I'd do things a little differently. Not because I messed up before, but because I’ve since figured out a more chill, yet super effective, way to become a killer software engineer, even if you're starting from zero.
@@ -14,12 +14,15 @@ If I could go back in time and restart my coding journey, I'd do things a little
 My old self would get all hyped up about the latest trendy languages and frameworks, jumping straight into the deep end. My new, wiser self would skip all that noise and build a rock solid foundation first. Think of it like this: I’d rather learn to be a master chef than just a pro at using one specific brand of microwave.
 
 ## Forget the Fads, Learn the Fundamentals
+
 When you're first starting, the temptation is real. You want to learn React, Java Spring Boot, or some other cool, shiny tool. I get it. But that's like trying to build a skyscraper without knowing how to lay a single brick. I'd do the opposite. I'd get my hands dirty with the stuff that happens "under the hood."
 
 ## C and C++ Are Your Funky New Friends
+
 Don't let these languages scare you. They're not just about weird syntax; they're about boot camp for your brain. They force you to learn low level stuff like memory management and pointers. Why? Because understanding how a computer handles its memory is a superpower. It helps you write lightning fast code and debug problems that would make most developers want to cry.
 
 ## Python for Data Structures & Algorithms (DSA)
+
 A lot of new coders run screaming from DSA, but it's the secret sauce of all great engineers. I'd use Python because its simple syntax lets you focus on the most important part: the logic.
 
 Think of it like learning to play the guitar. You’re not just training for a future gig; you're building the finger strength and rhythm that will let you play anything. When you get good at DSA, you start seeing the skeleton of every problem, and that’s when you level up from a "coder" to a true engineer.
@@ -27,6 +30,7 @@ Think of it like learning to play the guitar. You’re not just training for a f
 > A coder knows how to follow a recipe. An engineer understands why the ingredients work together and can invent their own dishes.
 
 ## Do it Yourself
+
 Formal education is great, but it's not the only way to the top. All you really need is discipline and a good dose of curiosity, just get your hands dirty and start building things. The best way to learn is by doing, so dive into projects that challenge you, frustrate you, and ultimately teach you something new, and also have fun while doing it.
 
 Be careful not to fall into the trap of just building crud project after crud project. Instead, focus on projects that push your boundaries and make you think critically.
@@ -34,6 +38,7 @@ Be careful not to fall into the trap of just building crud project after crud pr
 Also, don't just copy code from tutorials. Try to understand it, tweak it, and make it your own. This is how you truly learn.
 
 ## Pick Your Courses Wisely
+
 Don't just collect online courses like trading cards. Find one that teaches you how to think, not just what to type. A fantastic example is <a href="https://pll.harvard.edu/course/cs50-introduction-computer-science" target="_blank" rel="noopener noreferrer">@Harvard's CS50</a>. It won't hold your hand and teach you a single language. Instead, it throws you into the deep end and forces you to think like a computer scientist.
 
 But if you are looking for some courses recommendations, here are a few websites where you can find high-quality courses:
@@ -55,6 +60,7 @@ And heres a few websites where you can learn and practice your skills:
 - <a href="https://www.codechef.com/" target="_blank" rel="noopener noreferrer">CodeChef</a> (free)
 
 ## Build Projects That Actually Solve a Problem
+
 My biggest rookie mistake was building generic "portfolio projects" that nobody needed. The smart way to do it is to solve a real problem for yourself or someone you know.
 
 Need to organize your mess of downloads? Write a script for it. Can't find the best deals online? Build a price tracker. The project doesn't have to be a masterpiece. The real magic is in the messy process: planning, building, failing, yelling at your screen, and then finally getting it to work.
@@ -62,26 +68,33 @@ Need to organize your mess of downloads? Write a script for it. Can't find the b
 Reading about swimming is one thing. Actually jumping in the pool is what gets you wet (and makes you a swimmer).
 
 ## Your Portfolio Is Your Story
+
 Your GitHub profile shouldn't just be a graveyard of old projects; it should be a comic book of your journey, showing all your battles and victories.
 
 ## Use Your README.md Like a Storybook
+
 For every project, write a solid `README.md`. Explain the problem you were solving, the choices you made, and the challenges you faced. This isn't just showing off your code; it's showing off your brain. It tells a potential employer you're not just a code monkey; you're a thinker.
 
 ## Try to Contribute to Open Source
+
 Instead of just building things from scratch, find an open-source project and contribute. It's like joining a band instead of just playing in your bedroom. You learn how to work with a team, navigate real-world codebases, and follow professional quality standards.
 
 A great portfolio doesn't just show that you can code; it shows you can think like an engineer.
 
 ## How to Get Your First Gig Without Losing Your Mind
+
 Everyone thinks they need to be 100% ready before they start applying for jobs. That's a myth. The job hunt itself is one of the best ways to learn.
 
 ## Hunt for Learning Opportunities, Not Just Paychecks
+
 Skip the "dream job" fantasy for now. Instead, focus on internships and trainee programs. These positions are designed for you to grow. The mentorship and hands-on experience are worth way more than a high starting salary.
 
 ## Learn to Be Your Own Hero
+
 In the age of AI, the most valuable skill you can have is the ability to figure things out on your own. Before you run to Stack Overflow or ChatGPT for help, try to debug the problem yourself. This doesn't mean you have to work in isolation; it means you're training your brain to be resourceful and independent.
 
 ## Final Thoughts (The Pep Talk)
+
 Every mistake is a lesson. Every interview is a practice round. Every line of code you write is a step forward.
 
 Think about the trade-offs of every decision you make. Why did you use that data structure? Why did you choose that API architecture? Thinking about these choices early on is what forges an engineering mind.

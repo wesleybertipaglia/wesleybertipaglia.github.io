@@ -1,13 +1,13 @@
 ---
 interface Props {
-	color?: string;	
+  color?: string;
 }
 
-const {	
-	color = "bg-green-400",
-} = Astro.props;
+const { color = 'bg-green-400' } = Astro.props;
 ---
 
-<div class=`flex justify-center items-center h-3 w-3 pointer-events-none animate-pulse rounded-full ${color}`>
+<div
+  class=`flex justify-center items-center h-3 w-3 pointer-events-none animate-pulse rounded-full ${color}`
+>
   <div class=`animate-ping rounded-full h-3 w-3 opacity-75 ${color}`></div>
 </div>

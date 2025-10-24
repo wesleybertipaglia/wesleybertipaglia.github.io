@@ -1,70 +1,70 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
-import "@/styles/global.css";
-import { HOME } from "@consts";
-import Hero from "@components/Hero.astro";
-import PageLayout from "@layouts/PageLayout.astro";
-import PostListPreview from "@components/PostListPreview.astro";
-import SeriesListPreview from "@components/SeriesListPreview.astro";
-import WorkListPreview from "@components/WorkListPreview.astro";
+import { getCollection, type CollectionEntry } from 'astro:content';
+import '@/styles/global.css';
+import { HOME } from '@consts';
+import Hero from '@components/Hero.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+import PostListPreview from '@components/PostListPreview.astro';
+import SeriesListPreview from '@components/SeriesListPreview.astro';
+import WorkListPreview from '@components/WorkListPreview.astro';
 
-const blogPosts = (await getCollection("blog"))
-	.sort(
-		(a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	)
-	.slice(0, 3);
+const blogPosts = (await getCollection('blog'))
+  .sort(
+    (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )
+  .slice(0, 3);
 
-const projectsPosts = (await getCollection("projects"))
-	.sort(
-		(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
-			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	)
-	.slice(0, 3);
+const projectsPosts = (await getCollection('projects'))
+  .sort(
+    (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )
+  .slice(0, 3);
 
-const seriesList = (await getCollection("series"))
-	.sort(
-		(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
-			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	)
-	.slice(0, 3);
+const seriesList = (await getCollection('series'))
+  .sort(
+    (a: CollectionEntry<'series'>, b: CollectionEntry<'series'>) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )
+  .slice(0, 3);
 
-const workPosts = (await getCollection("work"))
-	.sort(
-		(a: CollectionEntry<"work">, b: CollectionEntry<"work">) =>
-			b.data.startDate.valueOf() - a.data.startDate.valueOf(),
-	)
-	.slice(0, 3);
+const workPosts = (await getCollection('work'))
+  .sort(
+    (a: CollectionEntry<'work'>, b: CollectionEntry<'work'>) =>
+      b.data.startDate.valueOf() - a.data.startDate.valueOf()
+  )
+  .slice(0, 3);
 ---
 
 <PageLayout title={HOME.title} description={HOME.description}>
-	<Hero />
-	
-	<PostListPreview
-		title="Latest Posts"
-		seeAllTitle="View all posts"
-		seeAllUrl="/blog"
-		postList={blogPosts}
-	/>
+  <Hero />
 
-	<SeriesListPreview
-		title="Latest Series"
-		seeAllTitle="View all series"
-		seeAllUrl="/series"
-		seriesList={seriesList}
-	/>
+  <PostListPreview
+    title="Latest Posts"
+    seeAllTitle="View all posts"
+    seeAllUrl="/blog"
+    postList={blogPosts}
+  />
 
-	<PostListPreview
-		title="Latest Projects"
-		seeAllTitle="View all projects"
-		seeAllUrl="/projects"
-		postList={projectsPosts}
-	/>
+  <SeriesListPreview
+    title="Latest Series"
+    seeAllTitle="View all series"
+    seeAllUrl="/series"
+    seriesList={seriesList}
+  />
 
-	<WorkListPreview
-		title="Latest Work"
-		seeAllTitle="View all work"
-		seeAllUrl="/work"
-		postList={workPosts}
-	/>
+  <PostListPreview
+    title="Latest Projects"
+    seeAllTitle="View all projects"
+    seeAllUrl="/projects"
+    postList={projectsPosts}
+  />
+
+  <WorkListPreview
+    title="Latest Work"
+    seeAllTitle="View all work"
+    seeAllUrl="/work"
+    postList={workPosts}
+  />
 </PageLayout>
