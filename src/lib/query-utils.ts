@@ -73,8 +73,6 @@ export class QueryUtils {
         const textContent = post.textContent?.toLowerCase() || '';
         if (!textContent.includes(query)) {
           (post.parentElement as HTMLElement).style.display = 'none';
-        } else {
-          (post.parentElement as HTMLElement).style.display = '';
         }
       });
     }

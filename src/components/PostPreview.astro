@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { TextUtils } from '@lib/text-utils';
-import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
+import ArrowRightAnimatedIcon from '@components/ArrowRightAnimatedIcon.astro';
 
 type Props = {
   post: CollectionEntry<'blog'> | CollectionEntry<'projects'>;
@@ -29,7 +29,7 @@ const { post } = Astro.props;
       {TextUtils.readingTime({ text: post.body })}
     </div>
   </div>
-  <ArrowOutwardIcon
+  <ArrowRightAnimatedIcon
     className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-color-3"
   />
 

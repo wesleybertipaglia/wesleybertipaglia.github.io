@@ -18,12 +18,12 @@ const { title, modalId = 'modal', closeButtonId = 'close-modal' } = Astro.props;
     class="modal-content bg-background-1 p-6 rounded-lg max-w-md w-full mx-4"
   >
     <div class="flex justify-between items-center mb-4">
-      <h3 class="text-lg font-semibold m-0">{title}</h3>
+      <h3 class="text-lg font-semibold !m-0">{title}</h3>
       <button
         id={closeButtonId}
         class="text-color-3 hover:text-color-1 hover:text-dark-text-1 cursor-pointer"
       >
-        <Icon name="symbols/x" class="w-5 h-5" />
+        <Icon name="icons/x" class="w-5 h-5" />
       </button>
     </div>
     <slot />

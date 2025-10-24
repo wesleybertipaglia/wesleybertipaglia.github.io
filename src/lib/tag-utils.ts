@@ -33,7 +33,7 @@ export class TagUtils {
           ?.split(',')
           .map((t) => t.trim());
         if (!postTags?.includes(tag)) {
-          post.style.display = 'none';
+          post.parentElement!.style.display = 'none';
         }
       }
     });

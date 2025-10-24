@@ -1,13 +1,15 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Container from '@components/Container.astro';
 import Link from '@components/Link.astro';
 import ThemeToggle from '@components/ThemeToggle.astro';
+import Modal from '@components/Modal.astro';
 ---
 
 <header class="sticky top-0 z-10 backdrop-blur-md">
   <Container>
     <nav class="flex justify-between items-center py-4">
-      <div class="flex gap-4">
+      <div class="flex gap-4 max-[400px]:hidden">
         <Link href="/" class="font-medium">home</Link>
         <Link href="/blog">blog</Link>
         <Link href="/series">series</Link>
@@ -15,7 +17,57 @@ import ThemeToggle from '@components/ThemeToggle.astro';
         <Link href="/work">work</Link>
       </div>
 
+      <button id="open-menu" class="max-[400px]:block hidden cursor-pointer">
+        <Icon name="icons/menu" class="w-6 h-6" />
+      </button>
+
       <ThemeToggle />
     </nav>
   </Container>
 </header>
+
+<Modal title="Menu" modalId="menu-modal" closeButtonId="close-menu">
+  <div class="flex flex-col gap-2">
+    <a
+      href="/"
+      class="relative group flex items-center gap-4 py-3 px-4 rounded transition-colors duration-300 ease-in-out border border-border-3/10 hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2 font-medium"
+    >
+      home
+    </a>
+    <a
+      href="/blog"
+      class="relative group flex items-center gap-4 py-3 px-4 rounded transition-colors duration-300 ease-in-out border border-border-3/10 hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
+    >
+      blog
+    </a>
+    <a
+      href="/series"
+      class="relative group flex items-center gap-4 py-3 px-4 rounded transition-colors duration-300 ease-in-out border border-border-3/10 hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
+    >
+      series
+    </a>
+    <a
+      href="/projects"
+      class="relative group flex items-center gap-4 py-3 px-4 rounded transition-colors duration-300 ease-in-out border border-border-3/10 hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
+    >
+      projects
+    </a>
+    <a
+      href="/work"
+      class="relative group flex items-center gap-4 py-3 px-4 rounded transition-colors duration-300 ease-in-out border border-border-3/10 hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
+    >
+      work
+    </a>
+  </div>
+</Modal>
+
+<script>
+  import { ModalUtils } from '@lib/modal-utils';
+  ModalUtils.initModal('menu-modal', 'open-menu', 'close-menu');
+
+  document.querySelectorAll('#menu-modal a').forEach((link) => {
+    link.addEventListener('click', () => {
+      ModalUtils.hideModal('menu-modal');
+    });
+  });
+</script>
