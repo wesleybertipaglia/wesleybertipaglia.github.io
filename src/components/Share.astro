@@ -1,9 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { shareUtils } from '@lib/share-utils';
-import ShareIcon from '@icons/ShareIcon.astro';
-import CopyIcon from '@icons/CopyIcon.astro';
-import CheckIcon from '@icons/CheckIcon.astro';
+import Modal from './Modal.astro';
 import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
 
 interface Props {
@@ -16,80 +14,67 @@ const { title, description, url } = Astro.props;
 const socialLinks = shareUtils.getSocialLinks(title, description, url);
 ---
 
-<div
-  class="border-b border-light-border-3/10 dark:border-dark-border-3/10 pb-2 mb-2"
->
+<div class="border-b border-border-3/10 pb-2 mb-2">
   <button
     id="share-button"
     title="Share this post"
-    class="px-2 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
+    class="px-2 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
   >
-    <ShareIcon class="w-4 h-4" />
+    <Icon name="symbols/share" class="w-4 h-4" />
   </button>
 
-  <!-- Modal -->
-  <div
-    id="share-modal"
-    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center"
+  <Modal
+    title="Share this post"
+    modalId="share-modal"
+    closeButtonId="close-share-modal"
   >
-    <div
-      class="bg-light-background-1 dark:bg-dark-background-1 p-6 rounded-lg max-w-md w-full mx-4"
-    >
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-lg font-semibold m-0">Share this post</h3>
+    <div class="mb-4">
+      <label class="block text-sm font-medium mb-2">Copy link</label>
+      <div class="flex gap-2">
+        <input
+          id="share-url"
+          type="text"
+          value={url}
+          readonly
+          class="flex-1 px-3 py-2 bg-background-3 text-color-1 rounded border border-border-3/10"
+        />
         <button
-          id="close-modal"
-          class="text-light-text-3 dark:text-dark-text-3 hover:text-light-text-1 dark:hover:text-dark-text-1 text-xl"
+          id="copy-button"
+          title="Copy to clipboard"
+          class="px-3 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
         >
-          ×
+          <Icon name="symbols/copy" class="w-4 h-4 copy-icon" />
+          <Icon name="symbols/check" class="w-4 h-4 check-icon hidden" />
         </button>
       </div>
-      <div class="mb-4">
-        <label class="block text-sm font-medium mb-2">Copy link</label>
-        <div class="flex gap-2">
-          <input
-            id="share-url"
-            type="text"
-            value={url}
-            readonly
-            class="flex-1 px-3 py-2 bg-light-background-3 dark:bg-dark-background-3 text-light-text-1 dark:text-dark-text-1 rounded border border-light-border-3/10 dark:border-dark-border-3/10"
-          />
-          <button
-            id="copy-button"
-            title="Copy to clipboard"
-            class="px-3 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
-          >
-            <CopyIcon className="w-4 h-4 copy-icon" />
-            <CheckIcon className="w-4 h-4 check-icon hidden" />
-          </button>
-        </div>
-      </div>
-      <div class="flex flex-col gap-2">
-        {
-          socialLinks.map((socialLink) => (
-            <a
-              href={socialLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="relative group flex items-center gap-4 py-3 px-4 pr-10 rounded transition-colors duration-300 ease-in-out border
-              border-light-border-3/10 dark:border-dark-border-3/10
-              hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 text-light-text-3 dark:text-dark-text-3 hover:text-light-text-2 dark:hover:text-dark-text-2"
-            >
-              <Icon
-                name={`logos/${socialLink.icon}`}
-                class="w-5 h-5 flex-shrink-0"
-              />
-              <span class="flex-1">{socialLink.name}</span>
-              <ArrowOutwardIcon className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current" />
-            </a>
-          ))
-        }
-      </div>
     </div>
-  </div>
+    <div class="flex flex-col gap-2">
+      {
+        socialLinks.map((socialLink) => (
+          <a
+            href={socialLink.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative group flex items-center gap-4 py-3 px-4 pr-10 rounded transition-colors duration-300 ease-in-out border
+            border-border-3/10
+            hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
+          >
+            <Icon
+              name={`logos/${socialLink.icon}`}
+              class="w-5 h-5 shrink-0 text-color-3"
+            />
+            <span class="flex-1 text-color-3">{socialLink.name}</span>
+            <ArrowOutwardIcon className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-color-3" />
+          </a>
+        ))
+      }
+    </div>
+  </Modal>
 </div>
 
 <script>
+  import { ModalUtils } from '../lib/modal-utils.js';
   import { ShareUtils } from '../lib/share-utils.js';
-  ShareUtils.initClient();
+  ModalUtils.initModal('share-modal', 'share-button', 'close-share-modal');
+  ShareUtils.initCopy('copy-button', 'share-url');
 </script>

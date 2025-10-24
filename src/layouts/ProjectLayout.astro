@@ -3,6 +3,8 @@ import { type CollectionEntry } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 import Container from '@components/Container.astro';
 import { dateUtils } from '@lib/date-utils';
+import { textUtils } from '@lib/text-utils';
+import { tableOfContentsUtils } from '@lib/table-of-contents-utils';
 import Share from '@components/Share.astro';
 
 type Props = {
@@ -10,6 +12,7 @@ type Props = {
 };
 
 const { post } = Astro.props;
+const toc = tableOfContentsUtils.generateTOC(post.body);
 ---
 
 <PageLayout
@@ -19,11 +22,18 @@ const { post } = Astro.props;
 >
   <Container>
     <article>
-      <div>
+      <div class="pb-4">
         <h1 class="text-4xl font-bold">{post.data.title}</h1>
         <p class="text-sm">
-          {dateUtils.formatDate({ date: post.data.pubDate })}
+          {dateUtils.formatDate({ date: post.data.pubDate })} • {
+            textUtils.readingTime({ text: post.body })
+          }
         </p>
+        <Share
+          title={post.data.title}
+          description={post.data.description}
+          url={`${Astro.site}${post.collection}/${post.slug}`}
+        />
       </div>
 
       <figure>
@@ -34,11 +44,48 @@ const { post } = Astro.props;
         />
       </figure>
 
+      {
+        toc.length > 0 && (
+          <details class="my-4">
+            <summary class="text-lg font-semibold cursor-pointer">
+              Table of Contents
+            </summary>
+            <ul class="space-y-1 mt-4 overflow-hidden transition-max-height duration-300 ease-in-out">
+              {toc.map((item) => (
+                <li style={`padding-left: ${(item.level - 1) * 20}px;`}>
+                  <a
+                    href={`#${item.id}`}
+                    class="text-sm text-blue-400 hover:underline"
+                  >
+                    {item.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )
+      }
+
+      <style>
+        details summary::marker {
+          font-size: 0.8em;
+        }
+        details > ul {
+          transition: max-height 0.3s ease-in-out;
+        }
+        details:not([open]) > ul {
+          max-height: 0;
+        }
+        details[open] > ul {
+          max-height: 1000px;
+        }
+      </style>
+
       <div class="flex gap-4 my-4">
         {
           post.data.repositoryLink && (
             <a href={post.data.repositoryLink} target="_blank">
-              <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+              <span class="text-sm bg-background-3/50 text-color-3/75 px-2 py-1 rounded">
                 Repository ↗
               </span>
             </a>
@@ -48,7 +95,7 @@ const { post } = Astro.props;
         {
           post.data.deployLink && (
             <a href={post.data.deployLink} target="_blank">
-              <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+              <span class="text-sm bg-background-3/50 text-color-3/75 px-2 py-1 rounded">
                 Deploy ↗
               </span>
             </a>
@@ -56,15 +103,9 @@ const { post } = Astro.props;
         }
       </div>
 
-      <div id="content" class="mb-16">
+      <div id="content" class="mb-8">
         <slot />
       </div>
-
-      <Share
-        title={post.data.title}
-        description={post.data.description}
-        url={`${Astro.site}${post.collection}/${post.slug}`}
-      />
 
       {
         post.data.tags && (
@@ -74,7 +115,7 @@ const { post } = Astro.props;
             <div class="flex gap-2">
               {post.data.tags.map((tag: string) => (
                 <a href={`/${post.collection}/?tag=${tag}`}>
-                  <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+                  <span class="text-sm bg-background-3/50 text-color-3/75 px-2 py-1 rounded">
                     {tag}
                   </span>
                 </a>

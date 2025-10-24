@@ -33,7 +33,7 @@ const { series } = Astro.props;
             <div class="flex gap-2 mt-4">
               {series.data.tags.map((tag: string) => (
                 <a href={`/blog/?tag=${tag}`}>
-                  <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+                  <span class="text-sm bg-background-3/50 text-color-3/75 px-2 py-1 rounded">
                     {tag}
                   </span>
                 </a>

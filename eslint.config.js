@@ -38,6 +38,8 @@ export default [
         ScrollBehavior: 'readonly',
         navigator: 'readonly',
         setTimeout: 'readonly',
+        Event: 'readonly',
+        KeyboardEvent: 'readonly',
       },
     },
   },

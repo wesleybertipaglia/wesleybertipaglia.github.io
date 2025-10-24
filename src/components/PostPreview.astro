@@ -13,22 +13,24 @@ const { post } = Astro.props;
 <a
   href={`/${post.collection}/${post.slug}`}
   class="post relative group flex flex-nowrap py-3 px-4 pr-10 rounded transition-colors duration-300 ease-in-out border
-    border-light-border-3/10 dark:border-dark-border-3/10
-    hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 text-light-text-3 dark:text-dark-text-3 hover:text-light-text-2 dark:hover:text-dark-text-2"
+    border-border-3/10
+    hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
 >
   <div class="flex flex-col flex-1 truncate">
-    <div class="font-semibold">
+    <div
+      class="font-semibold text-color-3 hover:text-color-2 hover:text-dark-text-2"
+    >
       {post.data.title}
     </div>
-    <div class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
+    <div class="text-sm text-color-3/75">
       {textUtils.excerpt({ text: post.data.description, maxLength: 64 })}
     </div>
-    <div class="text-xs text-light-text-3/50 dark:text-dark-text-3/50">
+    <div class="text-xs text-color-3/50">
       {textUtils.readingTime({ text: post.body })}
     </div>
   </div>
   <ArrowOutwardIcon
-    className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current"
+    className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-color-3"
   />
 
   <div class="tags hidden">

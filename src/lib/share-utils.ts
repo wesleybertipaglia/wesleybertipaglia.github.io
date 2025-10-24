@@ -62,31 +62,14 @@ export class ShareUtils {
     ];
   }
 
-  static initClient() {
-    const shareButton = document.getElementById('share-button');
-    const shareModal = document.getElementById('share-modal');
-    const closeModal = document.getElementById('close-modal');
-    const copyButton = document.getElementById('copy-button');
-    const shareUrl = document.getElementById('share-url') as HTMLInputElement;
-
-    shareButton?.addEventListener('click', () => {
-      shareModal?.classList.remove('hidden');
-    });
-
-    closeModal?.addEventListener('click', () => {
-      shareModal?.classList.add('hidden');
-    });
-
-    shareModal?.addEventListener('click', (e) => {
-      if (e.target === shareModal) {
-        shareModal.classList.add('hidden');
-      }
-    });
+  static initCopy(copyButtonId: string, inputId: string) {
+    const copyButton = document.getElementById(copyButtonId);
+    const input = document.getElementById(inputId) as HTMLInputElement;
 
     copyButton?.addEventListener('click', async () => {
-      if (shareUrl?.value) {
+      if (input?.value) {
         try {
-          await navigator.clipboard.writeText(shareUrl.value);
+          await navigator.clipboard.writeText(input.value);
           copyButton.querySelector('.copy-icon')?.classList.add('hidden');
           copyButton.querySelector('.check-icon')?.classList.remove('hidden');
           setTimeout(() => {
