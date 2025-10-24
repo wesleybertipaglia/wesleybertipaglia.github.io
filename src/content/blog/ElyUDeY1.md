@@ -31,7 +31,7 @@ This small blue planet, suspended in the vastness of the cosmos, now held an unp
 
 It is this lineage this Heritage of the Stars that culminates in human curiosity. We are the fragment of that ancient supernova that, after 4.6 billion years of journeying, finally gained the ability to look back and understand its own stellar origin.
 
-## Disclaimer
+### Disclaimer
 
 This text is a work of scientific dissemination and poetic appreciation.
 

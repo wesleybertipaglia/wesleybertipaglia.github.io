@@ -76,27 +76,6 @@ article dd {
   @apply ml-4 mb-2 text-light-text-2 dark:text-dark-text-2;
 }
 
-/* Footnotes */
-article .footnote-ref a {
-  @apply text-xs align-super no-underline;
-}
-
-article .footnotes {
-  @apply mt-8 pt-4 border-t border-light-border-1/10 dark:border-dark-border-1/10 text-sm;
-}
-
-article .footnotes ol {
-  @apply list-decimal pl-5;
-}
-
-article .footnotes li {
-  @apply mb-2;
-}
-
-article .footnotes li p {
-  @apply my-1;
-}
-
 /* Blockquotes */
 article blockquote {
   @apply border-l-4 pl-4 italic text-light-text-2 dark:text-dark-text-2 my-4 border-light-border-3 dark:border-dark-border-3;
