@@ -55,3 +55,14 @@ export const formatDateRange = ({
         options,
     })}`;
 };
+
+interface ReadingTimeProps {
+    text: string;
+    wordsPerMinute?: number;
+}
+
+export const readingTime = ({ text, wordsPerMinute = 200 }: ReadingTimeProps): string => {
+    const words = text.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / wordsPerMinute);
+    return `${minutes} min read`;
+};

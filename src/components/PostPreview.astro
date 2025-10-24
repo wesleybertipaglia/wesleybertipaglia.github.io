@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { excerpt } from "@lib/utils";
+import { excerpt, readingTime } from "@lib/utils";
 
 type Props = {
     post: CollectionEntry<"blog"> | CollectionEntry<"projects">;
@@ -21,6 +21,9 @@ const { post } = Astro.props;
         </div>
         <div class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
             {excerpt({ text: post.data.description, maxLength: 64 })}
+        </div>
+        <div class="text-xs text-light-text-3/50 dark:text-dark-text-3/50">
+            {readingTime({ text: post.body })}
         </div>
     </div>
     <svg
