@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import { SHARE_LINKS } from "@consts";
+import ShareIcon from "@icons/ShareIcon.astro";
+import CopyIcon from "@icons/CopyIcon.astro";
+import CheckIcon from "@icons/CheckIcon.astro";
+import ArrowOutwardIcon from "@icons/ArrowOutwardIcon.astro";
 
 interface Props {
   title: string;
@@ -71,26 +75,13 @@ const socialLinks = [
     title="Share this post"
     class="px-2 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="w-4 h-4"
-      ><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"
-      ></circle><circle cx="18" cy="19" r="3"></circle><path
-        d="m8.59 13.51 6.83 3.98"></path><path d="m15.41 6.51-6.82 3.98"
-      ></path></svg
-    >
+    <ShareIcon class="w-4 h-4" />
   </button>
 
   <!-- Modal -->
   <div
     id="share-modal"
-    class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center"
   >
     <div
       class="bg-light-background-1 dark:bg-dark-background-1 p-6 rounded-lg max-w-md w-full mx-4"
@@ -119,31 +110,8 @@ const socialLinks = [
             title="Copy to clipboard"
             class="px-3 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-4 h-4 copy-icon"
-              ><rect x="9" y="9" width="13" height="13" rx="2" ry="2"
-              ></rect><path
-                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-              ></path></svg
-            >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-4 h-4 check-icon hidden"
-              ><polyline points="20,6 9,17 4,12"></polyline></svg
-            >
+            <CopyIcon className="w-4 h-4 copy-icon" />
+            <CheckIcon className="w-4 h-4 check-icon hidden" />
           </button>
         </div>
       </div>
@@ -163,23 +131,7 @@ const socialLinks = [
                 class="w-5 h-5 flex-shrink-0"
               />
               <span class="flex-1">{socialLink.name}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current"
-              >
-                <line
-                  x1="5"
-                  y1="12"
-                  x2="19"
-                  y2="12"
-                  class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
-                />
-                <polyline
-                  points="12 19 19 12 12 5"
-                  class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
-                />
-              </svg>
+              <ArrowOutwardIcon className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current" />
             </a>
           ))
         }
