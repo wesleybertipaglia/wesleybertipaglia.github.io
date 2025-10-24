@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SHARE_LINKS } from '@consts';
+import { shareUtils } from '@lib/share-utils';
 import ShareIcon from '@icons/ShareIcon.astro';
 import CopyIcon from '@icons/CopyIcon.astro';
 import CheckIcon from '@icons/CheckIcon.astro';
@@ -13,58 +13,7 @@ interface Props {
 }
 
 const { title, description, url } = Astro.props;
-const getText = () => {
-  const truncatedDescription =
-    description && description.length > 100
-      ? `${description.slice(0, 100)}...`
-      : description;
-  return `Hi! 👋\n I'm reading ${title} on Wesley's Website. Check it out! \n\n ${truncatedDescription}`;
-};
-
-const encode = (text: string) => encodeURIComponent(text);
-
-const socialLinks = [
-  {
-    name: 'X',
-    url: SHARE_LINKS.x
-      .replace('{url}', encode(url))
-      .replace('{text}', encode(getText())),
-    icon: 'x',
-  },
-  {
-    name: 'Facebook',
-    url: SHARE_LINKS.facebook
-      .replace('{url}', encode(url))
-      .replace('{title}', encode(title)),
-    icon: 'facebook',
-  },
-  {
-    name: 'LinkedIn',
-    url: SHARE_LINKS.linkedin
-      .replace('{url}', encode(url))
-      .replace('{title}', encode(title)),
-    icon: 'linkedin',
-  },
-  {
-    name: 'WhatsApp',
-    url: SHARE_LINKS.whatsapp.replace('{text}', encode(getText() + ' ' + url)),
-    icon: 'whatsapp',
-  },
-  {
-    name: 'Telegram',
-    url: SHARE_LINKS.telegram
-      .replace('{url}', encode(url))
-      .replace('{text}', encode(getText())),
-    icon: 'telegram',
-  },
-  {
-    name: 'Email',
-    url: SHARE_LINKS.email
-      .replace('{title}', encode(title))
-      .replace('{text}', encode(getText())),
-    icon: 'email',
-  },
-];
+const socialLinks = shareUtils.getSocialLinks(title, description, url);
 ---
 
 <div
@@ -141,39 +90,6 @@ const socialLinks = [
 </div>
 
 <script>
-  const shareButton = document.getElementById('share-button');
-  const shareModal = document.getElementById('share-modal');
-  const closeModal = document.getElementById('close-modal');
-  const copyButton = document.getElementById('copy-button');
-  const shareUrl = document.getElementById('share-url') as HTMLInputElement;
-
-  shareButton?.addEventListener('click', () => {
-    shareModal?.classList.remove('hidden');
-  });
-
-  closeModal?.addEventListener('click', () => {
-    shareModal?.classList.add('hidden');
-  });
-
-  shareModal?.addEventListener('click', (e) => {
-    if (e.target === shareModal) {
-      shareModal.classList.add('hidden');
-    }
-  });
-
-  copyButton?.addEventListener('click', async () => {
-    if (shareUrl?.value) {
-      try {
-        await navigator.clipboard.writeText(shareUrl.value);
-        copyButton.querySelector('.copy-icon')?.classList.add('hidden');
-        copyButton.querySelector('.check-icon')?.classList.remove('hidden');
-        setTimeout(() => {
-          copyButton.querySelector('.copy-icon')?.classList.remove('hidden');
-          copyButton.querySelector('.check-icon')?.classList.add('hidden');
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy: ', err);
-      }
-    }
-  });
+  import { ShareUtils } from '../lib/share-utils.js';
+  ShareUtils.initClient();
 </script>
