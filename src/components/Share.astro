@@ -17,12 +17,12 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
 ---
 
 <div
-  class="border-b border-light-border-3/10 dark:border-dark-border-3/10 pb-2 mb-2"
+  class="border-b border-border-3/10 pb-2 mb-2"
 >
   <button
     id="share-button"
     title="Share this post"
-    class="px-2 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
+    class="px-2 py-2 bg-background-3/50 text-text-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
   >
     <ShareIcon class="w-4 h-4" />
   </button>
@@ -33,13 +33,13 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
     class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center"
   >
     <div
-      class="bg-light-background-1 dark:bg-dark-background-1 p-6 rounded-lg max-w-md w-full mx-4"
+      class="bg-background-1 bg-background-1 p-6 rounded-lg max-w-md w-full mx-4"
     >
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-semibold m-0">Share this post</h3>
         <button
           id="close-modal"
-          class="text-light-text-3 dark:text-dark-text-3 hover:text-light-text-1 dark:hover:text-dark-text-1 text-xl"
+          class="text-text-3 hover:text-text-1 hover:text-dark-text-1 text-xl"
         >
           ×
         </button>
@@ -52,12 +52,12 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
             type="text"
             value={url}
             readonly
-            class="flex-1 px-3 py-2 bg-light-background-3 dark:bg-dark-background-3 text-light-text-1 dark:text-dark-text-1 rounded border border-light-border-3/10 dark:border-dark-border-3/10"
+            class="flex-1 px-3 py-2 bg-background-3 bg-background-3 text-text-1 text-text-1 rounded border border-border-3/10"
           />
           <button
             id="copy-button"
             title="Copy to clipboard"
-            class="px-3 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
+            class="px-3 py-2 bg-background-3/50 text-text-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
           >
             <CopyIcon className="w-4 h-4 copy-icon" />
             <CheckIcon className="w-4 h-4 check-icon hidden" />
@@ -72,8 +72,8 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
               target="_blank"
               rel="noopener noreferrer"
               class="relative group flex items-center gap-4 py-3 px-4 pr-10 rounded transition-colors duration-300 ease-in-out border
-              border-light-border-3/10 dark:border-dark-border-3/10
-              hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 text-light-text-3 dark:text-dark-text-3 hover:text-light-text-2 dark:hover:text-dark-text-2"
+              border-border-3/10
+              hover:bg-background-3/10 hover:bg-dark-background-3/10 text-text-3 hover:text-text-2 hover:text-dark-text-2"
             >
               <Icon
                 name={`logos/${socialLink.icon}`}

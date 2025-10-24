@@ -1,7 +1,7 @@
 @reference './global.css';
 
 article {
-  @apply text-light-text-3 dark:text-dark-text-3 mt-8;
+  @apply text-text-3 mt-8;
 }
 
 /* Links */
@@ -19,7 +19,7 @@ article h1 {
 }
 
 article h2 {
-  @apply text-2xl mt-6 mb-4 font-bold pb-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
+  @apply text-2xl mt-6 mb-4 font-bold pb-2 border-b border-border-1/10;
 }
 
 article h3,
@@ -44,7 +44,7 @@ article ol {
 }
 
 article ul li::marker {
-  @apply text-light-text-3/50 dark:text-dark-text-3/50;
+  @apply text-text-3/50 text-text-3/50;
 }
 
 article ol {
@@ -61,25 +61,25 @@ article dl {
 }
 
 article dt {
-  @apply font-semibold text-light-text-3 dark:text-dark-text-3 mb-1;
+  @apply font-semibold text-text-3 mb-1;
 }
 
 article dd {
-  @apply ml-4 mb-2 text-light-text-2 dark:text-dark-text-2;
+  @apply ml-4 mb-2 text-text-2 text-text-2;
 }
 
 /* Blockquotes */
 article blockquote {
-  @apply border-l-4 pl-4 italic text-light-text-2 dark:text-dark-text-2 my-4 border-light-border-3 dark:border-dark-border-3;
+  @apply border-l-4 pl-4 italic text-text-2 text-text-2 my-4 border-border-3;
 }
 
 /* Code (Inline and Block) */
 article code {
-  @apply bg-light-background-3/50 dark:bg-dark-background-3/50 px-1.5 py-0.5 rounded text-sm font-mono;
+  @apply bg-background-3/50 bg-background-3/50 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 article pre {
-  @apply bg-dark-background-1 p-4 rounded-lg border border-light-border-3/10 dark:border-dark-border-3/10 overflow-x-auto;
+  @apply bg-background-1 p-4 rounded-lg border border-border-3/10 border-border-3/10 overflow-x-auto;
 }
 
 article pre code {
@@ -92,16 +92,16 @@ article table {
 }
 
 article th {
-  @apply px-4 py-2 font-bold text-light-text-3 dark:text-dark-text-3 border-b border-light-border-3/10 dark:border-dark-border-3/10;
+  @apply px-4 py-2 font-bold text-text-3 border-b border-border-3/10 border-border-3/10;
 }
 
 article td {
-  @apply px-4 py-2 border-b border-light-border-1/10 dark:border-dark-border-1/10;
+  @apply px-4 py-2 border-b border-border-1/10;
 }
 
 /* Horizontal Rules (HR) */
 article hr {
-  @apply my-8 border-t border-light-border-1/10 dark:border-dark-border-1/10;
+  @apply my-8 border-t border-border-1/10;
 }
 
 /* Figures and Images */
@@ -123,7 +123,7 @@ article img:hover {
 }
 
 article figcaption {
-  @apply text-sm text-center text-light-text-2 dark:text-dark-text-2 mt-2;
+  @apply text-sm text-center text-text-2 text-text-2 mt-2;
 }
 
 /* Text Styling: Bold, Italic, Underline */
@@ -168,20 +168,20 @@ article mark {
 
 /* Keyboard */
 article kbd {
-  @apply bg-light-background-3 dark:bg-dark-background-3 px-2 py-1 rounded border border-light-border-3/20 dark:border-dark-border-3/20 text-sm font-mono shadow-sm;
+  @apply bg-background-3 px-2 py-1 rounded border border-border-3/20 border-border-3/20 text-sm font-mono shadow-sm;
 }
 
 /* Abbreviations */
 article abbr {
-  @apply border-b border-dotted border-light-text-3/50 dark:border-dark-text-3/50 cursor-help;
+  @apply border-b border-dotted border-text-3/50 cursor-help;
 }
 
 /* Citations */
 article cite {
-  @apply italic text-light-text-2 dark:text-dark-text-2;
+  @apply italic text-text-2 text-text-2;
 }
 
 /* Small text */
 article small {
-  @apply text-sm text-light-text-2 dark:text-dark-text-2;
+  @apply text-sm text-text-2 text-text-2;
 }

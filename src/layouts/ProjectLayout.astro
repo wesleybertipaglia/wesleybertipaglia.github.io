@@ -38,7 +38,7 @@ const { post } = Astro.props;
         {
           post.data.repositoryLink && (
             <a href={post.data.repositoryLink} target="_blank">
-              <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+              <span class="text-sm bg-background-3/50 text-text-3/75 px-2 py-1 rounded">
                 Repository ↗
               </span>
             </a>
@@ -48,7 +48,7 @@ const { post } = Astro.props;
         {
           post.data.deployLink && (
             <a href={post.data.deployLink} target="_blank">
-              <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+              <span class="text-sm bg-background-3/50 text-text-3/75 px-2 py-1 rounded">
                 Deploy ↗
               </span>
             </a>
@@ -74,7 +74,7 @@ const { post } = Astro.props;
             <div class="flex gap-2">
               {post.data.tags.map((tag: string) => (
                 <a href={`/${post.collection}/?tag=${tag}`}>
-                  <span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+                  <span class="text-sm bg-background-3/50 text-text-3/75 px-2 py-1 rounded">
                     {tag}
                   </span>
                 </a>

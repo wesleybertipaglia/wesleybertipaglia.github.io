@@ -21,7 +21,7 @@ const { post } = Astro.props;
             class="w-10 h-10 rounded"
           />
         ) : (
-          <div class="w-10 h-10 flex items-center justify-center rounded bg-light-background-3/50 dark:bg-dark-background-3/50">
+          <div class="w-10 h-10 flex items-center justify-center rounded bg-background-3/50">
             <p class="text-xl font-bold">
               {post.data.companyName.charAt(0).toUpperCase()}
             </p>
@@ -51,7 +51,7 @@ const { post } = Astro.props;
         }
       </p>
 
-      <p class="text-sm text-light-text-3/75 dark:text-dark-text-3/75">
+      <p class="text-sm text-text-3/75">
         {
           dateUtils.formatDateRange({
             startDate: post.data.startDate,
@@ -63,7 +63,7 @@ const { post } = Astro.props;
     </div>
   </div>
 
-  <p class="text-sm mt-2 text-light-text-3/85 dark:text-dark-text-3/85">
+  <p class="text-sm mt-2 text-text-3/85 text-text-3/85">
     {textUtils.excerpt({ text: post.data.description, maxLength: 256 })}
   </p>
 </a>
