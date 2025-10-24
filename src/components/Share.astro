@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { ShareUtils } from '@lib/share-utils';
 import Modal from './Modal.astro';
+import ArrowOutwardAnimatedIcon from './ArrowOutwardAnimatedIcon.astro';
 
 interface Props {
   title: string;
@@ -63,7 +64,7 @@ const socialLinks = ShareUtils.getSocialLinks(title, description, url);
               class="w-5 h-5 shrink-0 text-color-3"
             />
             <span class="flex-1 text-color-3">{socialLink.name}</span>
-            <Icon name="icons/arrow-outward" class="w-5 h-5 text-color-3" />
+            <ArrowOutwardAnimatedIcon className="w-5 h-5 text-color-3" />
           </a>
         ))
       }
