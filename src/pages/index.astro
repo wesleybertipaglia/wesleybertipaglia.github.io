@@ -5,6 +5,7 @@ import { HOME } from "@consts";
 import Hero from "@components/Hero.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import PostListPreview from "@components/PostListPreview.astro";
+import SeriesListPreview from "@components/SeriesListPreview.astro";
 import WorkListPreview from "@components/WorkListPreview.astro";
 
 const blogPosts = (await getCollection("blog"))
@@ -17,6 +18,13 @@ const blogPosts = (await getCollection("blog"))
 const projectsPosts = (await getCollection("projects"))
 	.sort(
 		(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	)
+	.slice(0, 3);
+
+const seriesList = (await getCollection("series"))
+	.sort(
+		(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
 			b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	)
 	.slice(0, 3);
@@ -39,11 +47,11 @@ const workPosts = (await getCollection("work"))
 		postList={blogPosts}
 	/>
 
-	<WorkListPreview
-		title="Latest Work"
-		seeAllTitle="View all work"
-		seeAllUrl="/work"
-		postList={workPosts}
+	<SeriesListPreview
+		title="Latest Series"
+		seeAllTitle="View all series"
+		seeAllUrl="/series"
+		seriesList={seriesList}
 	/>
 
 	<PostListPreview
@@ -51,5 +59,12 @@ const workPosts = (await getCollection("work"))
 		seeAllTitle="View all projects"
 		seeAllUrl="/projects"
 		postList={projectsPosts}
+	/>
+
+	<WorkListPreview
+		title="Latest Work"
+		seeAllTitle="View all work"
+		seeAllUrl="/work"
+		postList={workPosts}
 	/>
 </PageLayout>

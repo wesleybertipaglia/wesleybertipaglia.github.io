@@ -10,6 +10,7 @@ const blog = defineCollection({
 		tags: z.array(z.string()),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
+		series: z.string().optional(),
 	}),
 });
 
@@ -43,4 +44,16 @@ const work = defineCollection({
 	}),
 });
 
-export const collections = { blog, projects, work };
+const series = defineCollection({
+	type: 'content',
+	schema: z.object({
+		id: z.string(),
+		title: z.string(),
+		description: z.string(),
+		tags: z.array(z.string()),
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+	}),
+});
+
+export const collections = { blog, projects, work, series };

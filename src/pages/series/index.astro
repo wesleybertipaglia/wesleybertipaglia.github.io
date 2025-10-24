@@ -1,0 +1,34 @@
+---
+import { SERIES } from "@consts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import SeriesPreview from "@components/SeriesPreview.astro";
+
+const seriesList = (await getCollection("series")).sort(
+	(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
+		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<PageLayout title={SERIES.title} description={SERIES.description}>
+	<section>
+		<Container>
+			<h1 class="text-xl font-bold mb-6">Series</h1>
+
+			<ul class="flex flex-col gap-4">
+				{
+					seriesList.length > 0 ? (
+						seriesList.map((series: any) => (
+							<li>
+								<SeriesPreview series={series} />
+							</li>
+						))
+					) : (
+						<li>No series found</li>
+					)
+				}
+			</ul>
+		</Container>
+	</section>
+</PageLayout>

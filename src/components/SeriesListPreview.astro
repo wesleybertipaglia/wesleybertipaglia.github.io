@@ -1,0 +1,43 @@
+---
+import Container from "@components/Container.astro";
+import type { CollectionEntry } from "astro:content";
+import SeriesPreview from "./SeriesPreview.astro";
+import Link from "@components/Link.astro";
+
+interface Props {
+    title?: string;
+    seeAllTitle: string;
+    seeAllUrl: string;
+    slice?: number;
+    seriesList: CollectionEntry<"series">[];
+}
+const { title, seeAllTitle, seeAllUrl, seriesList } = Astro.props;
+---
+
+<section>
+    <Container>
+        <div class="my-12">
+            <div class="flex justify-between mb-4">
+                <h5 class="font-semibold">
+                    {title}
+                </h5>
+                <Link href={seeAllUrl} class="underline underline-offset-2 text-sm text-light-text-3/75 dark:text-dark-text-3/75 hover:text-light-text-3 dark:hover:text-dark-text-3 transition-colors">
+                    {seeAllTitle}
+                </Link>
+            </div>
+            <ul class="flex flex-col gap-4">
+                {
+                    seriesList.length > 0 ? (
+                        seriesList.map((series) => (
+                            <li>
+                                <SeriesPreview series={series} />
+                            </li>
+                        ))
+                    ) : (
+                        <li>No series found</li>
+                    )
+                }
+            </ul>
+        </div>
+    </Container>
+</section>
