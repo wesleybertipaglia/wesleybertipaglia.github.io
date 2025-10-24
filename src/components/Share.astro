@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import { SHARE_LINKS } from "@consts";
+import ShareIcon from "@icons/ShareIcon.astro";
+import CopyIcon from "@icons/CopyIcon.astro";
+import CheckIcon from "@icons/CheckIcon.astro";
+import ArrowOutwardIcon from "@icons/ArrowOutwardIcon.astro";
 
 interface Props {
   title: string;
@@ -10,9 +14,10 @@ interface Props {
 
 const { title, description, url } = Astro.props;
 const getText = () => {
-  const truncatedDescription = description && description.length > 100
-    ? `${description.slice(0, 100)}...`
-    : description;
+  const truncatedDescription =
+    description && description.length > 100
+      ? `${description.slice(0, 100)}...`
+      : description;
   return `Hi! 👋\n I'm reading ${title} on Wesley's Website. Check it out! \n\n ${truncatedDescription}`;
 };
 
@@ -21,56 +26,154 @@ const encode = (text: string) => encodeURIComponent(text);
 const socialLinks = [
   {
     name: "X",
-    url: SHARE_LINKS.x.replace("{url}", encode(url)).replace("{text}", encode(getText())),
+    url: SHARE_LINKS.x
+      .replace("{url}", encode(url))
+      .replace("{text}", encode(getText())),
     icon: "x",
   },
   {
     name: "Facebook",
-    url: SHARE_LINKS.facebook.replace("{url}", encode(url)).replace("{title}", encode(title)),
+    url: SHARE_LINKS.facebook
+      .replace("{url}", encode(url))
+      .replace("{title}", encode(title)),
     icon: "facebook",
   },
   {
     name: "LinkedIn",
-    url: SHARE_LINKS.linkedin.replace("{url}", encode(url)).replace("{title}", encode(title)),
+    url: SHARE_LINKS.linkedin
+      .replace("{url}", encode(url))
+      .replace("{title}", encode(title)),
     icon: "linkedin",
   },
   {
     name: "WhatsApp",
-    url: SHARE_LINKS.whatsapp.replace("{text}", encode(getText() + ' ' + url)),
+    url: SHARE_LINKS.whatsapp.replace("{text}", encode(getText() + " " + url)),
     icon: "whatsapp",
   },
   {
     name: "Telegram",
-    url: SHARE_LINKS.telegram.replace("{url}", encode(url)).replace("{text}", encode(getText())),
+    url: SHARE_LINKS.telegram
+      .replace("{url}", encode(url))
+      .replace("{text}", encode(getText())),
     icon: "telegram",
   },
   {
     name: "Email",
-    url: SHARE_LINKS.email.replace("{title}", encode(title)).replace("{text}", encode(getText())),
+    url: SHARE_LINKS.email
+      .replace("{title}", encode(title))
+      .replace("{text}", encode(getText())),
     icon: "email",
   },
 ];
-
 ---
 
+<div
+  class="border-b border-light-border-3/10 dark:border-dark-border-3/10 pb-2 mb-2"
+>
+  <button
+    id="share-button"
+    title="Share this post"
+    class="px-2 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
+  >
+    <ShareIcon class="w-4 h-4" />
+  </button>
 
-<div class="mb-6">
-  <p class="italic">Share it!</p>
-
-  <div class="flex gap-3">
-    {
-      socialLinks.map((socialLink) => (
-        <a
-          href={socialLink.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:opacity-75 
-          text-light-text-3/75 dark:text-dark-text-3/75
-          hover:text-light-text-1 dark:hover:text-dark-text-1"
+  <!-- Modal -->
+  <div
+    id="share-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center"
+  >
+    <div
+      class="bg-light-background-1 dark:bg-dark-background-1 p-6 rounded-lg max-w-md w-full mx-4"
+    >
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold m-0">Share this post</h3>
+        <button
+          id="close-modal"
+          class="text-light-text-3 dark:text-dark-text-3 hover:text-light-text-1 dark:hover:text-dark-text-1 text-xl"
         >
-          <Icon name={`logos/${socialLink.icon}`} class="w-5 h-5" />
-        </a>
-      ))
-    }
+          ×
+        </button>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-2">Copy link</label>
+        <div class="flex gap-2">
+          <input
+            id="share-url"
+            type="text"
+            value={url}
+            readonly
+            class="flex-1 px-3 py-2 bg-light-background-3 dark:bg-dark-background-3 text-light-text-1 dark:text-dark-text-1 rounded border border-light-border-3/10 dark:border-dark-border-3/10"
+          />
+          <button
+            id="copy-button"
+            title="Copy to clipboard"
+            class="px-3 py-2 bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3 dark:text-dark-text-3 rounded hover:bg-light-background-3 dark:hover:bg-dark-background-3 transition-colors"
+          >
+            <CopyIcon className="w-4 h-4 copy-icon" />
+            <CheckIcon className="w-4 h-4 check-icon hidden" />
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2">
+        {
+          socialLinks.map((socialLink) => (
+            <a
+              href={socialLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative group flex items-center gap-4 py-3 px-4 pr-10 rounded transition-colors duration-300 ease-in-out border
+              border-light-border-3/10 dark:border-dark-border-3/10
+              hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 text-light-text-3 dark:text-dark-text-3 hover:text-light-text-2 dark:hover:text-dark-text-2"
+            >
+              <Icon
+                name={`logos/${socialLink.icon}`}
+                class="w-5 h-5 flex-shrink-0"
+              />
+              <span class="flex-1">{socialLink.name}</span>
+              <ArrowOutwardIcon className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  const shareButton = document.getElementById("share-button");
+  const shareModal = document.getElementById("share-modal");
+  const closeModal = document.getElementById("close-modal");
+  const copyButton = document.getElementById("copy-button");
+  const shareUrl = document.getElementById("share-url") as HTMLInputElement;
+
+  shareButton?.addEventListener("click", () => {
+    shareModal?.classList.remove("hidden");
+  });
+
+  closeModal?.addEventListener("click", () => {
+    shareModal?.classList.add("hidden");
+  });
+
+  shareModal?.addEventListener("click", (e) => {
+    if (e.target === shareModal) {
+      shareModal.classList.add("hidden");
+    }
+  });
+
+  copyButton?.addEventListener("click", async () => {
+    if (shareUrl?.value) {
+      try {
+        await navigator.clipboard.writeText(shareUrl.value);
+        copyButton.querySelector(".copy-icon")?.classList.add("hidden");
+        copyButton.querySelector(".check-icon")?.classList.remove("hidden");
+        setTimeout(() => {
+          copyButton.querySelector(".copy-icon")?.classList.remove("hidden");
+          copyButton.querySelector(".check-icon")?.classList.add("hidden");
+        }, 2000);
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+    }
+  });
+</script>

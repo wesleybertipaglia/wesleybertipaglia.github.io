@@ -5,6 +5,7 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+  scroll-behavior: smooth;
 }
 
 article {
@@ -62,14 +63,56 @@ article ul {
   @apply list-disc;
 }
 
+/* Definition Lists */
+article dl {
+  @apply my-4;
+}
+
+article dt {
+  @apply font-semibold text-light-text-3 dark:text-dark-text-3 mb-1;
+}
+
+article dd {
+  @apply ml-4 mb-2 text-light-text-2 dark:text-dark-text-2;
+}
+
+/* Footnotes */
+article .footnote-ref a {
+  @apply text-xs align-super no-underline;
+}
+
+article .footnotes {
+  @apply mt-8 pt-4 border-t border-light-border-1/10 dark:border-dark-border-1/10 text-sm;
+}
+
+article .footnotes ol {
+  @apply list-decimal pl-5;
+}
+
+article .footnotes li {
+  @apply mb-2;
+}
+
+article .footnotes li p {
+  @apply my-1;
+}
+
 /* Blockquotes */
 article blockquote {
   @apply border-l-4 pl-4 italic text-light-text-2 dark:text-dark-text-2 my-4 border-light-border-3 dark:border-dark-border-3;
 }
 
 /* Code (Inline and Block) */
+article code {
+  @apply bg-light-background-3/50 dark:bg-dark-background-3/50 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
 article pre {
   @apply bg-dark-background-1 p-4 rounded-lg border border-light-border-3/10 dark:border-dark-border-3/10 overflow-x-auto;
+}
+
+article pre code {
+  @apply bg-transparent p-0 rounded-none text-base;
 }
 
 /* Tables */
@@ -145,4 +188,29 @@ article sup {
 
 article sub {
   @apply align-sub text-sm;
+}
+
+/* Highlight/Mark */
+article mark {
+  @apply bg-yellow-200 dark:bg-yellow-600/30 px-1 rounded;
+}
+
+/* Keyboard */
+article kbd {
+  @apply bg-light-background-3 dark:bg-dark-background-3 px-2 py-1 rounded border border-light-border-3/20 dark:border-dark-border-3/20 text-sm font-mono shadow-sm;
+}
+
+/* Abbreviations */
+article abbr {
+  @apply border-b border-dotted border-light-text-3/50 dark:border-dark-text-3/50 cursor-help;
+}
+
+/* Citations */
+article cite {
+  @apply italic text-light-text-2 dark:text-dark-text-2;
+}
+
+/* Small text */
+article small {
+  @apply text-sm text-light-text-2 dark:text-dark-text-2;
 }

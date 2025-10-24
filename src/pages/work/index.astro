@@ -5,26 +5,35 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import WorkPreview from "@components/WorkPreview.astro";
 import Pagination from "@components/Pagination.astro";
+import Search from "@components/Search.astro";
 import { paginationUtils } from "@lib/pagination";
+import { PostUtils } from "@lib/post-utils";
 
 const allWorkPosts = (await getCollection("work")).sort(
 	(a: CollectionEntry<"work">, b: CollectionEntry<"work">) =>
 		b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
 
+const q = Astro.url.searchParams.get('q');
+let filteredPosts = q ? PostUtils.filterPostsByQuery(allWorkPosts, q) : allWorkPosts;
+
 const pagination = paginationUtils.getPagination({ url: Astro.url });
-const totalPages = Math.ceil(allWorkPosts.length / pagination.size);
-const workPosts = allWorkPosts.slice(
+const totalPages = Math.ceil(filteredPosts.length / pagination.size);
+const workPosts = filteredPosts.slice(
 	pagination.offset,
 	pagination.offset + pagination.size,
 );
+
+const title = q ? `${WORK.title} - Search: ${q}` : WORK.title;
 ---
 
-<PageLayout title={WORK.title} description={WORK.description}>
+<PageLayout title={title} description={WORK.description}>
 	<section class="flex flex-col flex-1">
 		<Container class="flex flex-col flex-1 w-full">
 			<div class="flex-1">
 				<h1 class="text-xl font-bold mb-6">Work</h1>
+
+				<Search />
 
 				<ul class="flex flex-col gap-6">
 					{
@@ -35,7 +44,7 @@ const workPosts = allWorkPosts.slice(
 								</li>
 							))
 						) : (
-							<li>No work found</li>
+							<li>{q ? `No work found for "${q}"` : "No work found"}</li>
 						)
 					}
 				</ul>

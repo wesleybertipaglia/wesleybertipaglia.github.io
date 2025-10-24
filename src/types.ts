@@ -3,6 +3,7 @@ export type Site = {
   description: string
   author: string
   keywords: string
+  twitter?: string
 }
 
 export type Metadata = {

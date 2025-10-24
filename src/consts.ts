@@ -4,7 +4,8 @@ export const SITE: Site = {
     title: "Wesley Bertipaglia",
     description: "Software engineer from Brazil, focused on web development.",
     author: "Wesley Bertipaglia",
-    keywords: "Software, Engineer, Architect, Developer, Programmer, Coder, Founder"
+    keywords: "Software, Engineer, Architect, Developer, Programmer, Coder, Founder",
+    twitter: "@wesleyberti_"
 }
 
 export const HOME: Metadata = {
