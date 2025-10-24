@@ -16,9 +16,7 @@ const { title, description, url } = Astro.props;
 const socialLinks = shareUtils.getSocialLinks(title, description, url);
 ---
 
-<div
-  class="border-b border-border-3/10 pb-2 mb-2"
->
+<div class="border-b border-border-3/10 pb-2 mb-2">
   <button
     id="share-button"
     title="Share this post"
