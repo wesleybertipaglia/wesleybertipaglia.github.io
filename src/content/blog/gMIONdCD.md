@@ -6,6 +6,7 @@ cover: ""
 tags: ["swe", "career", "advice"]
 pubDate: "Sep 19 2025"
 updatedDate: "Sep 19 2025"
+series: "Y4vcTTMB"
 ---
 
 If I could go back in time and restart my coding journey, I'd do things a little differently. Not because I messed up before, but because I’ve since figured out a more chill, yet super effective, way to become a killer software engineer, even if you're starting from zero.
