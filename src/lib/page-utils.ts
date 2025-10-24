@@ -3,26 +3,26 @@ import { QueryUtils } from './query-utils';
 
 class PageUtils {
   initBlogPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
+    TagUtils.applyTagFilterToDOM('Posts');
+    QueryUtils.applyQueryFilterToDOM('Posts');
     this.applyPaginationToDOM();
   }
 
   initProjectsPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
+    TagUtils.applyTagFilterToDOM('Projects');
+    QueryUtils.applyQueryFilterToDOM('Projects');
     this.applyPaginationToDOM();
   }
 
   initSeriesPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
+    TagUtils.applyTagFilterToDOM('Series');
+    QueryUtils.applyQueryFilterToDOM('Series');
     this.applyPaginationToDOM();
   }
 
   initWorkPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
+    TagUtils.applyTagFilterToDOM('Work');
+    QueryUtils.applyQueryFilterToDOM('Work');
     this.applyPaginationToDOM();
   }
 
