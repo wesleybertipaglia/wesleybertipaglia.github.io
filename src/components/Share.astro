@@ -1,11 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { shareUtils } from '@lib/share-utils';
-import ShareIcon from '@icons/ShareIcon.astro';
 import Modal from './Modal.astro';
-import CopyIcon from '@icons/CopyIcon.astro';
-import CheckIcon from '@icons/CheckIcon.astro';
-import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
 
 interface Props {
   title: string;
@@ -23,7 +19,7 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
     title="Share this post"
     class="px-2 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
   >
-    <ShareIcon class="w-4 h-4" />
+    <Icon name="symbols/share" class="w-4 h-4" />
   </button>
 
   <Modal title="Share this post">
@@ -35,15 +31,15 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
           type="text"
           value={url}
           readonly
-          class="flex-1 px-3 py-2 bg-background-3 bg-background-3 text-color-1 text-color-1 rounded border border-border-3/10"
+          class="flex-1 px-3 py-2 bg-background-3 text-color-1 rounded border border-border-3/10"
         />
         <button
           id="copy-button"
           title="Copy to clipboard"
           class="px-3 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
         >
-          <CopyIcon className="w-4 h-4 copy-icon" />
-          <CheckIcon className="w-4 h-4 check-icon hidden" />
+          <Icon name="symbols/copy" class="w-4 h-4 copy-icon" />
+          <Icon name="symbols/check" class="w-4 h-4 check-icon hidden" />
         </button>
       </div>
     </div>
@@ -63,7 +59,10 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
               class="w-5 h-5 shrink-0 text-color-3"
             />
             <span class="flex-1 text-color-3">{socialLink.name}</span>
-            <ArrowOutwardIcon className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-color-3" />
+            <Icon
+              name="symbols/arrow-outward"
+              class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-color-3"
+            />
           </a>
         ))
       }
