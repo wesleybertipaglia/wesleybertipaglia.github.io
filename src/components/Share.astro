@@ -18,12 +18,16 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
   <button
     id="share-button"
     title="Share this post"
-    class="px-2 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
+    class="px-2 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
   >
     <Icon name="symbols/share" class="w-4 h-4" />
   </button>
 
-  <Modal title="Share this post">
+  <Modal
+    title="Share this post"
+    modalId="share-modal"
+    closeButtonId="close-share-modal"
+  >
     <div class="mb-4">
       <label class="block text-sm font-medium mb-2">Copy link</label>
       <div class="flex gap-2">
@@ -37,7 +41,7 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
         <button
           id="copy-button"
           title="Copy to clipboard"
-          class="px-3 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors"
+          class="px-3 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
         >
           <Icon name="symbols/copy" class="w-4 h-4 copy-icon" />
           <Icon name="symbols/check" class="w-4 h-4 check-icon hidden" />
@@ -71,6 +75,6 @@ const socialLinks = shareUtils.getSocialLinks(title, description, url);
 <script>
   import { ModalUtils } from '../lib/modal-utils.js';
   import { ShareUtils } from '../lib/share-utils.js';
-  ModalUtils.initModal('share-modal', 'share-button');
+  ModalUtils.initModal('share-modal', 'share-button', 'close-share-modal');
   ShareUtils.initCopy('copy-button', 'share-url');
 </script>

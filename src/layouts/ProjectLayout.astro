@@ -55,7 +55,7 @@ const toc = tableOfContentsUtils.generateTOC(post.body);
                 <li style={`padding-left: ${(item.level - 1) * 20}px;`}>
                   <a
                     href={`#${item.id}`}
-                    class="text-sm text-blue-600 text-blue-400 hover:underline"
+                    class="text-sm text-blue-400 hover:underline"
                   >
                     {item.text}
                   </a>
@@ -103,7 +103,7 @@ const toc = tableOfContentsUtils.generateTOC(post.body);
         }
       </div>
 
-      <div id="content" class="mb-16">
+      <div id="content" class="mb-8">
         <slot />
       </div>
 
