@@ -2,7 +2,7 @@
 import { type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import { formatDate } from "@lib/utils";
+import { dateUtils } from "@lib/date-utils";
 import Share from "@components/Share.astro";
 
 type Props = {
@@ -18,7 +18,7 @@ const { post } = Astro.props;
 			<div>
 				<h1 class="text-3xl font-bold">{post.data.title}</h1>
 				<p class="text-sm">
-					{formatDate({ date: post.data.pubDate })}
+					{dateUtils.formatDate({ date: post.data.pubDate })}
 				</p>
 			</div>
 

@@ -2,7 +2,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import { formatDate, readingTime } from "@lib/utils";
+import { dateUtils } from "@lib/date-utils";
+import { textUtils } from "@lib/text-utils";
 import Share from "@components/Share.astro";
 
 type Props = {
@@ -27,7 +28,7 @@ const series = post.data.series
 			<div>
 				<h1 class="text-3xl font-bold">{post.data.title}</h1>
 				<p class="text-sm">
-					{formatDate({ date: post.data.pubDate })} • {readingTime({ text: post.body })}
+					{dateUtils.formatDate({ date: post.data.pubDate })} • {textUtils.readingTime({ text: post.body })}
 				</p>
 			</div>
 
