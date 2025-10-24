@@ -1,0 +1,46 @@
+---
+interface Props {
+    currentPage: number;
+    totalPages: number;
+    basePath: string;
+    size: number;
+    class?: string;
+}
+
+const {
+    currentPage,
+    totalPages,
+    basePath,
+    size,
+    class: className,
+} = Astro.props;
+
+const prevPage = currentPage > 1 ? currentPage - 1 : null;
+const nextPage = currentPage < totalPages ? currentPage + 1 : null;
+
+const buildUrl = (page: number) => `${basePath}?page=${page}&size=${size}`;
+---
+
+<div class={`flex items-center gap-4 mt-8 ${className || ""}`}>
+    <a
+        href={prevPage ? buildUrl(prevPage) : undefined}
+        class={`${prevPage ? "hover:text-light-text-2 dark:hover:text-dark-text-2 hover:underline" : "opacity-50 cursor-not-allowed"}`}
+        title="Go to previous page"
+        aria-disabled={prevPage ? undefined : "true"}
+    >
+        prev
+    </a>
+
+    <span class="text-sm">
+        {currentPage} / {totalPages}
+    </span>
+
+    <a
+        href={nextPage ? buildUrl(nextPage) : undefined}
+        class={`${nextPage ? "hover:text-light-text-2 dark:hover:text-dark-text-2 hover:underline" : "opacity-50 cursor-not-allowed"}`}
+        title="Go to next page"
+        aria-disabled={nextPage ? undefined : "true"}
+    >
+        next
+    </a>
+</div>

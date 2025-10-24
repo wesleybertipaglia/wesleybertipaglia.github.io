@@ -6,6 +6,7 @@ cover: ""
 tags: ["swe", "career", "advice"]
 pubDate: "Sep 18 2025"
 updatedDate: "Sep 18 2025"
+series: "Y4vcTTMB"
 ---
 
 Hello! First of all, thank you for your time and curiosity. This post marks the restart of a blog I began a few years ago, and my goal is to share the journey, the mistakes, and the lessons that brought me here.

@@ -1,41 +1,41 @@
 ---
-import { PROJECTS } from "@consts";
+import { SERIES } from "@consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import PostPreview from "@components/PostPreview.astro";
+import SeriesPreview from "@components/SeriesPreview.astro";
 import Pagination from "@components/Pagination.astro";
 import { getPagination } from "@lib/pagination";
 
-const allProjectsPosts = (await getCollection("projects")).sort(
-	(a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+const allSeries = (await getCollection("series")).sort(
+	(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
 		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const pagination = getPagination({ url: Astro.url });
-const totalPages = Math.ceil(allProjectsPosts.length / pagination.size);
-const projectsPosts = allProjectsPosts.slice(
+const totalPages = Math.ceil(allSeries.length / pagination.size);
+const seriesList = allSeries.slice(
 	pagination.offset,
 	pagination.offset + pagination.size,
 );
 ---
 
-<PageLayout title={PROJECTS.title} description={PROJECTS.description}>
+<PageLayout title={SERIES.title} description={SERIES.description}>
 	<section class="flex flex-col flex-1">
 		<Container class="flex flex-col flex-1 w-full">
 			<div class="flex-1">
-				<h1 class="text-xl font-bold mb-6">Projects</h1>
+				<h1 class="text-xl font-bold mb-6">Series</h1>
 
 				<ul class="flex flex-col gap-4">
 					{
-						projectsPosts.length > 0 ? (
-							projectsPosts.map((post: any) => (
+						seriesList.length > 0 ? (
+							seriesList.map((series: any) => (
 								<li>
-									<PostPreview post={post} />
+									<SeriesPreview series={series} />
 								</li>
 							))
 						) : (
-							<li>No posts found</li>
+							<li>No series found</li>
 						)
 					}
 				</ul>
@@ -46,7 +46,7 @@ const projectsPosts = allProjectsPosts.slice(
 					<Pagination
 						currentPage={pagination.page}
 						totalPages={totalPages}
-						basePath="/projects"
+						basePath="/series"
 						size={pagination.size}
 					/>
 				)
@@ -57,5 +57,5 @@ const projectsPosts = allProjectsPosts.slice(
 
 <script>
 	import { filterPostsByTag } from "@lib/tag";
-	filterPostsByTag("Projects");
+	filterPostsByTag();
 </script>

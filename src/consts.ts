@@ -27,6 +27,11 @@ export const PROJECTS: Metadata = {
     description: "A collection of my projects, with links to repositories and demos.",
 }
 
+export const SERIES: Metadata = {
+    title: "Series",
+    description: "A collection of blog post series on various topics.",
+}
+
 export const SOCIALS: Link[] = [
     {
         title: "Instagram",
@@ -35,27 +40,24 @@ export const SOCIALS: Link[] = [
         main: false,
     },
     {
-        title: "X",
-        url: "https://x.com/wesleyberti_",
-        icon: "x",
-        main: false,
-    },
-    {
-        title: "GitHub",
-        url: "https://github.com/wesleybertipaglia",
-        icon: "github",
-        main: true,
-    },
-    {
         title: "LinkedIn",
         url: "https://www.linkedin.com/in/wesley-bertipaglia/",
         icon: "linkedin",
         main: true,
     },
     {
-        title: "E-mail",
-        url: "mailto:wesleybertipaglia@gmail.com",
-        icon: "email",
+        title: "GitHub",
+        url: "https://github.com/wesleybertipaglia",
+        icon: "github",
         main: true,
     }
 ];
+
+export const SHARE_LINKS = {
+    x: "https://x.com/intent/tweet?url={url}&text={text}",
+    facebook: "https://www.facebook.com/sharer/sharer.php?u={url}&t={title}",
+    linkedin: "https://www.linkedin.com/sharing/share-offsite/?url={url}&title={title}",
+    whatsapp: "https://api.whatsapp.com/send?text={text}",
+    telegram: "https://t.me/share/url?url={url}&text={text}",
+    email: "mailto:?subject={title}&body={text}",
+};

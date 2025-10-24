@@ -1,0 +1,53 @@
+---
+import { type CollectionEntry } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { formatDate } from "@lib/utils";
+
+type Props = {
+    series: CollectionEntry<"series">;
+};
+
+const { series } = Astro.props;
+---
+
+<PageLayout title={series.data.title} description={series.data.description}>
+	<Container>
+		<article>
+			<div>
+				<h1 class="text-3xl font-bold">{series.data.title}</h1>
+				<p class="text-sm">
+					{formatDate({ date: series.data.pubDate })}
+				</p>
+			</div>
+
+			<div class="mb-8">
+				<p>{series.data.description}</p>
+			</div>
+
+			{
+				series.data.tags && (
+					<div class="mb-8">
+						<p class="mb-0 italic">Tags:</p>
+
+						<div class="flex gap-2 mt-4">
+							{
+								series.data.tags.map((tag: string) => (
+									<a href={`/blog/?tag=${tag}`}>
+										<span class="text-sm bg-light-background-3/50 dark:bg-dark-background-3/50 text-light-text-3/75 dark:text-dark-text-3/75 px-2 py-1 rounded">
+											{tag}
+										</span>
+									</a>
+								))
+							}
+						</div>
+					</div>
+				)
+			}
+
+			<div id="content">
+                <slot />
+            </div>
+		</article>
+	</Container>
+</PageLayout>

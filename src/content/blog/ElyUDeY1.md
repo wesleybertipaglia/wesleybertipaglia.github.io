@@ -6,6 +6,7 @@ cover: "/images/ElyUDeY1.webp"
 tags: ["astronomy", "cosmology", "origin of life", "science", "human curiosity"]
 pubDate: "Oct 23 2025"
 updatedDate: "Oct 23 2025"
+series: "3kGtJ0UQ"
 ---
 
 Approximately 4.6 billion years ago, the cosmos was a vast stage of darkness and primordial hydrogen. But the silence was about to be broken by creative violence.
