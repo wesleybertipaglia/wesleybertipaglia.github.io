@@ -51,7 +51,7 @@ const { post } = Astro.props;
         }
       </p>
 
-      <p class="text-sm text-text-3/75">
+      <p class="text-sm text-color-3/75">
         {
           dateUtils.formatDateRange({
             startDate: post.data.startDate,
@@ -63,7 +63,7 @@ const { post } = Astro.props;
     </div>
   </div>
 
-  <p class="text-sm mt-2 text-text-3/85 text-text-3/85">
+  <p class="text-sm mt-2 text-color-3/85 text-color-3/85">
     {textUtils.excerpt({ text: post.data.description, maxLength: 256 })}
   </p>
 </a>

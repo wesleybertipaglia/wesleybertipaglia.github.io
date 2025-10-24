@@ -1,7 +1,7 @@
 @reference './global.css';
 
 article {
-  @apply text-text-3 mt-8;
+  @apply text-color-3 mt-8;
 }
 
 /* Links */
@@ -44,7 +44,7 @@ article ol {
 }
 
 article ul li::marker {
-  @apply text-text-3/50 text-text-3/50;
+  @apply text-color-3/50 text-color-3/50;
 }
 
 article ol {
@@ -61,16 +61,16 @@ article dl {
 }
 
 article dt {
-  @apply font-semibold text-text-3 mb-1;
+  @apply font-semibold text-color-3 mb-1;
 }
 
 article dd {
-  @apply ml-4 mb-2 text-text-2 text-text-2;
+  @apply ml-4 mb-2 text-color-2 text-color-2;
 }
 
 /* Blockquotes */
 article blockquote {
-  @apply border-l-4 pl-4 italic text-text-2 text-text-2 my-4 border-border-3;
+  @apply border-l-4 pl-4 italic text-color-2 text-color-2 my-4 border-border-3;
 }
 
 /* Code (Inline and Block) */
@@ -92,7 +92,7 @@ article table {
 }
 
 article th {
-  @apply px-4 py-2 font-bold text-text-3 border-b border-border-3/10 border-border-3/10;
+  @apply px-4 py-2 font-bold text-color-3 border-b border-border-3/10 border-border-3/10;
 }
 
 article td {
@@ -123,7 +123,7 @@ article img:hover {
 }
 
 article figcaption {
-  @apply text-sm text-center text-text-2 text-text-2 mt-2;
+  @apply text-sm text-center text-color-2 text-color-2 mt-2;
 }
 
 /* Text Styling: Bold, Italic, Underline */
@@ -173,15 +173,15 @@ article kbd {
 
 /* Abbreviations */
 article abbr {
-  @apply border-b border-dotted border-text-3/50 cursor-help;
+  @apply border-b border-dotted border-color-3/50 cursor-help;
 }
 
 /* Citations */
 article cite {
-  @apply italic text-text-2 text-text-2;
+  @apply italic text-color-2 text-color-2;
 }
 
 /* Small text */
 article small {
-  @apply text-sm text-text-2 text-text-2;
+  @apply text-sm text-color-2 text-color-2;
 }
