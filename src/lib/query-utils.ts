@@ -51,17 +51,14 @@ export class QueryUtils {
 
     if (!query && !tag) return;
 
-    // Update title
     if (titleElement) {
       if (query && tag) {
         titleElement.textContent = `${entityTitle} tagged with "${tag}" matching "${query}"`;
       } else if (query) {
         titleElement.textContent = `${entityTitle} matching "${query}"`;
       }
-      // If only tag, tagUtils handles it
     }
 
-    // Update message
     if (messageElement) {
       if (query && tag) {
         messageElement.textContent = `Showing results for '${query}' in tag '${tag}'`;
@@ -71,12 +68,13 @@ export class QueryUtils {
       messageElement.style.display = 'block';
     }
 
-    // Filter posts by search if query exists
     if (query) {
       Array.from(postElements).forEach((post) => {
         const textContent = post.textContent?.toLowerCase() || '';
         if (!textContent.includes(query)) {
-          post.style.display = 'none';
+          (post.parentElement as HTMLElement).style.display = 'none';
+        } else {
+          (post.parentElement as HTMLElement).style.display = '';
         }
       });
     }

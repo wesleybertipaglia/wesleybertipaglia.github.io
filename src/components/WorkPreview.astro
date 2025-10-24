@@ -10,7 +10,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<a href={`/${post.collection}/${post.slug}`}>
+<a href={`/${post.collection}/${post.slug}`} class="post">
   <div class="flex gap-4">
     <div>
       {

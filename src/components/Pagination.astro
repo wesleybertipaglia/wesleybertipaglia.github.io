@@ -29,7 +29,7 @@ const buildUrl = (page: number) => {
 };
 ---
 
-<div class={`flex items-center gap-4 mt-8 ${className || ''}`}>
+<div class={`flex items-center gap-4 mt-8 pagination ${className || ''}`}>
   <a
     href={prevPage ? buildUrl(prevPage) : undefined}
     class={`${prevPage ? 'hover:text-color-2 hover:underline' : 'opacity-50 cursor-not-allowed'}`}
@@ -40,7 +40,8 @@ const buildUrl = (page: number) => {
   </a>
 
   <span class="text-sm">
-    {currentPage} / {totalPages}
+    {currentPage}
+    <span class="opacity-50">/ {totalPages}</span>
   </span>
 
   <a

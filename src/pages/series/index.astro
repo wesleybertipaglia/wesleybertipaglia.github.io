@@ -6,45 +6,13 @@ import Container from '@components/Container.astro';
 import SeriesPreview from '@components/SeriesPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { PaginationUtils } from '@lib/pagination-utils';
-import { TagUtils } from '@lib/tag-utils';
-import { QueryUtils } from '@lib/query-utils';
 
-const allSeries = (await getCollection('series')).sort(
+const seriesList = (await getCollection('series')).sort(
   (a: CollectionEntry<'series'>, b: CollectionEntry<'series'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const q = Astro.url.searchParams.get('q');
-const tag = Astro.url.searchParams.get('tag');
-let filteredPosts = allSeries;
-if (q) {
-  filteredPosts = QueryUtils.filterPostsByQuery(filteredPosts, q);
-}
-if (tag) {
-  filteredPosts = TagUtils.filterPostsByTag(filteredPosts, tag);
-}
-
-const pagination = PaginationUtils.getPagination({ url: Astro.url });
-const totalPages = Math.ceil(filteredPosts.length / pagination.size);
-const seriesList = filteredPosts.slice(
-  pagination.offset,
-  pagination.offset + pagination.size
-);
-
-const params = new URLSearchParams(Astro.url.search);
-params.delete('page');
-params.delete('size');
-const otherParams = params.toString();
-
-const title =
-  q && tag
-    ? `${SERIES.title} - Search: ${q} in tag: ${tag}`
-    : q
-      ? `${SERIES.title} - Search: ${q}`
-      : tag
-        ? `${SERIES.title} tagged with "${tag}"`
-        : SERIES.title;
+const title = SERIES.title;
 ---
 
 <PageLayout title={title} description={SERIES.description}>
@@ -64,23 +32,13 @@ const title =
                 </li>
               ))
             ) : (
-              <li>{q ? `No series found for "${q}"` : 'No series found'}</li>
+              <li>No series found</li>
             )
           }
         </ul>
       </div>
 
-      {
-        totalPages > 0 && (
-          <Pagination
-            currentPage={pagination.page}
-            totalPages={totalPages}
-            basePath="/series"
-            size={pagination.size}
-            otherParams={otherParams}
-          />
-        )
-      }
+      <Pagination currentPage={1} totalPages={1} basePath="/series" size={10} />
     </Container>
   </section>
 </PageLayout>

@@ -6,45 +6,13 @@ import Container from '@components/Container.astro';
 import PostPreview from '@components/PostPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { PaginationUtils } from '@lib/pagination-utils';
-import { TagUtils } from '@lib/tag-utils';
-import { QueryUtils } from '@lib/query-utils';
 
-const allProjectsPosts = (await getCollection('projects')).sort(
+const projectsPosts = (await getCollection('projects')).sort(
   (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const q = Astro.url.searchParams.get('q');
-const tag = Astro.url.searchParams.get('tag');
-let filteredPosts = allProjectsPosts;
-if (q) {
-  filteredPosts = QueryUtils.filterPostsByQuery(filteredPosts, q);
-}
-if (tag) {
-  filteredPosts = TagUtils.filterPostsByTag(filteredPosts, tag);
-}
-
-const pagination = PaginationUtils.getPagination({ url: Astro.url });
-const totalPages = Math.ceil(filteredPosts.length / pagination.size);
-const projectsPosts = filteredPosts.slice(
-  pagination.offset,
-  pagination.offset + pagination.size
-);
-
-const params = new URLSearchParams(Astro.url.search);
-params.delete('page');
-params.delete('size');
-const otherParams = params.toString();
-
-const title =
-  q && tag
-    ? `${PROJECTS.title} - Search: ${q} in tag: ${tag}`
-    : q
-      ? `${PROJECTS.title} - Search: ${q}`
-      : tag
-        ? `${PROJECTS.title} tagged with "${tag}"`
-        : PROJECTS.title;
+const title = PROJECTS.title;
 ---
 
 <PageLayout title={title} description={PROJECTS.description}>
@@ -64,23 +32,18 @@ const title =
                 </li>
               ))
             ) : (
-              <li>{q ? `No posts found for "${q}"` : 'No posts found'}</li>
+              <li>No posts found</li>
             )
           }
         </ul>
       </div>
 
-      {
-        totalPages > 0 && (
-          <Pagination
-            currentPage={pagination.page}
-            totalPages={totalPages}
-            basePath="/projects"
-            size={pagination.size}
-            otherParams={otherParams}
-          />
-        )
-      }
+      <Pagination
+        currentPage={1}
+        totalPages={1}
+        basePath="/projects"
+        size={10}
+      />
     </Container>
   </section>
 </PageLayout>
