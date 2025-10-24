@@ -7,8 +7,33 @@
  * @param titleSelector - The CSS selector for the title element.
  * @param messageSelector - The CSS selector for the message element.
  */
-class SearchUtils {
-  filterPostsBySearch(
+export class QueryUtils {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static filterPostsByQuery<T extends { data: Record<string, any> }>(
+    posts: T[],
+    query: string
+  ): T[] {
+    if (!query) return posts;
+
+    const lowerQuery = query.toLowerCase();
+
+    return posts.filter((post) => {
+      const searchable = [
+        post.data.title,
+        post.data.description,
+        post.data.tags?.join(' '),
+        post.data.role,
+        post.data.companyName,
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+
+      return searchable.includes(lowerQuery);
+    });
+  }
+
+  static applyQueryFilterToDOM(
     entityTitle: string = 'Posts',
     searchParam: string = 'q',
     tagParam: string = 'tag',
@@ -57,5 +82,3 @@ class SearchUtils {
     }
   }
 }
-
-export const searchUtils = new SearchUtils();

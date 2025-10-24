@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { textUtils } from '@lib/text-utils';
+import { TextUtils } from '@lib/text-utils';
 import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
 
 type Props = {
@@ -23,10 +23,10 @@ const { post } = Astro.props;
       {post.data.title}
     </div>
     <div class="text-sm text-color-3/75">
-      {textUtils.excerpt({ text: post.data.description, maxLength: 64 })}
+      {TextUtils.excerpt({ text: post.data.description, maxLength: 64 })}
     </div>
     <div class="text-xs text-color-3/50">
-      {textUtils.readingTime({ text: post.body })}
+      {TextUtils.readingTime({ text: post.body })}
     </div>
   </div>
   <ArrowOutwardIcon

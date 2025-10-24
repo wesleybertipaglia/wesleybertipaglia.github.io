@@ -8,8 +8,8 @@ export interface Pagination {
   offset: number;
 }
 
-class PaginationUtils {
-  getPagination({ url }: PaginationProps): Pagination {
+export class PaginationUtils {
+  static getPagination({ url }: PaginationProps): Pagination {
     const page = Math.max(1, parseInt(url.searchParams.get('page') || '1'));
     const size = Math.max(1, parseInt(url.searchParams.get('size') || '10'));
 
@@ -20,5 +20,3 @@ class PaginationUtils {
     };
   }
 }
-
-export const paginationUtils = new PaginationUtils();

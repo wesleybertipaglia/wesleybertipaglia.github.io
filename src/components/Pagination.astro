@@ -4,6 +4,7 @@ interface Props {
   totalPages: number;
   basePath: string;
   size: number;
+  otherParams?: string;
   class?: string;
 }
 
@@ -12,13 +13,20 @@ const {
   totalPages,
   basePath,
   size,
+  otherParams,
   class: className,
 } = Astro.props;
 
 const prevPage = currentPage > 1 ? currentPage - 1 : null;
 const nextPage = currentPage < totalPages ? currentPage + 1 : null;
 
-const buildUrl = (page: number) => `${basePath}?page=${page}&size=${size}`;
+const buildUrl = (page: number) => {
+  const params = new URLSearchParams(otherParams || '');
+  params.set('page', page.toString());
+  params.set('size', size.toString());
+  const query = params.toString();
+  return `${basePath}${query ? '?' + query : ''}`;
+};
 ---
 
 <div class={`flex items-center gap-4 mt-8 ${className || ''}`}>

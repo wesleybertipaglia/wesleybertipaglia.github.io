@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { textUtils } from '@lib/text-utils';
-import { dateUtils } from '@lib/date-utils';
+import { TextUtils } from '@lib/text-utils';
+import { DateUtils } from '@lib/date-utils';
 
 type Props = {
   post: CollectionEntry<'work'>;
@@ -53,7 +53,7 @@ const { post } = Astro.props;
 
       <p class="text-sm text-color-3/75">
         {
-          dateUtils.formatDateRange({
+          DateUtils.formatDateRange({
             startDate: post.data.startDate,
             endDate: post.data.endDate,
             options: { year: 'numeric', month: 'short' },
@@ -64,6 +64,6 @@ const { post } = Astro.props;
   </div>
 
   <p class="text-sm mt-2 text-color-3/85 text-color-3/85">
-    {textUtils.excerpt({ text: post.data.description, maxLength: 256 })}
+    {TextUtils.excerpt({ text: post.data.description, maxLength: 256 })}
   </p>
 </a>

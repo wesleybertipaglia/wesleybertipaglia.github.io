@@ -6,8 +6,9 @@ import Container from '@components/Container.astro';
 import WorkPreview from '@components/WorkPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { paginationUtils } from '@lib/pagination';
-import { PostUtils } from '@lib/post-utils';
+import { PaginationUtils } from '@lib/pagination-utils';
+import { TagUtils } from '@lib/tag-utils';
+import { QueryUtils } from '@lib/query-utils';
 
 const allWorkPosts = (await getCollection('work')).sort(
   (a: CollectionEntry<'work'>, b: CollectionEntry<'work'>) =>
@@ -15,18 +16,35 @@ const allWorkPosts = (await getCollection('work')).sort(
 );
 
 const q = Astro.url.searchParams.get('q');
-let filteredPosts = q
-  ? PostUtils.filterPostsByQuery(allWorkPosts, q)
-  : allWorkPosts;
+const tag = Astro.url.searchParams.get('tag');
+let filteredPosts = allWorkPosts;
+if (q) {
+  filteredPosts = QueryUtils.filterPostsByQuery(filteredPosts, q);
+}
+if (tag) {
+  filteredPosts = TagUtils.filterPostsByTag(filteredPosts, tag);
+}
 
-const pagination = paginationUtils.getPagination({ url: Astro.url });
+const pagination = PaginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(filteredPosts.length / pagination.size);
 const workPosts = filteredPosts.slice(
   pagination.offset,
   pagination.offset + pagination.size
 );
 
-const title = q ? `${WORK.title} - Search: ${q}` : WORK.title;
+const params = new URLSearchParams(Astro.url.search);
+params.delete('page');
+params.delete('size');
+const otherParams = params.toString();
+
+const title =
+  q && tag
+    ? `${WORK.title} - Search: ${q} in tag: ${tag}`
+    : q
+      ? `${WORK.title} - Search: ${q}`
+      : tag
+        ? `${WORK.title} tagged with "${tag}"`
+        : WORK.title;
 ---
 
 <PageLayout title={title} description={WORK.description}>
@@ -59,6 +77,7 @@ const title = q ? `${WORK.title} - Search: ${q}` : WORK.title;
             totalPages={totalPages}
             basePath="/work"
             size={pagination.size}
+            otherParams={otherParams}
           />
         )
       }

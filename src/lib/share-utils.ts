@@ -1,59 +1,63 @@
 import { SHARE_LINKS } from '@consts';
 
 export class ShareUtils {
-  getText(title: string): string {
+  static getText(title: string): string {
     return `Hi! 👋 I'm reading ${title} on Wesley's Website. Check it out!`;
   }
 
-  encode(text: string): string {
+  static encode(text: string): string {
     return encodeURIComponent(text);
   }
 
-  getSocialLinks(title: string, description: string | undefined, url: string) {
-    const text = this.getText(title);
+  static getSocialLinks(
+    title: string,
+    description: string | undefined,
+    url: string
+  ) {
+    const text = ShareUtils.getText(title);
     return [
       {
         name: 'X',
         url: SHARE_LINKS.x
-          .replace('{url}', this.encode(url))
-          .replace('{text}', this.encode(text)),
+          .replace('{url}', ShareUtils.encode(url))
+          .replace('{text}', ShareUtils.encode(text)),
         icon: 'x',
       },
       {
         name: 'Facebook',
         url: SHARE_LINKS.facebook
-          .replace('{url}', this.encode(url))
-          .replace('{text}', this.encode(text)),
+          .replace('{url}', ShareUtils.encode(url))
+          .replace('{text}', ShareUtils.encode(text)),
         icon: 'facebook',
       },
       {
         name: 'LinkedIn',
         url: SHARE_LINKS.linkedin
-          .replace('{url}', this.encode(url))
-          .replace('{title}', this.encode(title))
-          .replace('{text}', this.encode(text)),
+          .replace('{url}', ShareUtils.encode(url))
+          .replace('{title}', ShareUtils.encode(title))
+          .replace('{text}', ShareUtils.encode(text)),
         icon: 'linkedin',
       },
       {
         name: 'WhatsApp',
         url: SHARE_LINKS.whatsapp.replace(
           '{text}',
-          this.encode(text + ' ' + url)
+          ShareUtils.encode(text + ' ' + url)
         ),
         icon: 'whatsapp',
       },
       {
         name: 'Telegram',
         url: SHARE_LINKS.telegram
-          .replace('{url}', this.encode(url))
-          .replace('{text}', this.encode(text)),
+          .replace('{url}', ShareUtils.encode(url))
+          .replace('{text}', ShareUtils.encode(text)),
         icon: 'telegram',
       },
       {
         name: 'Email',
         url: SHARE_LINKS.email
-          .replace('{title}', this.encode(title))
-          .replace('{text}', this.encode(text)),
+          .replace('{title}', ShareUtils.encode(title))
+          .replace('{text}', ShareUtils.encode(text)),
         icon: 'email',
       },
     ];
@@ -80,5 +84,3 @@ export class ShareUtils {
     });
   }
 }
-
-export const shareUtils = new ShareUtils();

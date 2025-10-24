@@ -1,25 +1,25 @@
-import { tagUtils } from './post-utils';
-import { searchUtils } from './search';
+import { TagUtils } from './tag-utils';
+import { QueryUtils } from './query-utils';
 
 class PageUtils {
   initBlogPage(): void {
-    tagUtils.filterPostsByTag();
-    searchUtils.filterPostsBySearch();
+    TagUtils.applyTagFilterToDOM();
+    QueryUtils.applyQueryFilterToDOM();
   }
 
   initProjectsPage(): void {
-    tagUtils.filterPostsByTag('Projects');
-    searchUtils.filterPostsBySearch('Projects');
+    TagUtils.applyTagFilterToDOM();
+    QueryUtils.applyQueryFilterToDOM();
   }
 
   initSeriesPage(): void {
-    tagUtils.filterPostsByTag();
-    searchUtils.filterPostsBySearch();
+    TagUtils.applyTagFilterToDOM();
+    QueryUtils.applyQueryFilterToDOM();
   }
 
   initWorkPage(): void {
-    tagUtils.filterPostsByTag();
-    searchUtils.filterPostsBySearch();
+    TagUtils.applyTagFilterToDOM();
+    QueryUtils.applyQueryFilterToDOM();
   }
 }
 

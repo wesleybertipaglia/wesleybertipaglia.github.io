@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { shareUtils } from '@lib/share-utils';
+import { ShareUtils } from '@lib/share-utils';
 import Modal from './Modal.astro';
 import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, description, url } = Astro.props;
-const socialLinks = shareUtils.getSocialLinks(title, description, url);
+const socialLinks = ShareUtils.getSocialLinks(title, description, url);
 ---
 
 <div class="border-b border-border-3/10 pb-2 mb-2">

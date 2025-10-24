@@ -6,8 +6,9 @@ import Container from '@components/Container.astro';
 import SeriesPreview from '@components/SeriesPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { paginationUtils } from '@lib/pagination';
-import { PostUtils } from '@lib/post-utils';
+import { PaginationUtils } from '@lib/pagination-utils';
+import { TagUtils } from '@lib/tag-utils';
+import { QueryUtils } from '@lib/query-utils';
 
 const allSeries = (await getCollection('series')).sort(
   (a: CollectionEntry<'series'>, b: CollectionEntry<'series'>) =>
@@ -15,16 +16,35 @@ const allSeries = (await getCollection('series')).sort(
 );
 
 const q = Astro.url.searchParams.get('q');
-let filteredPosts = q ? PostUtils.filterPostsByQuery(allSeries, q) : allSeries;
+const tag = Astro.url.searchParams.get('tag');
+let filteredPosts = allSeries;
+if (q) {
+  filteredPosts = QueryUtils.filterPostsByQuery(filteredPosts, q);
+}
+if (tag) {
+  filteredPosts = TagUtils.filterPostsByTag(filteredPosts, tag);
+}
 
-const pagination = paginationUtils.getPagination({ url: Astro.url });
+const pagination = PaginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(filteredPosts.length / pagination.size);
 const seriesList = filteredPosts.slice(
   pagination.offset,
   pagination.offset + pagination.size
 );
 
-const title = q ? `${SERIES.title} - Search: ${q}` : SERIES.title;
+const params = new URLSearchParams(Astro.url.search);
+params.delete('page');
+params.delete('size');
+const otherParams = params.toString();
+
+const title =
+  q && tag
+    ? `${SERIES.title} - Search: ${q} in tag: ${tag}`
+    : q
+      ? `${SERIES.title} - Search: ${q}`
+      : tag
+        ? `${SERIES.title} tagged with "${tag}"`
+        : SERIES.title;
 ---
 
 <PageLayout title={title} description={SERIES.description}>
@@ -57,6 +77,7 @@ const title = q ? `${SERIES.title} - Search: ${q}` : SERIES.title;
             totalPages={totalPages}
             basePath="/series"
             size={pagination.size}
+            otherParams={otherParams}
           />
         )
       }
