@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
   title: string;
 }
@@ -15,9 +17,9 @@ const { title } = Astro.props;
       <h3 class="text-lg font-semibold m-0">{title}</h3>
       <button
         id="close-modal"
-        class="text-color-3 hover:text-color-1 hover:text-dark-text-1 text-xl"
+        class="text-color-3 hover:text-color-1 hover:text-dark-text-1"
       >
-        ×
+        <Icon name="symbols/x" class="w-5 h-5" />
       </button>
     </div>
     <slot />
