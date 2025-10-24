@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { TextUtils } from '@lib/text-utils';
-import ArrowOutwardIcon from '@components/ArrowOutwardIcon.astro';
+import ArrowRightAnimatedIcon from '@components/ArrowRightAnimatedIcon.astro';
 
 type Props = {
   series: CollectionEntry<'series'>;
@@ -26,7 +26,7 @@ const { series } = Astro.props;
       {TextUtils.excerpt({ text: series.data.description, maxLength: 64 })}
     </div>
   </div>
-  <ArrowOutwardIcon
+  <ArrowRightAnimatedIcon
     className="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current"
   />
 
