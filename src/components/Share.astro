@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { ShareUtils } from '@lib/share-utils';
 import Modal from './Modal.astro';
-import ArrowOutwardIcon from '@icons/ArrowOutwardIcon.astro';
+import ArrowOutwardIcon from '@components/ArrowOutwardIcon.astro';
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const socialLinks = ShareUtils.getSocialLinks(title, description, url);
     title="Share this post"
     class="px-2 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
   >
-    <Icon name="symbols/share" class="w-4 h-4" />
+    <Icon name="icons/share" class="w-4 h-4" />
   </button>
 
   <Modal
@@ -43,8 +43,8 @@ const socialLinks = ShareUtils.getSocialLinks(title, description, url);
           title="Copy to clipboard"
           class="px-3 py-2 bg-background-3/50 text-color-3 rounded hover:bg-background-3 hover:bg-dark-background-3 transition-colors cursor-pointer"
         >
-          <Icon name="symbols/copy" class="w-4 h-4 copy-icon" />
-          <Icon name="symbols/check" class="w-4 h-4 check-icon hidden" />
+          <Icon name="icons/copy" class="w-4 h-4 copy-icon" />
+          <Icon name="icons/check" class="w-4 h-4 check-icon hidden" />
         </button>
       </div>
     </div>
@@ -60,7 +60,7 @@ const socialLinks = ShareUtils.getSocialLinks(title, description, url);
             hover:bg-background-3/10 hover:bg-dark-background-3/10 text-color-3 hover:text-color-2 hover:text-dark-text-2"
           >
             <Icon
-              name={`logos/${socialLink.icon}`}
+              name={`socials/${socialLink.icon}`}
               class="w-5 h-5 shrink-0 text-color-3"
             />
             <span class="flex-1 text-color-3">{socialLink.name}</span>

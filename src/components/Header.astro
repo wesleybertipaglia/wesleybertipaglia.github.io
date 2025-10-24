@@ -18,7 +18,7 @@ import Modal from '@components/Modal.astro';
       </div>
 
       <button id="open-menu" class="max-[400px]:block hidden cursor-pointer">
-        <Icon name="symbols/menu" class="w-6 h-6" />
+        <Icon name="icons/menu" class="w-6 h-6" />
       </button>
 
       <ThemeToggle />
@@ -65,7 +65,6 @@ import Modal from '@components/Modal.astro';
   import { ModalUtils } from '@lib/modal-utils';
   ModalUtils.initModal('menu-modal', 'open-menu', 'close-menu');
 
-  // Close modal when a link is clicked
   document.querySelectorAll('#menu-modal a').forEach((link) => {
     link.addEventListener('click', () => {
       ModalUtils.hideModal('menu-modal');
