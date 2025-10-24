@@ -1,8 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { SHARE_LINKS } from "@consts";
 
 interface Props {
-  title: string;  
+  title: string;
   description?: string;
   url: string;
 }
@@ -20,32 +21,32 @@ const encode = (text: string) => encodeURIComponent(text);
 const socialLinks = [
   {
     name: "X",
-    url: `https://x.com/intent/tweet?url=${encode(url)}&text=${encode(getText())}`,
+    url: SHARE_LINKS.x.replace("{url}", encode(url)).replace("{text}", encode(getText())),
     icon: "x",
   },
   {
     name: "Facebook",
-    url: `https://www.facebook.com/sharer/sharer.php?u=${encode(url)}&t=${encode(title)}`,
+    url: SHARE_LINKS.facebook.replace("{url}", encode(url)).replace("{title}", encode(title)),
     icon: "facebook",
   },
   {
     name: "LinkedIn",
-    url: `https://www.linkedin.com/sharing/share-offsite/?url=${encode(url)}&title=${encode(title)}`,
+    url: SHARE_LINKS.linkedin.replace("{url}", encode(url)).replace("{title}", encode(title)),
     icon: "linkedin",
   },
   {
     name: "WhatsApp",
-    url: `https://api.whatsapp.com/send?text=${encode(getText() + ' ' + url)}`,
+    url: SHARE_LINKS.whatsapp.replace("{text}", encode(getText() + ' ' + url)),
     icon: "whatsapp",
   },
   {
     name: "Telegram",
-    url: `https://t.me/share/url?url=${encode(url)}&text=${encode(getText())}`,
+    url: SHARE_LINKS.telegram.replace("{url}", encode(url)).replace("{text}", encode(getText())),
     icon: "telegram",
   },
   {
     name: "Email",
-    url: `mailto:?subject=${encode(title)}&body=${encode(getText())}`,
+    url: SHARE_LINKS.email.replace("{title}", encode(title)).replace("{text}", encode(getText())),
     icon: "email",
   },
 ];

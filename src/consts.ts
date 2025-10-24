@@ -52,3 +52,12 @@ export const SOCIALS: Link[] = [
         main: true,
     }
 ];
+
+export const SHARE_LINKS = {
+    x: "https://x.com/intent/tweet?url={url}&text={text}",
+    facebook: "https://www.facebook.com/sharer/sharer.php?u={url}&t={title}",
+    linkedin: "https://www.linkedin.com/sharing/share-offsite/?url={url}&title={title}",
+    whatsapp: "https://api.whatsapp.com/send?text={text}",
+    telegram: "https://t.me/share/url?url={url}&text={text}",
+    email: "mailto:?subject={title}&body={text}",
+};
