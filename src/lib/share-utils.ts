@@ -1,12 +1,8 @@
 import { SHARE_LINKS } from '@consts';
 
 export class ShareUtils {
-  getText(title: string, description?: string): string {
-    const truncatedDescription =
-      description && description.length > 100
-        ? `${description.slice(0, 100)}...`
-        : description;
-    return `Hi! 👋\n I'm reading ${title} on Wesley's Website. Check it out! \n\n ${truncatedDescription}`;
+  getText(title: string): string {
+    return `Hi! 👋 I'm reading ${title} on Wesley's Website. Check it out!`;
   }
 
   encode(text: string): string {
@@ -14,7 +10,7 @@ export class ShareUtils {
   }
 
   getSocialLinks(title: string, description: string | undefined, url: string) {
-    const text = this.getText(title, description);
+    const text = this.getText(title);
     return [
       {
         name: 'X',
@@ -27,14 +23,15 @@ export class ShareUtils {
         name: 'Facebook',
         url: SHARE_LINKS.facebook
           .replace('{url}', this.encode(url))
-          .replace('{title}', this.encode(title)),
+          .replace('{text}', this.encode(text)),
         icon: 'facebook',
       },
       {
         name: 'LinkedIn',
         url: SHARE_LINKS.linkedin
           .replace('{url}', this.encode(url))
-          .replace('{title}', this.encode(title)),
+          .replace('{title}', this.encode(title))
+          .replace('{text}', this.encode(text)),
         icon: 'linkedin',
       },
       {
