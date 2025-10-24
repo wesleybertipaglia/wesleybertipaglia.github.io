@@ -4,8 +4,8 @@ interface TocItem {
   id: string;
 }
 
-class TableOfContentsUtils {
-  generateTOC(markdown: string): TocItem[] {
+export class TableOfContentsUtils {
+  static generateTOC(markdown: string): TocItem[] {
     const headings: TocItem[] = [];
     const lines = markdown.split('\n');
 
@@ -15,7 +15,7 @@ class TableOfContentsUtils {
         const level = match[1].length;
         if (level === 2) {
           const text = match[2].trim();
-          const id = this.slugify(text);
+          const id = TableOfContentsUtils.slugify(text);
           headings.push({ level, text, id });
         }
       }
@@ -24,7 +24,7 @@ class TableOfContentsUtils {
     return headings;
   }
 
-  private slugify(text: string): string {
+  private static slugify(text: string): string {
     return text
       .toLowerCase()
       .replace(/[^\w\s-]/g, '')
@@ -33,5 +33,3 @@ class TableOfContentsUtils {
       .trim();
   }
 }
-
-export const tableOfContentsUtils = new TableOfContentsUtils();

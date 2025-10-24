@@ -2,9 +2,9 @@
 import { type CollectionEntry } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 import Container from '@components/Container.astro';
-import { dateUtils } from '@lib/date-utils';
-import { textUtils } from '@lib/text-utils';
-import { tableOfContentsUtils } from '@lib/table-of-contents-utils';
+import { DateUtils } from '@lib/date-utils';
+import { TextUtils } from '@lib/text-utils';
+import { TableOfContentsUtils } from '@lib/table-of-contents-utils';
 import Share from '@components/Share.astro';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const { post } = Astro.props;
-const toc = tableOfContentsUtils.generateTOC(post.body);
+const toc = TableOfContentsUtils.generateTOC(post.body);
 ---
 
 <PageLayout
@@ -25,8 +25,8 @@ const toc = tableOfContentsUtils.generateTOC(post.body);
       <div class="pb-4">
         <h1 class="text-4xl font-bold">{post.data.title}</h1>
         <p class="text-sm">
-          {dateUtils.formatDate({ date: post.data.pubDate })} • {
-            textUtils.readingTime({ text: post.body })
+          {DateUtils.formatDate({ date: post.data.pubDate })} • {
+            TextUtils.readingTime({ text: post.body })
           }
         </p>
         <Share

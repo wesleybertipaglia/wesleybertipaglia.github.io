@@ -1,7 +1,7 @@
 const themeKey = 'theme';
 
-class ThemeUtils {
-  getTheme(): string {
+export class ThemeUtils {
+  static getTheme(): string {
     let theme = localStorage.getItem(themeKey);
 
     if (!theme) {
@@ -13,24 +13,22 @@ class ThemeUtils {
     return theme;
   }
 
-  setTheme(theme: string): void {
+  static setTheme(theme: string): void {
     localStorage.setItem(themeKey, theme);
     document.firstElementChild?.classList.toggle('dark', theme === 'dark');
   }
 
-  toggleTheme(): void {
-    this.setTheme(this.getTheme() === 'dark' ? 'light' : 'dark');
+  static toggleTheme(): void {
+    ThemeUtils.setTheme(ThemeUtils.getTheme() === 'dark' ? 'light' : 'dark');
   }
 
-  initTheme(): void {
-    this.setTheme(this.getTheme());
+  static initTheme(): void {
+    ThemeUtils.setTheme(ThemeUtils.getTheme());
   }
 
-  initThemeToggle(buttonId: string = 'theme-toggle'): void {
-    this.initTheme();
+  static initThemeToggle(buttonId: string = 'theme-toggle'): void {
+    ThemeUtils.initTheme();
     const themeToggle = document.getElementById(buttonId);
-    themeToggle?.addEventListener('click', () => this.toggleTheme());
+    themeToggle?.addEventListener('click', () => ThemeUtils.toggleTheme());
   }
 }
-
-export const themeUtils = new ThemeUtils();

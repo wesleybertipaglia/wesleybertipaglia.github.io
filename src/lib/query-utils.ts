@@ -7,8 +7,33 @@
  * @param titleSelector - The CSS selector for the title element.
  * @param messageSelector - The CSS selector for the message element.
  */
-class SearchUtils {
-  filterPostsBySearch(
+export class QueryUtils {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static filterPostsByQuery<T extends { data: Record<string, any> }>(
+    posts: T[],
+    query: string
+  ): T[] {
+    if (!query) return posts;
+
+    const lowerQuery = query.toLowerCase();
+
+    return posts.filter((post) => {
+      const searchable = [
+        post.data.title,
+        post.data.description,
+        post.data.tags?.join(' '),
+        post.data.role,
+        post.data.companyName,
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+
+      return searchable.includes(lowerQuery);
+    });
+  }
+
+  static applyQueryFilterToDOM(
     entityTitle: string = 'Posts',
     searchParam: string = 'q',
     tagParam: string = 'tag',
@@ -26,17 +51,14 @@ class SearchUtils {
 
     if (!query && !tag) return;
 
-    // Update title
     if (titleElement) {
       if (query && tag) {
         titleElement.textContent = `${entityTitle} tagged with "${tag}" matching "${query}"`;
       } else if (query) {
         titleElement.textContent = `${entityTitle} matching "${query}"`;
       }
-      // If only tag, tagUtils handles it
     }
 
-    // Update message
     if (messageElement) {
       if (query && tag) {
         messageElement.textContent = `Showing results for '${query}' in tag '${tag}'`;
@@ -46,16 +68,15 @@ class SearchUtils {
       messageElement.style.display = 'block';
     }
 
-    // Filter posts by search if query exists
     if (query) {
       Array.from(postElements).forEach((post) => {
         const textContent = post.textContent?.toLowerCase() || '';
         if (!textContent.includes(query)) {
-          post.style.display = 'none';
+          (post.parentElement as HTMLElement).style.display = 'none';
+        } else {
+          (post.parentElement as HTMLElement).style.display = '';
         }
       });
     }
   }
 }
-
-export const searchUtils = new SearchUtils();

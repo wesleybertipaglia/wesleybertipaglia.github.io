@@ -33,6 +33,7 @@ export default [
         URL: 'readonly',
         URLSearchParams: 'readonly',
         HTMLElement: 'readonly',
+        HTMLAnchorElement: 'readonly',
         HTMLInputElement: 'readonly',
         HTMLHeadingElement: 'readonly',
         ScrollBehavior: 'readonly',

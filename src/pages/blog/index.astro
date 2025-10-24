@@ -6,27 +6,13 @@ import Container from '@components/Container.astro';
 import PostPreview from '@components/PostPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { paginationUtils } from '@lib/pagination';
-import { PostUtils } from '@lib/post-utils';
 
-const allBlogPosts = (await getCollection('blog')).sort(
+const blogPosts = (await getCollection('blog')).sort(
   (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const q = Astro.url.searchParams.get('q');
-let filteredPosts = q
-  ? PostUtils.filterPostsByQuery(allBlogPosts, q)
-  : allBlogPosts;
-
-const pagination = paginationUtils.getPagination({ url: Astro.url });
-const totalPages = Math.ceil(filteredPosts.length / pagination.size);
-const blogPosts = filteredPosts.slice(
-  pagination.offset,
-  pagination.offset + pagination.size
-);
-
-const title = q ? `${BLOG.title} - Search: ${q}` : BLOG.title;
+const title = BLOG.title;
 ---
 
 <PageLayout title={title} description={BLOG.description}>
@@ -46,22 +32,13 @@ const title = q ? `${BLOG.title} - Search: ${q}` : BLOG.title;
                 </li>
               ))
             ) : (
-              <li>{q ? `No posts found for "${q}"` : 'No posts found'}</li>
+              <li>No posts found</li>
             )
           }
         </ul>
       </div>
 
-      {
-        totalPages > 0 && (
-          <Pagination
-            currentPage={pagination.page}
-            totalPages={totalPages}
-            basePath="/blog"
-            size={pagination.size}
-          />
-        )
-      }
+      <Pagination currentPage={1} totalPages={1} basePath="/blog" size={10} />
     </Container>
   </section>
 </PageLayout>

@@ -6,27 +6,13 @@ import Container from '@components/Container.astro';
 import PostPreview from '@components/PostPreview.astro';
 import Pagination from '@components/Pagination.astro';
 import Search from '@components/Search.astro';
-import { paginationUtils } from '@lib/pagination';
-import { PostUtils } from '@lib/post-utils';
 
-const allProjectsPosts = (await getCollection('projects')).sort(
+const projectsPosts = (await getCollection('projects')).sort(
   (a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const q = Astro.url.searchParams.get('q');
-let filteredPosts = q
-  ? PostUtils.filterPostsByQuery(allProjectsPosts, q)
-  : allProjectsPosts;
-
-const pagination = paginationUtils.getPagination({ url: Astro.url });
-const totalPages = Math.ceil(filteredPosts.length / pagination.size);
-const projectsPosts = filteredPosts.slice(
-  pagination.offset,
-  pagination.offset + pagination.size
-);
-
-const title = q ? `${PROJECTS.title} - Search: ${q}` : PROJECTS.title;
+const title = PROJECTS.title;
 ---
 
 <PageLayout title={title} description={PROJECTS.description}>
@@ -46,22 +32,18 @@ const title = q ? `${PROJECTS.title} - Search: ${q}` : PROJECTS.title;
                 </li>
               ))
             ) : (
-              <li>{q ? `No posts found for "${q}"` : 'No posts found'}</li>
+              <li>No posts found</li>
             )
           }
         </ul>
       </div>
 
-      {
-        totalPages > 0 && (
-          <Pagination
-            currentPage={pagination.page}
-            totalPages={totalPages}
-            basePath="/projects"
-            size={pagination.size}
-          />
-        )
-      }
+      <Pagination
+        currentPage={1}
+        totalPages={1}
+        basePath="/projects"
+        size={10}
+      />
     </Container>
   </section>
 </PageLayout>

@@ -8,8 +8,8 @@ interface ReadingTimeProps {
   wordsPerMinute?: number;
 }
 
-class TextUtils {
-  excerpt({ text, maxLength = 48 }: ExcerptProps): string {
+export class TextUtils {
+  static excerpt({ text, maxLength = 48 }: ExcerptProps): string {
     if (text.length <= maxLength) {
       return text;
     }
@@ -19,11 +19,9 @@ class TextUtils {
       .concat('...');
   }
 
-  readingTime({ text, wordsPerMinute = 200 }: ReadingTimeProps): string {
+  static readingTime({ text, wordsPerMinute = 200 }: ReadingTimeProps): string {
     const words = text.trim().split(/\s+/).length;
     const minutes = Math.ceil(words / wordsPerMinute);
     return `${minutes} min read`;
   }
 }
-
-export const textUtils = new TextUtils();

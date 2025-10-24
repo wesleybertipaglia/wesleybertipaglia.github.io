@@ -9,8 +9,8 @@ interface FormatDateRangeProps {
   options?: Intl.DateTimeFormatOptions;
 }
 
-class DateUtils {
-  formatDate({ date, options }: FormatDateProps): string {
+export class DateUtils {
+  static formatDate({ date, options }: FormatDateProps): string {
     if (!date) {
       return '';
     }
@@ -26,7 +26,7 @@ class DateUtils {
     });
   }
 
-  formatDateRange({
+  static formatDateRange({
     startDate,
     endDate,
     options,
@@ -36,10 +36,10 @@ class DateUtils {
     }
 
     if (!endDate) {
-      return this.formatDate({ date: startDate, options }) + ' - Current';
+      return DateUtils.formatDate({ date: startDate, options }) + ' - Current';
     }
 
-    return `${this.formatDate({ date: startDate, options })} - ${this.formatDate(
+    return `${DateUtils.formatDate({ date: startDate, options })} - ${DateUtils.formatDate(
       {
         date: endDate,
         options,
@@ -47,5 +47,3 @@ class DateUtils {
     )}`;
   }
 }
-
-export const dateUtils = new DateUtils();

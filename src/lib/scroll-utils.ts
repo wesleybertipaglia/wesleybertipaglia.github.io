@@ -4,8 +4,8 @@
  * @param threshold - The scroll threshold in pixels to show the button.
  * @param scrollBehavior - The scrolling behavior (default is 'smooth').
  */
-class ScrollUtils {
-  scrollToTop(
+export class ScrollUtils {
+  static scrollToTop(
     buttonId: string,
     threshold: number = 100,
     scrollBehavior: ScrollBehavior = 'smooth'
@@ -35,13 +35,11 @@ class ScrollUtils {
     };
   }
 
-  initScrollToTop(
+  static initScrollToTop(
     buttonId: string = 'top',
     threshold: number = 100,
     scrollBehavior: ScrollBehavior = 'smooth'
   ): void {
-    this.scrollToTop(buttonId, threshold, scrollBehavior);
+    ScrollUtils.scrollToTop(buttonId, threshold, scrollBehavior);
   }
 }
-
-export const scrollUtils = new ScrollUtils();

@@ -1,32 +1,11 @@
-import { TagUtils } from './tag-utils';
-import { QueryUtils } from './query-utils';
+export interface Pagination {
+  page: number;
+  size: number;
+  offset: number;
+}
 
-class PageUtils {
-  initBlogPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
-    this.applyPaginationToDOM();
-  }
-
-  initProjectsPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
-    this.applyPaginationToDOM();
-  }
-
-  initSeriesPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
-    this.applyPaginationToDOM();
-  }
-
-  initWorkPage(): void {
-    TagUtils.applyTagFilterToDOM();
-    QueryUtils.applyQueryFilterToDOM();
-    this.applyPaginationToDOM();
-  }
-
-  applyPaginationToDOM(
+export class PaginationUtils {
+  static applyPaginationToDOM(
     postSelector: string = '.post',
     paginationSelector: string = '.pagination'
   ): void {
@@ -35,21 +14,19 @@ class PageUtils {
     const size = Math.max(1, parseInt(params.get('size') || '10'));
 
     const postElements = document.querySelectorAll<HTMLElement>(postSelector);
-    const visibleLis = Array.from(postElements)
-      .filter(
-        (post) => (post.parentElement as HTMLElement).style.display !== 'none'
-      )
-      .map((post) => post.parentElement as HTMLElement);
+    const visiblePosts = Array.from(postElements).filter(
+      (post) => post.style.display !== 'none'
+    );
 
-    const totalPages = Math.ceil(visibleLis.length / size);
+    const totalPages = Math.ceil(visiblePosts.length / size);
     const start = (page - 1) * size;
     const end = start + size;
 
-    visibleLis.forEach((li, index) => {
+    visiblePosts.forEach((post, index) => {
       if (index >= start && index < end) {
-        li.style.display = '';
+        post.style.display = '';
       } else {
-        li.style.display = 'none';
+        post.style.display = 'none';
       }
     });
 
@@ -60,11 +37,9 @@ class PageUtils {
       if (currentSpan) {
         currentSpan.textContent = `${page} / ${totalPages}`;
       }
-
       const prevLink = paginationElement.querySelector(
         'a[title="Go to previous page"]'
       ) as HTMLAnchorElement;
-
       const nextLink = paginationElement.querySelector(
         'a[title="Go to next page"]'
       ) as HTMLAnchorElement;
@@ -93,7 +68,7 @@ class PageUtils {
     }
   }
 
-  private buildPaginationUrl(page: number, size: number): string {
+  static buildPaginationUrl(page: number, size: number): string {
     const params = new URLSearchParams(window.location.search);
     params.set('page', page.toString());
     params.set('size', size.toString());
@@ -101,5 +76,3 @@ class PageUtils {
     return `${window.location.pathname}${query ? '?' + query : ''}`;
   }
 }
-
-export const pageUtils = new PageUtils();
