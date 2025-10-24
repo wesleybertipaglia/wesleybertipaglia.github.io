@@ -1,12 +1,12 @@
 ---
-id: "HOZY8OVp"
-title: "Who I Am & Why This Blog Exists"
-description: "A personal journey into programming, learning, and growth. Sharing lessons learned and advice for aspiring developers."
-cover: ""
-tags: ["swe", "career", "advice"]
-pubDate: "Sep 18 2025"
-updatedDate: "Sep 18 2025"
-series: "Y4vcTTMB"
+id: 'HOZY8OVp'
+title: 'Who I Am & Why This Blog Exists'
+description: 'A personal journey into programming, learning, and growth. Sharing lessons learned and advice for aspiring developers.'
+cover: ''
+tags: ['swe', 'career', 'advice']
+pubDate: 'Sep 18 2025'
+updatedDate: 'Sep 18 2025'
+series: 'Y4vcTTMB'
 ---
 
 Hello! First of all, thank you for your time and curiosity. This post marks the restart of a blog I began a few years ago, and my goal is to share the journey, the mistakes, and the lessons that brought me here.
@@ -25,11 +25,11 @@ Despite the progress, I acknowledge that for a long time I spread myself too thi
 
 If you’re just starting out, here are some pieces of advice I consider valuable:
 
-* **Learn C and C++**: The foundation these languages provide is unmatched.
-* **Master Data Structures and Algorithms (DSA)**: Use Python to speed up the implementation of your solutions.
-* **Invest in formal education**: If possible, a degree in Computer Science or a related field makes a huge difference.
-* **Pursue internships early**: Apply to companies you admire. Send lots of applications and take advantage of opportunities as soon as you can.
-* **Don’t give up**: The journey is tough, but the rewards are immense.
+- **Learn C and C++**: The foundation these languages provide is unmatched.
+- **Master Data Structures and Algorithms (DSA)**: Use Python to speed up the implementation of your solutions.
+- **Invest in formal education**: If possible, a degree in Computer Science or a related field makes a huge difference.
+- **Pursue internships early**: Apply to companies you admire. Send lots of applications and take advantage of opportunities as soon as you can.
+- **Don’t give up**: The journey is tough, but the rewards are immense.
 
 Remember: your career is a marathon, not a 100 meter sprint. There will be moments of doubt and frustration, and the temptation to take shortcuts will be constant. In those moments, return to the fundamentals and reconnect with the curiosity that made you start. Every challenge you overcome not only adds a line to your résumé, but also strengthens the engineer you are becoming.
 

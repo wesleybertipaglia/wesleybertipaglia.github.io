@@ -1,21 +1,21 @@
 ---
-import Container from "@components/Container.astro";
-import Link from "@components/Link.astro";
-import ThemeToggle from "@components/ThemeToggle.astro";
+import Container from '@components/Container.astro';
+import Link from '@components/Link.astro';
+import ThemeToggle from '@components/ThemeToggle.astro';
 ---
 
 <header class="sticky top-0 z-10 backdrop-blur-md">
-    <Container>
-        <nav class="flex justify-between items-center py-4">
-            <div class="flex gap-4">
-                <Link href="/" class="font-medium">Home</Link>
-                <Link href="/blog">blog</Link>
-                <Link href="/series">series</Link>
-                <Link href="/projects">projects</Link>
-                <Link href="/work">work</Link>
-            </div>
+  <Container>
+    <nav class="flex justify-between items-center py-4">
+      <div class="flex gap-4">
+        <Link href="/" class="font-medium">Home</Link>
+        <Link href="/blog">blog</Link>
+        <Link href="/series">series</Link>
+        <Link href="/projects">projects</Link>
+        <Link href="/work">work</Link>
+      </div>
 
-            <ThemeToggle />
-        </nav>
-    </Container>
+      <ThemeToggle />
+    </nav>
+  </Container>
 </header>

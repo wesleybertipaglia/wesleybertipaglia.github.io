@@ -1,12 +1,12 @@
 ---
-id: "tlXXnHJP"
-role: "Software Developer"
-companyName: "Algorama"
-companyLink: "https://www.linkedin.com/company/algorama/"
-companyLogo: "/images/tlXXnHJP.webp"
-location: "Remote - Brazil"
-startDate: "Jan 01 2025"
-description: "C# and .NET Developer working on projects for logistics and telecommunications sectors."
+id: 'tlXXnHJP'
+role: 'Software Developer'
+companyName: 'Algorama'
+companyLink: 'https://www.linkedin.com/company/algorama/'
+companyLogo: '/images/tlXXnHJP.webp'
+location: 'Remote - Brazil'
+startDate: 'Jan 01 2025'
+description: 'C# and .NET Developer working on projects for logistics and telecommunications sectors.'
 ---
 
 - Creation and integration of an NF-e microservice, connecting multiple internal and external invoice management systems, streamlining tax processes and significantly reducing processing time.

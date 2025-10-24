@@ -1,32 +1,32 @@
 ---
-import SearchIcon from "@icons/SearchIcon.astro";
+import SearchIcon from '@icons/SearchIcon.astro';
 
-const { placeholder = "Search..." } = Astro.props;
+const { placeholder = 'Search...' } = Astro.props;
 const { pathname } = Astro.url;
-const action = pathname.includes("/blog")
-    ? "/blog"
-    : pathname.includes("/projects")
-      ? "/projects"
-      : pathname.includes("/series")
-        ? "/series"
-        : pathname.includes("/work")
-          ? "/work"
-          : "/";
+const action = pathname.includes('/blog')
+  ? '/blog'
+  : pathname.includes('/projects')
+    ? '/projects'
+    : pathname.includes('/series')
+      ? '/series'
+      : pathname.includes('/work')
+        ? '/work'
+        : '/';
 ---
 
 <form method="get" action={action} class="mb-4">
-    <div class="relative">
-        <input
-            type="text"
-            name="q"
-            placeholder={placeholder}
-            class="w-full py-3 px-4 pr-10 rounded border border-light-border-3/10 dark:border-dark-border-3/10 bg-transparent text-light-text-3 dark:text-dark-text-3 hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 focus:bg-light-background-3/10 dark:focus:bg-dark-background-3/10 transition-colors duration-300 ease-in-out"
-        />
-        <button
-            type="submit"
-            class="absolute top-1/2 right-2 mr-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-light-text-3 dark:text-dark-text-3"
-        >
-            <SearchIcon className="size-5 stroke-2 fill-none stroke-current" />
-        </button>
-    </div>
+  <div class="relative">
+    <input
+      type="text"
+      name="q"
+      placeholder={placeholder}
+      class="w-full py-3 px-4 pr-10 rounded border border-light-border-3/10 dark:border-dark-border-3/10 bg-transparent text-light-text-3 dark:text-dark-text-3 hover:bg-light-background-3/10 dark:hover:bg-dark-background-3/10 focus:bg-light-background-3/10 dark:focus:bg-dark-background-3/10 transition-colors duration-300 ease-in-out"
+    />
+    <button
+      type="submit"
+      class="absolute top-1/2 right-2 mr-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-light-text-3 dark:text-dark-text-3"
+    >
+      <SearchIcon className="size-5 stroke-2 fill-none stroke-current" />
+    </button>
+  </div>
 </form>

@@ -1,43 +1,46 @@
 ---
-import Container from "@components/Container.astro";
-import type { CollectionEntry } from "astro:content";
-import WorkPreview from "./WorkPreview.astro";
-import Link from "@components/Link.astro";
+import Container from '@components/Container.astro';
+import type { CollectionEntry } from 'astro:content';
+import WorkPreview from './WorkPreview.astro';
+import Link from '@components/Link.astro';
 
 interface Props {
-    title?: string;
-    seeAllTitle: string;
-    seeAllUrl: string;
-    slice?: number;
-    postList: CollectionEntry<"work">[];
+  title?: string;
+  seeAllTitle: string;
+  seeAllUrl: string;
+  slice?: number;
+  postList: CollectionEntry<'work'>[];
 }
 const { title, seeAllTitle, seeAllUrl, postList } = Astro.props;
 ---
 
 <section>
-    <Container>
-        <div class="my-12">
-            <div class="flex justify-between mb-4">
-                <h5 class="font-semibold">
-                    {title}
-                </h5>
-                <Link href={seeAllUrl} class="underline underline-offset-2 text-sm text-light-text-3/75 dark:text-dark-text-3/75 hover:text-light-text-3 dark:hover:text-dark-text-3 transition-colors">
-                    {seeAllTitle}
-                </Link>
-            </div>
-            <ul class="flex flex-col gap-6">
-                {
-                    postList.length > 0 ? (
-                        postList.map((post) => (
-                            <li>
-                                <WorkPreview post={post} />
-                            </li>
-                        ))
-                    ) : (
-                        <li>No posts found</li>
-                    )
-                }
-            </ul>
-        </div>
-    </Container>
+  <Container>
+    <div class="my-12">
+      <div class="flex justify-between mb-4">
+        <h5 class="font-semibold">
+          {title}
+        </h5>
+        <Link
+          href={seeAllUrl}
+          class="underline underline-offset-2 text-sm text-light-text-3/75 dark:text-dark-text-3/75 hover:text-light-text-3 dark:hover:text-dark-text-3 transition-colors"
+        >
+          {seeAllTitle}
+        </Link>
+      </div>
+      <ul class="flex flex-col gap-6">
+        {
+          postList.length > 0 ? (
+            postList.map((post) => (
+              <li>
+                <WorkPreview post={post} />
+              </li>
+            ))
+          ) : (
+            <li>No posts found</li>
+          )
+        }
+      </ul>
+    </div>
+  </Container>
 </section>

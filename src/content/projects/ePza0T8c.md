@@ -1,13 +1,13 @@
 ---
-id: "ePza0T8c"
-title: "Back-end Challenges"
-description: "A repository of back-end challenges to help you improve your backend development skills."
-cover: ""
-repositoryLink: "https://github.com/wesleybertipaglia/backend-challenges"
-deployLink: ""
-tags: ["backend", "challenges", "development"]
-pubDate: "May 01 2024"
-updatedDate: "May 01 2024"
+id: 'ePza0T8c'
+title: 'Back-end Challenges'
+description: 'A repository of back-end challenges to help you improve your backend development skills.'
+cover: ''
+repositoryLink: 'https://github.com/wesleybertipaglia/backend-challenges'
+deployLink: ''
+tags: ['backend', 'challenges', 'development']
+pubDate: 'May 01 2024'
+updatedDate: 'May 01 2024'
 ---
 
 Hey everyone! 👋
@@ -36,4 +36,4 @@ The challenges are organized into four distinct levels, catering to a range of s
 
 I invite you all to dive in, challenge yourselves, and grow your skills together. Let's make backend development a fun and rewarding journey!
 
-*Happy coding! 🎉*
+_Happy coding! 🎉_

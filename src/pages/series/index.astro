@@ -1,17 +1,17 @@
 ---
-import { SERIES } from "@consts";
-import { getCollection, type CollectionEntry } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import SeriesPreview from "@components/SeriesPreview.astro";
-import Pagination from "@components/Pagination.astro";
-import Search from "@components/Search.astro";
-import { paginationUtils } from "@lib/pagination";
-import { PostUtils } from "@lib/post-utils";
+import { SERIES } from '@consts';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageLayout from '@layouts/PageLayout.astro';
+import Container from '@components/Container.astro';
+import SeriesPreview from '@components/SeriesPreview.astro';
+import Pagination from '@components/Pagination.astro';
+import Search from '@components/Search.astro';
+import { paginationUtils } from '@lib/pagination';
+import { PostUtils } from '@lib/post-utils';
 
-const allSeries = (await getCollection("series")).sort(
-	(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
-		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const allSeries = (await getCollection('series')).sort(
+  (a: CollectionEntry<'series'>, b: CollectionEntry<'series'>) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const q = Astro.url.searchParams.get('q');
@@ -20,51 +20,51 @@ let filteredPosts = q ? PostUtils.filterPostsByQuery(allSeries, q) : allSeries;
 const pagination = paginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(filteredPosts.length / pagination.size);
 const seriesList = filteredPosts.slice(
-	pagination.offset,
-	pagination.offset + pagination.size,
+  pagination.offset,
+  pagination.offset + pagination.size
 );
 
 const title = q ? `${SERIES.title} - Search: ${q}` : SERIES.title;
 ---
 
 <PageLayout title={title} description={SERIES.description}>
-	<section class="flex flex-col flex-1">
-		<Container class="flex flex-col flex-1 w-full">
-			<div class="flex-1">
-				<h1 class="text-xl font-bold mb-6">Series</h1>
+  <section class="flex flex-col flex-1">
+    <Container class="flex flex-col flex-1 w-full">
+      <div class="flex-1">
+        <h1 class="text-xl font-bold mb-6">Series</h1>
 
-				<Search />
+        <Search />
 
-				<ul class="flex flex-col gap-4">
-					{
-						seriesList.length > 0 ? (
-							seriesList.map((series: any) => (
-								<li>
-									<SeriesPreview series={series} />
-								</li>
-							))
-						) : (
-							<li>{q ? `No series found for "${q}"` : "No series found"}</li>
-						)
-					}
-				</ul>
-			</div>
+        <ul class="flex flex-col gap-4">
+          {
+            seriesList.length > 0 ? (
+              seriesList.map((series: any) => (
+                <li>
+                  <SeriesPreview series={series} />
+                </li>
+              ))
+            ) : (
+              <li>{q ? `No series found for "${q}"` : 'No series found'}</li>
+            )
+          }
+        </ul>
+      </div>
 
-			{
-				totalPages > 0 && (
-					<Pagination
-						currentPage={pagination.page}
-						totalPages={totalPages}
-						basePath="/series"
-						size={pagination.size}
-					/>
-				)
-			}
-		</Container>
-	</section>
+      {
+        totalPages > 0 && (
+          <Pagination
+            currentPage={pagination.page}
+            totalPages={totalPages}
+            basePath="/series"
+            size={pagination.size}
+          />
+        )
+      }
+    </Container>
+  </section>
 </PageLayout>
 
 <script>
-	import { pageUtils } from "@lib/page-utils";
-	pageUtils.initSeriesPage();
+  import { pageUtils } from '@lib/page-utils';
+  pageUtils.initSeriesPage();
 </script>

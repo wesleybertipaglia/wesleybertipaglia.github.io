@@ -6,9 +6,9 @@ This site features a collection of my blog posts on **Software Engineering**, **
 
 ### Features:
 
-* **Blog Posts**: In-depth articles on topics related to software engineering, DSA, and system design.
-* **Projects**: A showcase of my work and open-source contributions.
-* **Clean Layout**: A distraction-free experience for readers.
+- **Blog Posts**: In-depth articles on topics related to software engineering, DSA, and system design.
+- **Projects**: A showcase of my work and open-source contributions.
+- **Clean Layout**: A distraction-free experience for readers.
 
 ---
 

@@ -1,13 +1,13 @@
 ---
-id: "BAErNGe9"
-role: "Software Developer"
-companyName: "AnCode"
-companyLink: "https://www.linkedin.com/company/ancodeapp/"
-companyLogo: "/images/BAErNGe9.webp"
-location: "São José do Rio Preto, SP - Brazil"
-startDate: "Jun 01 2022"
-endDate: "Feb 29 2024"
-description: "C# and .NET Developer working on projects for healthcare and finance sectors."
+id: 'BAErNGe9'
+role: 'Software Developer'
+companyName: 'AnCode'
+companyLink: 'https://www.linkedin.com/company/ancodeapp/'
+companyLogo: '/images/BAErNGe9.webp'
+location: 'São José do Rio Preto, SP - Brazil'
+startDate: 'Jun 01 2022'
+endDate: 'Feb 29 2024'
+description: 'C# and .NET Developer working on projects for healthcare and finance sectors.'
 ---
 
 - Developed a patient appointment system used by hospitals and clinics, handling 10,000+ bookings/month.

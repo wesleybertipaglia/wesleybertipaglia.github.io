@@ -1,38 +1,39 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import SeriesLayout from "@layouts/SeriesLayout.astro";
-import PostPreview from "@components/PostPreview.astro";
+import { type CollectionEntry, getCollection } from 'astro:content';
+import SeriesLayout from '@layouts/SeriesLayout.astro';
+import PostPreview from '@components/PostPreview.astro';
 
 export async function getStaticPaths() {
-	const series = await getCollection("series");
-	return series.map((s: CollectionEntry<"series">) => ({
-		params: { slug: s.slug },
-		props: s,
-	}));
+  const series = await getCollection('series');
+  return series.map((s: CollectionEntry<'series'>) => ({
+    params: { slug: s.slug },
+    props: s,
+  }));
 }
 
-type Props = CollectionEntry<"series">;
+type Props = CollectionEntry<'series'>;
 
 const series = Astro.props;
-const posts = await getCollection("blog").then((allPosts) =>
-	allPosts.filter((post) => post.data.series === series.data.id)
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const posts = await getCollection('blog').then((allPosts) =>
+  allPosts
+    .filter((post) => post.data.series === series.data.id)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 );
 ---
 
 <SeriesLayout series={series}>
-	<h1 class="text-xl font-bold mb-6">Posts in this series</h1>
-	<div class="flex flex-col gap-4">
-		{
-			posts.length > 0 ? (
-				posts.map((post: any) => (
-					<div>
-						<PostPreview post={post} />
-					</div>
-				))
-			) : (
-				<div>No posts in this series yet.</div>
-			)
-		}
-	</div>
+  <h1 class="text-xl font-bold mb-6">Posts in this series</h1>
+  <div class="flex flex-col gap-4">
+    {
+      posts.length > 0 ? (
+        posts.map((post: any) => (
+          <div>
+            <PostPreview post={post} />
+          </div>
+        ))
+      ) : (
+        <div>No posts in this series yet.</div>
+      )
+    }
+  </div>
 </SeriesLayout>

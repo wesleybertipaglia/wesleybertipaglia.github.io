@@ -1,35 +1,44 @@
 ---
-import Head from "@components/Head.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import TopButton from "@components/TopButton.astro";
+import Head from '@components/Head.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import TopButton from '@components/TopButton.astro';
 
 type Props = {
-	title: string;
-	description: string;
-	image?: string;
-	type?: "website" | "article";
-	publishedTime?: string;
-	author?: string;
-	section?: string;
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  author?: string;
+  section?: string;
 };
 
-const { title, description, image, type, publishedTime, author, section } = Astro.props;
+const { title, description, image, type, publishedTime, author, section } =
+  Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<Head title={title} description={description} image={image} type={type} publishedTime={publishedTime} author={author} section={section} />
-	</head>
-	<body
-		class="min-h-screen flex flex-col gap-6 bg-light-background-1 dark:bg-dark-background-1 text-light-text-3 dark:text-dark-text-3"
-	>
-		<Header />
-		<main class="flex-1 flex flex-col">
-			<slot />
-		</main>
-		<Footer />
-		<TopButton />
-	</body>
+  <head>
+    <Head
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      publishedTime={publishedTime}
+      author={author}
+      section={section}
+    />
+  </head>
+  <body
+    class="min-h-screen flex flex-col gap-6 bg-light-background-1 dark:bg-dark-background-1 text-light-text-3 dark:text-dark-text-3"
+  >
+    <Header />
+    <main class="flex-1 flex flex-col">
+      <slot />
+    </main>
+    <Footer />
+    <TopButton />
+  </body>
 </html>
