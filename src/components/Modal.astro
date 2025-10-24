@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Modal -->
+<div
+  id="share-modal"
+  class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center"
+>
+  <div
+    class="bg-background-1 bg-background-1 p-6 rounded-lg max-w-md w-full mx-4"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-semibold m-0">{title}</h3>
+      <button
+        id="close-modal"
+        class="text-color-3 hover:text-color-1 hover:text-dark-text-1 text-xl"
+      >
+        ×
+      </button>
+    </div>
+    <slot />
+  </div>
+</div>
