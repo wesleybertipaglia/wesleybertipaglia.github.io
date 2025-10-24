@@ -5,14 +5,14 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import WorkPreview from "@components/WorkPreview.astro";
 import Pagination from "@components/Pagination.astro";
-import { getPagination } from "@lib/pagination";
+import { paginationUtils } from "@lib/pagination";
 
 const allWorkPosts = (await getCollection("work")).sort(
 	(a: CollectionEntry<"work">, b: CollectionEntry<"work">) =>
 		b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
 
-const pagination = getPagination({ url: Astro.url });
+const pagination = paginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(allWorkPosts.length / pagination.size);
 const workPosts = allWorkPosts.slice(
 	pagination.offset,
@@ -56,6 +56,6 @@ const workPosts = allWorkPosts.slice(
 </PageLayout>
 
 <script>
-	import { filterPostsByTag } from "@lib/tag";
-	filterPostsByTag();
+	import { pageUtils } from "@lib/page-utils";
+	pageUtils.initWorkPage();
 </script>

@@ -5,14 +5,14 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import SeriesPreview from "@components/SeriesPreview.astro";
 import Pagination from "@components/Pagination.astro";
-import { getPagination } from "@lib/pagination";
+import { paginationUtils } from "@lib/pagination";
 
 const allSeries = (await getCollection("series")).sort(
 	(a: CollectionEntry<"series">, b: CollectionEntry<"series">) =>
 		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-const pagination = getPagination({ url: Astro.url });
+const pagination = paginationUtils.getPagination({ url: Astro.url });
 const totalPages = Math.ceil(allSeries.length / pagination.size);
 const seriesList = allSeries.slice(
 	pagination.offset,
@@ -56,6 +56,6 @@ const seriesList = allSeries.slice(
 </PageLayout>
 
 <script>
-	import { filterPostsByTag } from "@lib/tag";
-	filterPostsByTag();
+	import { pageUtils } from "@lib/page-utils";
+	pageUtils.initSeriesPage();
 </script>

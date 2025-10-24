@@ -6,10 +6,6 @@
 </button>
 
 <script>
-    import { initTheme, toggleTheme } from "@lib/theme";
-
-    initTheme();
-
-    const themeToggle = document.getElementById("theme-toggle");
-    themeToggle?.addEventListener("click", toggleTheme);
+    import { themeUtils } from "@lib/theme";
+    themeUtils.initThemeToggle();
 </script>

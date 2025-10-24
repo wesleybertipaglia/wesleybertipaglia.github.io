@@ -1,5 +1,9 @@
 import { tinid } from "@wesleybertipaglia/tinid"
 
-const id = tinid(8)
+class IdGenerator {
+    generate(length: number = 8): string {
+        return tinid(length);
+    }
+}
 
-console.log(id)
+export const idGenerator = new IdGenerator();
