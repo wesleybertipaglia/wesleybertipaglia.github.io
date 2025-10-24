@@ -5,11 +5,13 @@ type Props = HTMLAttributes<"a">;
 const { href, class: classList, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+const hrefStr = href?.toString() || "";
+const isActive =
+    hrefStr === "/" ? pathname === "/" : pathname.startsWith(hrefStr);
 ---
 
 <a
-    href={href}
+    href={href?.toString() || ""}
     class:list={["hover:underline", classList, { active: isActive }]}
     {...props}
 >
