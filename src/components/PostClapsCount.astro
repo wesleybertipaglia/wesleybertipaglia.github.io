@@ -1,0 +1,44 @@
+---
+const { initialClaps } = Astro.props;
+---
+
+<button
+  id="clap-btn"
+  class="flex items-center gap-2 px-1 text-color-3 rounded hover:bg-background-3/50 transition-colors cursor-pointer"
+>
+  <span>👏</span>
+  <span id="clap-count">{initialClaps}</span>
+</button>
+
+<script>
+  import { PostUtils } from '@/lib/post.utils';
+
+  function init() {
+    const postId = window.location.pathname.split('/').pop();
+    const clapButton = document.getElementById('clap-btn');
+    const clapElement = document.getElementById('clap-count');
+
+    if (postId == null || clapButton == null || clapElement == null) return;
+
+    clapButton.addEventListener('click', () => handleClap(postId, clapElement));
+  }
+
+  async function handleClap(postId: string, clapElement: HTMLSpanElement) {
+    if (!postId) return;
+    await PostUtils.handleClap(postId);
+    let currentClaps = parseInt(clapElement.textContent || '0');
+    currentClaps += 1;
+    updateClapDisplay(clapElement, currentClaps);
+  }
+
+  function updateClapDisplay(
+    clapElement: HTMLSpanElement,
+    currentClaps: number
+  ) {
+    if (clapElement) {
+      clapElement.textContent = currentClaps.toString();
+    }
+  }
+
+  init();
+</script>

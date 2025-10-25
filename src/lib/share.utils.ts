@@ -1,4 +1,4 @@
-import { SHARE_LINKS } from '@consts';
+import { SHARE_LINKS } from '@lib/consts';
 
 export class ShareUtils {
   static getText(title: string): string {

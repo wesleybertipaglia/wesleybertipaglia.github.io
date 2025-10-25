@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { ShareUtils } from '@lib/share-utils';
+import { ShareUtils } from '@lib/share.utils';
 import Modal from './Modal.astro';
 import ArrowOutwardAnimatedIcon from './ArrowOutwardAnimatedIcon.astro';
 
@@ -14,7 +14,7 @@ const { title, description, url } = Astro.props;
 const socialLinks = ShareUtils.getSocialLinks(title, description, url);
 ---
 
-<div class="border-b border-border-3/10 pb-2 mb-2">
+<div>
   <button
     id="share-button"
     title="Share this post"
@@ -73,8 +73,8 @@ const socialLinks = ShareUtils.getSocialLinks(title, description, url);
 </div>
 
 <script>
-  import { ModalUtils } from '../lib/modal-utils.js';
-  import { ShareUtils } from '../lib/share-utils.js';
+  import { ModalUtils } from '../lib/modal.utils.js';
+  import { ShareUtils } from '../lib/share.utils.js';
   ModalUtils.initModal('share-modal', 'share-button', 'close-share-modal');
   ShareUtils.initCopy('copy-button', 'share-url');
 </script>

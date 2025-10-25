@@ -2,10 +2,11 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 import Container from '@components/Container.astro';
-import { DateUtils } from '@lib/date-utils';
-import { TextUtils } from '@lib/text-utils';
-import { TableOfContentsUtils } from '@lib/table-of-contents-utils';
+import { DateUtils } from '@lib/date.utils';
+import { TextUtils } from '@lib/text.utils';
+import { TableOfContentsUtils } from '@lib/table-of-contents.utils';
 import Share from '@components/Share.astro';
+import PostStats from '@components/PostStats.astro';
 
 type Props = {
   post: CollectionEntry<'blog'>;
@@ -29,17 +30,22 @@ const toc = TableOfContentsUtils.generateTOC(post.body);
   <Container>
     <article>
       <div class="pb-4">
-        <h1 class="text-4xl font-bold">{post.data.title}</h1>
+        <h1 id="post-id" class="text-4xl font-bold">{post.data.title}</h1>
         <p class="text-sm">
           {DateUtils.formatDate({ date: post.data.pubDate })} • {
             TextUtils.readingTime({ text: post.body })
           }
         </p>
-        <Share
-          title={post.data.title}
-          description={post.data.description}
-          url={`${Astro.site}${post.collection}/${post.slug}`}
-        />
+        <div
+          class="flex gap-4 items-center border-b border-border-3/10 pb-2 mb-2"
+        >
+          <PostStats />
+          <Share
+            title={post.data.title}
+            description={post.data.description}
+            url={`${Astro.site}${post.collection}/${post.slug}`}
+          />
+        </div>
       </div>
 
       <figure>

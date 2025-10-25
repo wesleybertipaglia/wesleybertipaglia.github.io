@@ -1,5 +1,5 @@
 ---
-import { SERIES } from '@consts';
+import { SERIES } from '@lib/consts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
 import Container from '@components/Container.astro';
@@ -44,6 +44,6 @@ const title = SERIES.title;
 </PageLayout>
 
 <script>
-  import { pageUtils } from '@lib/page-utils';
+  import { pageUtils } from '@lib/page.utils';
   pageUtils.initSeriesPage();
 </script>
