@@ -8,9 +8,7 @@ interface RequestInit {
 }
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-
-const baseURL = `${API_BASE_URL}/api/v1`;
+  import.meta.env.API_BASE_URL || 'http://localhost:3000/api/v1';
 
 export class PostApiService {
   private static async request<T>(
@@ -32,27 +30,30 @@ export class PostApiService {
   }
 
   static async create(data: PostCreateDto): Promise<PostDto> {
-    return this.request<PostDto>(`${baseURL}/posts`, {
+    return this.request<PostDto>(`${API_BASE_URL}/posts`, {
       method: 'POST',
       body: JSON.stringify(data),
     }) as Promise<PostDto>;
   }
 
   static async clap(id: string): Promise<PostDto> {
-    return this.request<PostDto>(`${baseURL}/posts/claps/${id}`, {
+    return this.request<PostDto>(`${API_BASE_URL}/posts/claps/${id}`, {
       method: 'POST',
     }) as Promise<PostDto>;
   }
 
   static async getById(id: string): Promise<PostDto | null> {
-    return this.request<PostDto>(`${baseURL}/posts/${id}`, {
+    return this.request<PostDto>(`${API_BASE_URL}/posts/${id}`, {
       method: 'GET',
     });
   }
 
   static async getClapsById(id: string): Promise<PostClapsCountDto | null> {
-    return this.request<PostClapsCountDto>(`${baseURL}/posts/claps/${id}`, {
-      method: 'GET',
-    });
+    return this.request<PostClapsCountDto>(
+      `${API_BASE_URL}/posts/claps/${id}`,
+      {
+        method: 'GET',
+      }
+    );
   }
 }
