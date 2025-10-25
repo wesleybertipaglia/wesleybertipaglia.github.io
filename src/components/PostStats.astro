@@ -3,7 +3,38 @@ import PostClapsCount from './PostClapsCount.astro';
 import PostViewsCount from './PostViewsCount.astro';
 ---
 
-<div class="flex items-center gap-4 mt-8">
-  <PostViewsCount />
-  <PostClapsCount />
+<div id="post-stats" class="flex items-center gap-4">
+  <PostViewsCount views={0} />
+  <PostClapsCount initialClaps={0} />
 </div>
+
+<script>
+  import { PostUtils } from '@/lib/post.utils';
+
+  async function initStats() {
+    try {
+      const post = await PostUtils.init();
+      if (post) {
+        // Update views
+        const viewsElement = document.getElementById('views-count');
+        if (viewsElement) {
+          viewsElement.textContent = `${post.views} views`;
+        }
+
+        // Update claps
+        const clapsElement = document.getElementById('clap-count');
+        if (clapsElement) {
+          clapsElement.textContent = post.claps.toString();
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching post stats:', error);
+      const statsDiv = document.getElementById('post-stats');
+      if (statsDiv) {
+        statsDiv.style.display = 'none';
+      }
+    }
+  }
+
+  initStats();
+</script>

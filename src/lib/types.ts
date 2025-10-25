@@ -66,11 +66,6 @@ export interface PostDto {
   updatedAt: Date;
 }
 
-export interface PostViewsCountDto {
-  id: string;
-  views: number;
-}
-
 export interface PostClapsCountDto {
   id: string;
   claps: number;

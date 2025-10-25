@@ -1,38 +1,7 @@
 ---
-const postId = Astro.url.pathname.split('/').pop();
+const { views } = Astro.props;
 ---
 
 <span class="text-sm text-gray-600 dark:text-gray-400" id="views-count">
-  0 views
+  {views} views
 </span>
-
-<script define:vars={{ postId }}>
-  import { PostUtils } from '@/lib/post.utils';
-  import { PostApiService } from '@/lib/post.service';
-
-  async function init() {
-    await PostUtils.init();
-    await initViews();
-  }
-
-  async function initViews() {
-    if (!postId) return;
-    try {
-      const result = await PostApiService.getViewsById(postId);
-      if (result) {
-        updateViewsDisplay(result.views);
-      }
-    } catch (error) {
-      console.error('Error fetching views:', error);
-    }
-  }
-
-  function updateViewsDisplay(views) {
-    const viewsElement = document.getElementById('views-count');
-    if (viewsElement) {
-      viewsElement.textContent = views + ' views';
-    }
-  }
-
-  init();
-</script>

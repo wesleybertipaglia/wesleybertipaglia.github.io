@@ -1,95 +1,58 @@
 /// <reference lib="dom" />
-import type {
-  PostDto,
-  PostCreateDto,
-  PostClapsCountDto,
-  PostViewsCountDto,
-} from './types';
+import type { PostDto, PostCreateDto, PostClapsCountDto } from './types';
+
+interface RequestInit {
+  method?: string;
+  headers?: Record<string, string>;
+  body?: string;
+}
 
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 const baseURL = `${API_BASE_URL}/api/v1`;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-class PostApiService {
-  static async create(data: PostCreateDto): Promise<PostDto> {
+export class PostApiService {
+  private static async request<T>(
+    url: string,
+    options: RequestInit = {}
+  ): Promise<T | null> {
     // eslint-disable-next-line no-undef
-    const response = await fetch(`${baseURL}/posts`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    const response = await fetch(url, {
+      headers: options.body ? { 'Content-Type': 'application/json' } : {},
+      ...options,
     });
+    if (response.status === 404) {
+      return null;
+    }
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return response.json();
+  }
+
+  static async create(data: PostCreateDto): Promise<PostDto> {
+    return this.request<PostDto>(`${baseURL}/posts`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }) as Promise<PostDto>;
   }
 
   static async clap(id: string): Promise<PostDto> {
-    // eslint-disable-next-line no-undef
-    const response = await fetch(`${baseURL}/posts/${id}/clap`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
+    return this.request<PostDto>(`${baseURL}/posts/clap/${id}`, {
+      method: 'POST',
+    }) as Promise<PostDto>;
   }
 
   static async getById(id: string): Promise<PostDto | null> {
-    // eslint-disable-next-line no-undef
-    const response = await fetch(`${baseURL}/posts/${id}`, {
+    return this.request<PostDto>(`${baseURL}/posts/${id}`, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
-    if (response.status === 404) {
-      return null;
-    }
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  }
-
-  static async getViewsById(id: string): Promise<PostViewsCountDto | null> {
-    // eslint-disable-next-line no-undef
-    const response = await fetch(`${baseURL}/posts/${id}/views`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (response.status === 404) {
-      return null;
-    }
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
   }
 
   static async getClapsById(id: string): Promise<PostClapsCountDto | null> {
-    // eslint-disable-next-line no-undef
-    const response = await fetch(`${baseURL}/posts/${id}/claps`, {
+    return this.request<PostClapsCountDto>(`${baseURL}/posts/${id}/claps`, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
-    if (response.status === 404) {
-      return null;
-    }
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
   }
 }

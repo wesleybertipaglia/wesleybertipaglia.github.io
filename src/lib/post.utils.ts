@@ -1,17 +1,26 @@
-import { postApiService } from './post.service';
+import { PostApiService } from './post.service';
 
 export class PostUtils {
+  private static initialized = false;
+
   static async init() {
+    if (this.initialized) return;
+
     const postId = window.location.pathname.split('/').pop();
     const postTitle = document.getElementById('post-id')?.textContent || '';
 
     if (!postId || !postTitle) return;
 
     try {
-      const existingPost = await postApiService.getById(postId);
+      let existingPost = await PostApiService.getById(postId);
       if (!existingPost) {
-        await postApiService.create({ id: postId, title: postTitle });
+        existingPost = await PostApiService.create({
+          id: postId,
+          title: postTitle,
+        });
       }
+      this.initialized = true;
+      return existingPost;
     } catch (error) {
       console.error('Error handling post API:', error);
     }
@@ -19,7 +28,7 @@ export class PostUtils {
 
   static async handleClap(postId: string): Promise<void> {
     try {
-      await postApiService.clap(postId);
+      await PostApiService.clap(postId);
     } catch (error) {
       console.error('Error clapping:', error);
     }

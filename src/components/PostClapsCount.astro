@@ -1,56 +1,40 @@
 ---
-const postId = Astro.url.pathname.split('/').pop();
+const { initialClaps } = Astro.props;
 ---
 
 <button
-  class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-  onclick="handleClap()"
+  id="clap-btn"
+  class="flex items-center gap-2 px-1 text-color-3 rounded hover:bg-background-3/50 transition-colors cursor-pointer"
 >
   <span>👏</span>
-  <span id="clap-count">0</span>
+  <span id="clap-count">{initialClaps}</span>
 </button>
 
-<script define:vars={{ postId }}>
+<script>
   import { PostUtils } from '@/lib/post.utils';
-  import { PostApiService } from '@/lib/post.service';
 
-  let currentClaps = 0;
+  function init() {
+    const postId = window.location.pathname.split('/').pop();
+    const clapButton = document.getElementById('clap-btn');
+    const clapElement = document.getElementById('clap-count');
 
-  async function init() {
-    await PostUtils.init();
-    await initClaps();
+    if (postId == null || clapButton == null || clapElement == null) return;
+
+    clapButton.addEventListener('click', () => handleClap(postId, clapElement));
   }
 
-  async function initClaps() {
-    if (!postId) return;
-    try {
-      const result = await PostApiService.getClapsById(postId);
-      if (result) {
-        currentClaps = result.claps;
-        updateClapDisplay();
-      }
-    } catch (error) {
-      console.error('Error fetching claps:', error);
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async function handleClap() {
+  async function handleClap(postId: string, clapElement: HTMLSpanElement) {
     if (!postId) return;
     await PostUtils.handleClap(postId);
-    try {
-      const result = await PostApiService.getClapsById(postId);
-      if (result) {
-        currentClaps = result.claps;
-        updateClapDisplay();
-      }
-    } catch (error) {
-      console.error('Error refreshing claps:', error);
-    }
+    let currentClaps = parseInt(clapElement.textContent || '0');
+    currentClaps += 1;
+    updateClapDisplay(clapElement, currentClaps);
   }
 
-  function updateClapDisplay() {
-    const clapElement = document.getElementById('clap-count');
+  function updateClapDisplay(
+    clapElement: HTMLSpanElement,
+    currentClaps: number
+  ) {
     if (clapElement) {
       clapElement.textContent = currentClaps.toString();
     }
