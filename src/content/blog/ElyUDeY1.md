@@ -13,23 +13,21 @@ Approximately 4.6 billion years ago, the cosmos was a vast stage of darkness and
 
 In a vacuum, the death of a colossal star older than our solar system reached its climax. The supernova explosion was not an end, but a distribution of cosmic wealth.[^1]
 
-This explosion dispersed its legacy into space: a cloud of dust and gas enriched with heavy elements. Silicon, iron, carbon, nickel... the building blocks of matter, forged under extreme pressure and temperature in the dying stellar core. We are, quite literally, stardust.[^2]
+When the stellar echo faded, only its ashes remained: a cloud of dust and gas enriched with heavy elements such as silicon, iron, carbon, and nickel. These were the building blocks of matter, forged under extreme pressure and temperature in the core of the dying star. We are, quite literally, stardust.[^2]
 
 These fragments floated, disorganized, until the silent, omnipresent force of gravity began to organize them. Slowly, grain by grain, the material began to attract, collide, and clump together.
 
-Most of this mass collapsed to ignite a new star: the Sun.[^3] Around it, the remaining material flattened into a rotating protoplanetary disk a vast workshop of planet formation.[^4]
+Most of the mass collapsed to ignite a new star, the Sun.[^3] Around it, the remaining material flattened into a rotating protoplanetary disk, a vast workshop of planetary creation.[^4][^5]
 
-In this disk, rocks collided and merged. Some worlds would become distant gas giants. But one, at a precise orbital distance, would find the perfect balance of mass, energy, and elements.
+Within this swirling disk, rocks clashed and fused. Some worlds became distant gas giants, but one, at just the right distance, found the perfect balance of mass, energy, and elements. And we call this world Earth.[^6]
 
-We call this world Earth.[^5]
+For hundreds of millions of years, its surface was a brewing inferno. Volcanic storms, meteorite impacts, and relentless heat shaped a wild and violent landscape. Yet beneath this fury, chemistry began to experiment.
 
-For hundreds of millions of years, its surface was a brewing inferno: incessant volcanism, meteorite bombardment, and violent storms sculpted the landscape. Yet beneath this fury, chemistry found new paths.
+Simple molecules, in primitive broths, began to interact in complex ways. They repeated themselves, persisted... Until, in a sublime and almost unimaginable moment, matter reached a threshold: it learned to self copy. What was inert became alive.[^7][^8]
 
-Simple molecules, in primitive broths, began to interact in complex ways. They repeated themselves, persisted... Until, in a sublime and almost unimaginable moment, matter reached a threshold: it learned to self copy. What was inert became alive.[^6]
+This small blue planet, suspended in the vastness of the cosmos, now held an unprecedented promise. The possibility of beings capable not only of surviving, but of evolving to the point of looking up at the night sky and asking the most profound question: _Why do we exist?_
 
-This small blue planet, suspended in the vastness of the cosmos, now held an unprecedented promise. The possibility of beings capable not only of surviving, but of evolving to the point of looking up at the night sky and asking the most profound question: "Why do we exist?"
-
-It is this lineage this Heritage of the Stars that culminates in human curiosity. We are the fragment of that ancient supernova that, after 4.6 billion years of journeying, finally gained the ability to look back and understand its own stellar origin.
+It is this lineage, this heritage of the stars, that culminates in human curiosity. We are fragments of that ancient supernova which, after 4.6 billion years of journeying, finally gained the ability to look back and understand its own stellar origin.
 
 ### Disclaimer
 
@@ -47,10 +45,10 @@ For narrative and emotional impact, the time and scale of events have been conde
 
 [^4]: [Protoplanetary disk — Wikipedia](https://en.wikipedia.org/wiki/Protoplanetary_disk)
 
-[^5]: [Earth — Wikipedia](https://en.wikipedia.org/wiki/Earth)
+[^5]: [Formation and evolution of the Solar System — Wikipedia](https://en.wikipedia.org/wiki/Formation_and_evolution_of_the_Solar_System)
 
-[^6]: [Abiogenesis — Wikipedia](https://en.wikipedia.org/wiki/Abiogenesis)
+[^6]: [Earth — Wikipedia](https://en.wikipedia.org/wiki/Earth)
 
-[^7]: [Formation and evolution of the Solar System — Wikipedia](https://en.wikipedia.org/wiki/Formation_and_evolution_of_the_Solar_System)
+[^7]: [Abiogenesis — Wikipedia](https://en.wikipedia.org/wiki/Abiogenesis)
 
 [^8]: [Origin of life — Wikipedia](https://en.wikipedia.org/wiki/Origin_of_life)
