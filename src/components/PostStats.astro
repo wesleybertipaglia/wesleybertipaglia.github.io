@@ -12,6 +12,8 @@ import PostViewsCount from './PostViewsCount.astro';
   import { PostUtils } from '@/lib/post.utils';
 
   async function initStats() {
+    if (typeof window === 'undefined') return;
+
     try {
       const post = await PostUtils.init();
       if (post) {
