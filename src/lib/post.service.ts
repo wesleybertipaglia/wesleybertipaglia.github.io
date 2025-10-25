@@ -39,7 +39,7 @@ export class PostApiService {
   }
 
   static async clap(id: string): Promise<PostDto> {
-    return this.request<PostDto>(`${baseURL}/posts/clap/${id}`, {
+    return this.request<PostDto>(`${baseURL}/posts/claps/${id}`, {
       method: 'POST',
     }) as Promise<PostDto>;
   }
@@ -51,7 +51,7 @@ export class PostApiService {
   }
 
   static async getClapsById(id: string): Promise<PostClapsCountDto | null> {
-    return this.request<PostClapsCountDto>(`${baseURL}/posts/${id}/claps`, {
+    return this.request<PostClapsCountDto>(`${baseURL}/posts/claps/${id}`, {
       method: 'GET',
     });
   }
