@@ -1,9 +1,3 @@
-export interface Pagination {
-  page: number;
-  size: number;
-  offset: number;
-}
-
 export class PaginationUtils {
   static applyPaginationToDOM(
     postSelector: string = '.post',

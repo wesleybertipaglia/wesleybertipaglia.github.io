@@ -1,8 +1,4 @@
-interface TocItem {
-  level: number;
-  text: string;
-  id: string;
-}
+import type { TocItem } from './types';
 
 export class TableOfContentsUtils {
   static generateTOC(markdown: string): TocItem[] {

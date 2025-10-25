@@ -1,13 +1,4 @@
-interface FormatDateProps {
-  date: Date;
-  options?: Intl.DateTimeFormatOptions;
-}
-
-interface FormatDateRangeProps {
-  startDate: Date;
-  endDate?: Date;
-  options?: Intl.DateTimeFormatOptions;
-}
+import type { FormatDateProps, FormatDateRangeProps } from './types';
 
 export class DateUtils {
   static formatDate({ date, options }: FormatDateProps): string {

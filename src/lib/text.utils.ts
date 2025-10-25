@@ -1,12 +1,4 @@
-interface ExcerptProps {
-  text: string;
-  maxLength?: number;
-}
-
-interface ReadingTimeProps {
-  text: string;
-  wordsPerMinute?: number;
-}
+import type { ExcerptProps, ReadingTimeProps } from './types';
 
 export class TextUtils {
   static excerpt({ text, maxLength = 48 }: ExcerptProps): string {

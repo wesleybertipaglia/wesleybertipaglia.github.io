@@ -1,4 +1,4 @@
-import type { Site, Metadata, Link } from '@types';
+import type { Site, Metadata, Link } from '@lib/types';
 
 export const SITE: Site = {
   title: 'Wesley Bertipaglia',

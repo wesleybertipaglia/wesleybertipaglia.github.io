@@ -1,11 +1,3 @@
-/**
- * Filters posts by a tag and updates the title element.
- * @param entityTitle - The title of the entity being filtered.
- * @param tagParam - The URL query parameter to filter by.
- * @param postSelector - The CSS selector for the list of posts.
- * @param titleSelector - The CSS selector for the title element.
- * @param tagSelector - The CSS selector within each post to find tags.
- */
 export class TagUtils {
   static applyTagFilterToDOM(
     entityTitle: string = 'Posts',

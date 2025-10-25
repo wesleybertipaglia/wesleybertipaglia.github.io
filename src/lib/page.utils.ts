@@ -1,5 +1,5 @@
-import { TagUtils } from './tag-utils';
-import { QueryUtils } from './query-utils';
+import { TagUtils } from './tag.utils';
+import { QueryUtils } from './query.utils';
 
 class PageUtils {
   initBlogPage(): void {

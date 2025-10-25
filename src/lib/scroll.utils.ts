@@ -1,9 +1,3 @@
-/**
- * Initializes a scroll-to-top button functionality.
- * @param buttonId - The ID of the button element to trigger the scroll.
- * @param threshold - The scroll threshold in pixels to show the button.
- * @param scrollBehavior - The scrolling behavior (default is 'smooth').
- */
 export class ScrollUtils {
   static scrollToTop(
     buttonId: string,

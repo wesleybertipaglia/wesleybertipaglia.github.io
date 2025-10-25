@@ -1,0 +1,60 @@
+---
+const postId = Astro.url.pathname.split('/').pop();
+---
+
+<button
+  class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+  onclick="handleClap()"
+>
+  <span>👏</span>
+  <span id="clap-count">0</span>
+</button>
+
+<script define:vars={{ postId }}>
+  import { PostUtils } from '@/lib/post.utils';
+  import { PostApiService } from '@/lib/post.service';
+
+  let currentClaps = 0;
+
+  async function init() {
+    await PostUtils.init();
+    await initClaps();
+  }
+
+  async function initClaps() {
+    if (!postId) return;
+    try {
+      const result = await PostApiService.getClapsById(postId);
+      if (result) {
+        currentClaps = result.claps;
+        updateClapDisplay();
+      }
+    } catch (error) {
+      console.error('Error fetching claps:', error);
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async function handleClap() {
+    if (!postId) return;
+    await PostUtils.handleClap(postId);
+    try {
+      const result = await PostApiService.getClapsById(postId);
+      if (result) {
+        currentClaps = result.claps;
+        updateClapDisplay();
+      }
+    } catch (error) {
+      console.error('Error refreshing claps:', error);
+    }
+  }
+
+  function updateClapDisplay() {
+    const clapElement = document.getElementById('clap-count');
+    if (clapElement) {
+      clapElement.textContent = currentClaps.toString();
+    }
+  }
+
+  init();
+</script>

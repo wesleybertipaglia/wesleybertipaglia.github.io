@@ -62,7 +62,7 @@ import Modal from '@components/Modal.astro';
 </Modal>
 
 <script>
-  import { ModalUtils } from '@lib/modal-utils';
+  import { ModalUtils } from '@lib/modal.utils';
   ModalUtils.initModal('menu-modal', 'open-menu', 'close-menu');
 
   document.querySelectorAll('#menu-modal a').forEach((link) => {

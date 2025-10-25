@@ -1,12 +1,3 @@
-/**
- * Filters posts by search query and updates the title and message elements.
- * @param entityTitle - The title of the entity being filtered.
- * @param searchParam - The URL query parameter for search.
- * @param tagParam - The URL query parameter for tag.
- * @param postSelector - The CSS selector for the list of posts.
- * @param titleSelector - The CSS selector for the title element.
- * @param messageSelector - The CSS selector for the message element.
- */
 export class QueryUtils {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static filterPostsByQuery<T extends { data: Record<string, any> }>(
