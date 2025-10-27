@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <meta name="robots" content="noindex">
+    <script>
+        const path = window.location.pathname;
+        const query = window.location.search || "";
+        const hash = window.location.hash || "";
+        const baseUrl = "https://www.wesleybertipaglia.com";
+        const newUrl = baseUrl + path + query + hash;
+
+        window.location.replace(newUrl);
+    </script>
+</head>
+
+<body>
+    <p>Redirecting to <a id="link"></a>...</p>
+    <script>
+        document.getElementById("link").textContent = newUrl;
+        document.getElementById("link").href = newUrl;
+    </script>
+</body>
+
+</html>
